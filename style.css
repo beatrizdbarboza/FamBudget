@@ -15,11 +15,33 @@ body {
 }
 
 .left {
-    flex: 0.4; /* menor */
+    flex: 0.4;/* menor */
 }
 
 .right {
     flex: 1.1; /* maior */
+}
+
+.logo-cabeca{
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-cabeca img{
+    width: 24px;   /* controla o tamanho */
+    height: auto;
+}
+
+.logo-cabeca span {
+    font-size: 20px;
+    font-weight: 600;
+    color: #22c55e;
+    font-weight: bold;
 }
 
 .left {
@@ -29,7 +51,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding-bottom: 300px; 
+    padding-bottom: 260px; 
 }
 
 .right {
@@ -42,6 +64,7 @@ body {
     font-size: 32px;
     font-weight: bold;
     margin-bottom: 15px;
+    margin-top: 38px;
 }
 
 .subtitle {
@@ -89,10 +112,8 @@ body {
 }
 
 .cellphone {
-    width: 350px;
+    width: 320px;
     background-color: #ecfdf5;
-
-
     position: absolute;
     bottom: 0px;
     left: 50%;
@@ -102,71 +123,66 @@ body {
 .card{
     background-color: white;
     padding: 40px;
-    border-radius: 15px;
+    border-radius: 16px;
+
     width: 100%;
     max-width: 420px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-}
 
-.logo-titulo{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-}
-
-.logo-titulo h2 {
-  margin: 0;
-}
-
-.logo-img{
-    width: 28px;   
-    height: 28px;
-    object-fit: contain;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
-    text-align: center;
-    margin-bottom: 10px;
-    color: green;
-    font-size: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
 }
 
-.logo-titulo1{
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    gap: 5px;
+.logo img {
+    width: 28px;   /* controla o tamanho */
+    height: auto;
+}
+
+.logo span {
+    font-size: 24px;
+    font-weight: 600;
+    color: #22c55e;
+    font-weight: bold;
 }
 
 .login{
     text-align: center;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 18px;
     gap: 20px;
-    color: #5d5757;
+    color: #111827;
 }
 
 .login-text{
-    
     text-align: center;
-    color: #777;
-    margin-bottom: 20px;
-    font-size: 12px;
+    color: #6b7280;
+    margin-bottom: 24px;
+    font-size: 13px;
+    line-height: 1.4;
 }
 
 .input{
     width: 100%;
-    padding: 13px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    border: 1px solid #ccc;
+    padding: 14px 14px;
+    margin-bottom: 12px;
+
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
     font-size: 14px;
+
+    transition: all 0.2s ease;
 }
 
 input:focus {
-  border: 2px solid #22c55e; 
-  outline: none; 
+  border: 1px solid #22c55e;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
 }
 
 .forgot {
@@ -184,35 +200,49 @@ input:focus {
 
 .btn-primary{
     width: 100%;
-    padding: 12px;
+    padding: 14px;
+
     background-color: #22c55e;
     color: white;
-    border: none;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    cursor: pointer;
-    font-size: 14px;
-}
 
+    border: none;
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-bottom: 10px;
+}
 .btn-primary:hover{
     background-color: #16a34a;
+    transform: translateY(-1px);
 }
 
 .divider{
     text-align: center;
     font-size: 12px;
-    color: #aaa;
+    color: #9ca3af;
     margin-bottom: 10px;
+    position: relative;
+
 }
 
 .btn-outline{
     width: 100%;
     padding: 12px;
+
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 10px;
+
     margin-bottom: 10px;
     background-color: white;
     cursor: pointer;
+    transition: all 0.2s ease;
+}
+.btn-outline:hover {
+    background-color: #f9fafb;
 }
 
 .signup{
@@ -226,4 +256,43 @@ a {
   text-decoration: none;
   cursor: pointer;
   font-weight: bold;
+}
+
+.security {
+    display: flex;
+    align-items: flex-start; /* 🔥 muda aqui */
+    justify-content: center;
+
+    gap: 8px;
+
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid #f0f0f0;
+
+    max-width: 260px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.security-icon {
+    width: 16px;
+    height: 16px;
+    margin-top: 3px; /* 🔥 alinhamento perfeito com o título */
+}
+
+.security-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.security-text strong {
+    font-size: 13px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.security-text p {
+    font-size: 12px;
+    color: #6b7280;
+    line-height: 1.4;
 }
