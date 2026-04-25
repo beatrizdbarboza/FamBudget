@@ -1,0 +1,140 @@
+<!DOCTYPE html> 
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FamBudget</title>
+  <link rel="stylesheet" href="home.css">
+      <link rel="icon" href="imagem/logo_fambudget.png" type="image/png">
+</head>
+
+<body>
+
+<header class="topo">
+  <div class="logo">
+    <img src="imagem/logo_fambudget.png" alt="FamBudget">
+    <span>FamBudget</span>
+  </div>
+
+  <div class="user">
+    <div class="avatar" id="avatar">U</div>
+    <span id="nome-usuario">Usuário</span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div>
+      <ul class="menu">
+
+        <li onclick="irPara('home.html')">
+          <img src="vetorhome/casa.png" alt="">Início
+        </li>
+
+        <li onclick="irPara('transacoes.html')">
+          <img src="vetorhome/carteira.png" alt="">Transações
+        </li>
+        
+        <li onclick="irPara('orcamentos.html')">
+          <img src="vetorhome/ocamento.png" alt="">Orçamentos
+        </li>
+        
+        <li onclick="irPara('relatorios.html')">
+          <img src="vetorhome/relatorio.png" alt="">Relatórios
+        </li>
+
+      </ul>
+
+      <div class="divider"></div>
+
+      <ul class="menu">
+        <li onclick="irPara('configuracoes.html')">
+          <img src="vetorhome/configuracoes.png" alt="">Configurações
+        </li>
+
+        <li onclick="logout()">
+          <img src="vetorhome/logout.png" alt="">Sair
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="conteudo">
+
+      <div class="card">
+        <h1 id="saudacao">Olá, Usuário!</h1>
+        <h3>Saldo Atual</h3>
+  
+        <p class="saldo">
+          <span id="valor">R$ 0,00</span>
+          <span id="seta">↑</span>
+        </p>
+
+        <p id="mensagem-saldo" class="mensagem"></p>
+        
+      </div>
+
+
+      <!-- CARDS -->
+      <div class="cards"> 
+        <div class="resumo card-resumo-despesas">
+          <div class="card-top">
+            <div class="icon-box">
+              <img src="vetorhome/carteirinha.png" alt="">
+            </div>
+            <span>Despesas</span>
+          </div>
+          <h2 id="total-despesas">R$ 0,00</h2>
+        </div>
+
+        <div class="resumo card-resumo-receitas">
+          <div class="card-top">
+            <div class="icon-box">
+              <img src="vetorhome/cartoes-com-cifrao.png" alt="">
+            </div>
+            <span>Receitas</span>
+          </div>
+          <h2 id="total-receitas">R$ 0,00</h2>
+        </div>
+      </div>
+
+      <div class="card orcamento-card">
+        <p class="titulo-orcamento">
+          <img src="vetorhome/pagamento-com-cartao-de-credito.png" alt="icone">
+          Orçamentos
+        </p>
+        
+        <div class="orcamento-container">
+          <progress id="orcamento" value="0" max="100"></progress>
+          <span class="porcentagem" id="texto-orcamento">0% do limite</span>
+        </div>
+    
+      </div>
+
+      <div class="card metas" id="container-metas">
+        <h3>Metas de Economia</h3>
+      </div>
+
+    </div> 
+  </main>
+
+</div>
+
+<script>
+function irPara(pagina){
+  window.location.href = pagina;
+}
+
+function logout(){
+  localStorage.clear();
+  window.location.href = "index.html";
+}
+</script>
+
+  <script src="js/authGuard.js"></script>
+  <script src="js/home.js"></script>
+
+</body>
+</html>

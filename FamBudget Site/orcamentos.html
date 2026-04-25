@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imagem/logo_fambudget.png" type="image/png">
+    <link rel="stylesheet" href="orcamentos.css">
+    <title>FamBudget</title>
+</head>
+<body>
+
+<header class="topo">
+    <div class="logo">
+        <img src="imagem/logo_fambudget.png" alt="FamBudget">
+        <span>FamBudget</span>
+    </div>
+
+    <div class="user">
+        <div class="avatar" id="avatar">U</div>
+        <span id="nome-usuario">Usuário</span>
+    </div>
+</header>
+
+<div class="layout">
+    <aside class="sidebar">
+        <div>
+            <ul class="menu">
+                <li data-link="home.html"><img src="vetorhome/casa.png">Início</li>
+                <li data-link="transacoes.html"><img src="vetorhome/carteira.png">Transações</li>
+                <li data-link="orcamentos.html"><img src="vetorhome/ocamento.png">Orçamentos</li>
+                <li data-link="relatorios.html"><img src="vetorhome/relatorio.png">Relatórios</li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <ul class="menu">
+                <li data-link="configuracoes.html"><img src="vetorhome/configuracoes.png">Configurações</li>
+                <li id="logout-btn"><img src="vetorhome/logout.png">Sair</li>
+            </ul>
+        </div>
+    </aside>
+    
+    <main class="main-content"> 
+        <div class="conteudo"> 
+            <!-- TOPO --> 
+            <div class="card-topo"> 
+                <div class="top"> 
+                    <h1>Orçamentos</h1> 
+                    <button class="btn-add">+ Novo Orçamento</button> 
+                </div> 
+            </div> 
+            <!-- FILTROS --> 
+            <div class="card-filtros">
+                <div class="filtros"> 
+                    <input type="text" placeholder="Buscar orçamentos..."> 
+                    <select> 
+                        <option>Categoria</option> 
+                    </select> 
+                    <select> 
+                        <option>Mês</option> 
+                    </select> 
+                    <select> 
+                        <option>Abril 2026</option> 
+                    </select> 
+                </div> 
+            </div> 
+            <!-- LISTA DE ORÇAMENTOS --> 
+            <div id="lista-orcamentos"> 
+                <!-- os cards serão inseridos aqui via JS --> 
+            </div> 
+        </div> 
+    </main>
+
+</div>
+
+<script src="main.js" defer></script>
+<script src="js/orcamentos.js" defer></script>
+
+</body>
+</html>
