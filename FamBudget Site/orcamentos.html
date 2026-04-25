@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="imagem/logo_fambudget.png" type="image/png">
+    <link rel="stylesheet" href="orcamentos.css">
+    <title>FamBudget</title>
+</head>
+<body>
+
+<header class="topo">
+    <div class="logo">
+        <img src="imagem/logo_fambudget.png" alt="FamBudget">
+        <span>FamBudget</span>
+    </div>
+
+    <div class="user">
+        <div class="avatar" id="avatar">U</div>
+        <span id="nome-usuario">Usuário</span>
+    </div>
+</header>
+
+<div class="layout">
+
+    <aside class="sidebar">
+        <div>
+            <ul class="menu">
+                <li data-link="home.html"><img src="vetorhome/casa.png">Início</li>
+                <li data-link="transacoes.html"><img src="vetorhome/carteira.png">Transações</li>
+                <li class="ativo"><img src="vetorhome/ocamento.png">Orçamentos</li>
+                <li data-link="relatorios.html"><img src="vetorhome/relatorio.png">Relatórios</li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <ul class="menu">
+                <li data-link="configuracoes.html"><img src="vetorhome/configuracoes.png">Configurações</li>
+                <li id="logout-btn"><img src="vetorhome/logout.png">Sair</li>
+            </ul>
+        </div>
+    </aside>
+
+    <main class="main-content">
+
+        <div class="conteudo">
+
+            <div class="card-topo">
+                <div class="top">
+                    <h1>Orçamentos</h1>
+                    <button class="btn-add">+ Novo Orçamento</button>
+                </div>
+            </div>
+
+            <div class="card-filtros">
+                <div class="filtros">
+
+                    <input type="text" placeholder="Buscar orçamentos...">
+
+                    <select id="filtro-categoria">
+                        <option value="">Categoria</option>
+                    </select>
+
+                    <select id="filtro-mes"></select>
+
+                </div>
+            </div>
+
+            <div id="lista-orcamentos"></div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<div class="modal" id="modal-orcamento">
+    <div class="modal-content">
+
+        <h2>Novo Orçamento</h2>
+
+        <label>Categoria</label>
+        <select id="categoria"></select>
+
+        <div id="outra-categoria-container" style="display:none;">
+            <label>Digite a categoria</label>
+            <input type="text" id="outra-categoria" placeholder="Ex: Viagens, Estudos...">
+        </div>
+
+        <label>Limite mensal</label>
+        <input type="number" id="limite" placeholder="Ex: 500">
+
+        <div class="modal-buttons">
+            <button id="fechar-modal">Cancelar</button>
+            <button id="salvar-orcamento">Salvar</button>
+        </div>
+
+    </div>
+</div>
+
+<div id="modal-excluir-orcamento" class="modal">
+    <div class="modal-content">
+
+        <h2>Excluir orçamento?</h2>
+
+        <p>Tem certeza que deseja excluir este orçamento?</p>
+
+        <div class="modal-buttons">
+
+            <button onclick="fecharModalExcluir()" id="fechar-excluir">
+                Cancelar
+            </button>
+
+            <button onclick="confirmarExclusao()" class="btn-excluir">
+                Excluir
+            </button>
+
+        </div>
+
+    </div>
+</div>
+
+<script src="main.js" defer></script>
+<script src="js/orcamentos.js" defer></script>
+
+</body>
+</html>
