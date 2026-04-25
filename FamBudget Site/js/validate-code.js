@@ -1,24 +1,64 @@
-document.getElementById("codeForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
+function abrirPopup(mensagem) {
+  document.getElementById("popup-text").innerText = mensagem;
+  document.getElementById("popup").classList.remove("hidden");
+}
 
-  const code = document.getElementById("code").value;
+function fecharPopup() {
+  document.getElementById("popup").classList.add("hidden");
+}
 
-  try {
-    const response = await fetch(
-      `https://www.manage-control-dev.com.br/api/v1/user/validate-code?code=${code}`
-    );
+document.addEventListener("DOMContentLoaded", () => {
+  const form = document.getElementById("codeForm");
 
-    if (!response.ok) {
-      alert("Código inválido");
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    const input = document.getElementById("code");
+    const code = input.value.trim().replace(/\s/g, "").toUpperCase();
+    const email = sessionStorage.getItem("email");
+
+    if (!email) {
+      abrirPopup("Email não encontrado. Refaça o processo.");
       return;
     }
 
-    localStorage.setItem("resetCode", code);
+    console.log("EMAIL:", email);
+    console.log("CODE:", code);
 
-    window.location.href = "reset-password.html";
+    try {
+      const response = await fetch(
+        `https://www.manage-control-dev.com.br/api/v1/user/validate-code?email=${encodeURIComponent(email)}&code=${encodeURIComponent(code)}`,
+        {
+          method: "GET"
+        }
+      );
 
-  } catch (error) {
-    console.error(error);
-    alert("Erro ao validar código");
-  }
+      const text = await response.text();
+
+      console.log("STATUS:", response.status);
+      console.log("RESPOSTA:", text);
+
+      let data;
+      try {
+        data = JSON.parse(text);
+      } catch {
+        data = {};
+      }
+
+      if (!response.ok) {
+        abrirPopup(data.message || "Código inválido");
+        return;
+      }
+
+      if (data.token) {
+        sessionStorage.setItem("resetToken", data.token);
+      }
+
+      window.location.href = "reset-password.html";
+
+    } catch (error) {
+      console.error(error);
+      abrirPopup("Erro ao validar código");
+    }
+  });
 });

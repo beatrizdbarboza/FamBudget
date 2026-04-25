@@ -2,7 +2,6 @@ console.log("CONFIGURACOES.JS OK");
 
 document.addEventListener("DOMContentLoaded", async () => {
   carregarUsuario();
-  await carregarDadosFinanceiros();
 });
 
 function carregarUsuario() {

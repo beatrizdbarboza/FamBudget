@@ -74,6 +74,7 @@
         <option>Alimentação</option>
         <option>Transporte</option>
         <option>Lazer</option>
+        <option>Cartão de Crédito</option>
       </select>
 
       <select id="filtro-tipo" onchange="filtrarTabela()">
@@ -97,6 +98,7 @@
         <th>Descrição</th>
         <th>Data</th>
         <th>Valor</th>
+        <th></th>
       </tr>
     </thead>
 
@@ -131,17 +133,23 @@
         <option>Despesa</option>
       </select>
 
-      <select id="categoria">
+      <select id="categoria" onchange="verificarCartao()">
         <option>Categoria</option>
         <option>Salário</option>
         <option>Aluguel</option>
         <option>Alimentação</option>
         <option>Transporte</option>
         <option>Lazer</option>
+        <option>Cartão de Crédito</option>
       </select>
 
       <input type="text" id="descricao" placeholder="Descrição">
       <input type="number" id="valor" placeholder="Valor">
+      
+      <div id="parcelas-container" style="display:none;">
+        <input type="number" id="parcelas" placeholder="Quantidade de parcelas">
+      </div>
+
       <input type="date" id="data">
 
       <button class="btn-salvar" onclick="salvarTransacao()">Salvar</button>
@@ -152,6 +160,26 @@
 
 <script src="js/transacoes.js" defer></script>
 <script src="main.js" defer></script>
+
+<div id="modal-excluir" class="modal">
+  <div class="modal-content">
+
+    <h3>Tem certeza que deseja excluir?</h3>
+
+    <div class="modal-buttons">
+
+      <button onclick="fecharModalExcluir()" class="btn-cancelar">
+        Cancelar
+      </button>
+
+      <button onclick="confirmarExclusao()" class="btn-excluir">
+        Excluir
+      </button>
+
+    </div>
+
+  </div>
+</div>
 
 </body>
 </html>

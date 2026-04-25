@@ -64,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
       } catch {}
 
       if (!response.ok) {
-        abrirPopup("Erro ao cadastrar usuário");
+        abrirPopup("Usuário já existe!");
         return;
       }
 

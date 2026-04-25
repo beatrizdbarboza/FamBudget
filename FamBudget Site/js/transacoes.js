@@ -1,7 +1,20 @@
-document.addEventListener("DOMContentLoaded", async () => {
+document.addEventListener("DOMContentLoaded", () => {
   carregarUsuario();
+  renderizarTabela();
+  calcularSaldoAtual();
 });
 
+/* ================= USER ================= */
+function carregarUsuario() {
+  const nome = localStorage.getItem("nomeUsuario");
+
+  if (!nome) return;
+
+  document.getElementById("nome-usuario").textContent = nome;
+  document.getElementById("avatar").textContent = nome.charAt(0).toUpperCase();
+}
+
+/* ================= MODAL NOVA TRANSAÇÃO ================= */
 function abrirModal() {
   document.getElementById("modal").style.display = "flex";
 }
@@ -10,71 +23,124 @@ function fecharModal() {
   document.getElementById("modal").style.display = "none";
 }
 
-function carregarUsuario() {
-  const nome = localStorage.getItem("nomeUsuario");
+/* ================= MODAL EXCLUIR ================= */
+let idParaExcluir = null;
 
-  console.log("NOME:", nome);
+function abrirModalExcluir(id) {
+  idParaExcluir = id;
+  document.getElementById("modal-excluir").style.display = "flex";
+}
 
-  if (!nome) return;
+function fecharModalExcluir() {
+  document.getElementById("modal-excluir").style.display = "none";
+  idParaExcluir = null;
+}
 
-  document.getElementById("nome-usuario").textContent = nome;
-  document.getElementById("avatar").textContent = nome.charAt(0).toUpperCase();
+function confirmarExclusao() {
+  if (idParaExcluir === null) return;
+
+  let transacoes = getTransacoes();
+  transacoes = transacoes.filter(t => t.id !== idParaExcluir);
+
+  salvarLocal(transacoes);
+
+  fecharModalExcluir();
+  renderizarTabela();
+  calcularSaldoAtual();
+}
+
+/* ================= FECHAR AO CLICAR FORA ================= */
+window.onclick = function (event) {
+  const modal = document.getElementById("modal");
+  const modalExcluir = document.getElementById("modal-excluir");
+
+  if (event.target === modal) fecharModal();
+  if (event.target === modalExcluir) fecharModalExcluir();
+};
+
+/* ================= STORAGE ================= */
+function getTransacoes() {
+  return JSON.parse(localStorage.getItem("transacoes")) || [];
+}
+
+function salvarLocal(transacoes) {
+  localStorage.setItem("transacoes", JSON.stringify(transacoes));
+}
+
+/* ================= FORM ================= */
+function verificarCartao() {
+  const categoria = document.getElementById("categoria").value;
+  const parcelasDiv = document.getElementById("parcelas-container");
+
+  parcelasDiv.style.display =
+    categoria === "Cartão de Crédito" ? "block" : "none";
 }
 
 function salvarTransacao() {
   let tipo = document.getElementById("tipo").value;
   let categoria = document.getElementById("categoria").value;
   let descricao = document.getElementById("descricao").value;
-  let valor = document.getElementById("valor").value;
+  let valor = parseFloat(document.getElementById("valor").value);
   let data = document.getElementById("data").value;
+  let parcelas = parseInt(document.getElementById("parcelas").value) || 1;
 
   if (!descricao || !valor || !data || tipo === "Tipo" || categoria === "Categoria") {
     alert("Preencha todos os campos!");
     return;
   }
 
-  let transacoes = JSON.parse(localStorage.getItem("transacoes")) || [];
+  let transacoes = getTransacoes();
 
-  let nova = {
-    id: Date.now(),
-    tipo,
-    categoria,
-    descricao,
-    valor: parseFloat(valor),
-    data
-  };
+  if (categoria === "Cartão de Crédito" && parcelas > 1) {
+    let valorParcela = valor / parcelas;
 
-  transacoes.push(nova);
-  localStorage.setItem("transacoes", JSON.stringify(transacoes));
+    for (let i = 0; i < parcelas; i++) {
+      let novaData = new Date(data);
+      novaData.setMonth(novaData.getMonth() + i);
+
+      transacoes.push({
+        id: Date.now() + i,
+        tipo,
+        categoria,
+        descricao: `${descricao} (${i + 1}/${parcelas})`,
+        valor: Number(valorParcela.toFixed(2)),
+        data: novaData.toISOString().split("T")[0]
+      });
+    }
+
+  } else {
+    transacoes.push({
+      id: Date.now(),
+      tipo,
+      categoria,
+      descricao,
+      valor,
+      data
+    });
+  }
+
+  salvarLocal(transacoes);
 
   fecharModal();
   limparFormulario();
   renderizarTabela();
+  calcularSaldoAtual();
 }
 
-function limparFormulario() {
-  document.getElementById("tipo").value = "Tipo";
-  document.getElementById("categoria").value = "Categoria";
-  document.getElementById("descricao").value = "";
-  document.getElementById("valor").value = "";
-  document.getElementById("data").value = "";
-}
-
-function renderizarTabela(lista = null) {
-  let tabela = document.getElementById("tabela-body");
+/* ================= TABELA ================= */
+function renderizarTabela() {
+  const tabela = document.getElementById("tabela-body");
   tabela.innerHTML = "";
 
-  let transacoes = lista || JSON.parse(localStorage.getItem("transacoes")) || [];
+  let transacoes = getTransacoes();
 
   if (transacoes.length === 0) {
     tabela.innerHTML = `
-      <tr>
+      <tr id="sem-dados">
         <td colspan="6" style="text-align:center; padding: 20px;">
           Nenhuma transação cadastrada
         </td>
-      </tr>
-    `;
-    atualizarSaldo();
+      </tr>`;
     return;
   }
 
@@ -82,7 +148,7 @@ function renderizarTabela(lista = null) {
     let dataObj = new Date(t.data + "T12:00:00");
     let dataFormatada = dataObj.toLocaleDateString("pt-BR");
 
-    let valorFormatado = t.valor.toLocaleString("pt-BR", {
+    let valorFormatado = Number(t.valor).toLocaleString("pt-BR", {
       style: "currency",
       currency: "BRL"
     });
@@ -98,43 +164,81 @@ function renderizarTabela(lista = null) {
         ${t.tipo === 'Despesa' ? '- ' : ''}${valorFormatado}
       </td>
       <td>
-        <button onclick="deletar(${t.id})" class="btn-delete">🗑</button>
+        <button onclick="abrirModalExcluir(${t.id})" class="btn-delete">
+          <img src="imagem/iconConfig/lixeira.png" class="icon-delete">
+        </button>
       </td>
     `;
 
     tabela.appendChild(linha);
   });
-
-  atualizarSaldo();
 }
 
-function deletar(id) {
-  let transacoes = JSON.parse(localStorage.getItem("transacoes")) || [];
-  transacoes = transacoes.filter(t => t.id !== id);
+/* ================= SALDO ================= */
+function calcularSaldoAtual() {
+  const transacoes = getTransacoes();
 
-  localStorage.setItem("transacoes", JSON.stringify(transacoes));
-  renderizarTabela();
+  const hoje = new Date();
+  const mesAtual = hoje.getMonth();
+  const anoAtual = hoje.getFullYear();
+
+  let saldo = 0;
+
+  transacoes.forEach(t => {
+    const data = new Date(t.data + "T12:00:00");
+
+    const mesmoMes =
+      data.getMonth() === mesAtual &&
+      data.getFullYear() === anoAtual;
+
+    if (mesmoMes) {
+      if (t.tipo === "Receita") saldo += Number(t.valor);
+      else saldo -= Number(t.valor);
+    }
+  });
+
+  atualizarSaldoNaTela(saldo);
 }
 
+function atualizarSaldoNaTela(saldo) {
+  const saldoEl = document.getElementById("saldo");
+
+  saldoEl.textContent = saldo.toLocaleString("pt-BR", {
+    style: "currency",
+    currency: "BRL"
+  });
+
+  saldoEl.classList.remove("positivo", "negativo");
+
+  if (saldo >= 0) {
+    saldoEl.classList.add("positivo");
+  } else {
+    saldoEl.classList.add("negativo");
+  }
+}
+
+/* ================= FILTROS ================= */
 function filtrarTabela() {
   let busca = document.getElementById("filtro-busca").value.toLowerCase();
   let categoria = document.getElementById("filtro-categoria").value;
   let tipo = document.getElementById("filtro-tipo").value;
 
-  let transacoes = JSON.parse(localStorage.getItem("transacoes")) || [];
+  let linhas = document.querySelectorAll("#tabela-body tr");
 
-  let filtradas = transacoes.filter(t => {
-    let matchBusca =
-      t.descricao.toLowerCase().includes(busca) ||
-      t.categoria.toLowerCase().includes(busca);
+  linhas.forEach(linha => {
+    if (linha.id === "sem-dados") return;
 
-    let matchCategoria = categoria === "" || t.categoria === categoria;
-    let matchTipo = tipo === "" || t.tipo === tipo;
+    let colTipo = linha.children[0].textContent;
+    let colCategoria = linha.children[1].textContent;
+    let colDescricao = linha.children[2].textContent.toLowerCase();
 
-    return matchBusca && matchCategoria && matchTipo;
+    let matchBusca = colDescricao.includes(busca);
+    let matchCategoria = categoria === "" || colCategoria === categoria;
+    let matchTipo = tipo === "" || colTipo === tipo;
+
+    linha.style.display =
+      matchBusca && matchCategoria && matchTipo ? "" : "none";
   });
-
-  renderizarTabela(filtradas);
 }
 
 function limparFiltros() {
@@ -142,53 +246,17 @@ function limparFiltros() {
   document.getElementById("filtro-categoria").value = "";
   document.getElementById("filtro-tipo").value = "";
 
-  renderizarTabela(); 
-}
-
-function resetarFiltros() {
-  document.getElementById("filtro-busca").value = "";
-  document.getElementById("filtro-categoria").value = "";
-  document.getElementById("filtro-tipo").value = "";
-}
-
-function atualizarSaldo() {
-  let transacoes = JSON.parse(localStorage.getItem("transacoes")) || [];
-
-  let saldo = 0;
-
-  transacoes.forEach(t => {
-    if (t.tipo === "Receita") {
-      saldo += Number(t.valor);
-    } else {
-      saldo -= Number(t.valor);
-    }
-  });
-
-  const saldoEl = document.getElementById("saldo");
-  const statusEl = document.getElementById("status-saldo");
-
-  saldoEl.textContent = saldo.toLocaleString("pt-BR", {
-    style: "currency",
-    currency: "BRL"
-  });
-
-  saldoEl.className = "";
-  if (statusEl) statusEl.className = "";
-
-  if (saldo >= 0) {
-    saldoEl.classList.add("positivo");
-    if (statusEl) {
-      statusEl.classList.add("positivo");
-    }
-  } else {
-    saldoEl.classList.add("negativo");
-    if (statusEl) {
-      statusEl.classList.add("negativo");
-    }
-  }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-  resetarFiltros();
   renderizarTabela();
-});
+}
+
+/* ================= LIMPAR FORM ================= */
+function limparFormulario() {
+  document.getElementById("tipo").value = "Tipo";
+  document.getElementById("categoria").value = "Categoria";
+  document.getElementById("descricao").value = "";
+  document.getElementById("valor").value = "";
+  document.getElementById("data").value = "";
+  document.getElementById("parcelas").value = "";
+
+  document.getElementById("parcelas-container").style.display = "none";
+}

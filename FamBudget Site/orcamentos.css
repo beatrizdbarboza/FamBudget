@@ -54,14 +54,15 @@ body {
 }
 
 .avatar {
-  width: 35px;
-  height: 35px;
-  background: #2e7d32;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
+    width: 35px;          
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    background: linear-gradient(135deg, #2e7d32, rgb(78, 187, 10));
 }
 
 /* LAYOUT */
@@ -190,8 +191,8 @@ body {
 
 .progresso {
   height: 100%;
-  background: #2e7d32;
   border-radius: 10px;
+  transition: width 0.3s ease;
 }
 
 /* CONTEÚDO */
@@ -274,8 +275,8 @@ body {
   background: #b0b0b0;
 }
 
-/* FORMULARIO ORÇAMENTO */
-/* .modal {
+/* ===== MODAL FUNCIONAL ===== */
+.modal {
   position: fixed;
   top: 0;
   left: 0;
@@ -287,6 +288,8 @@ body {
   display: none;
   justify-content: center;
   align-items: center;
+
+  z-index: 999;
 }
 
 .modal.active {
@@ -301,10 +304,12 @@ body {
   max-width: 400px;
 
   box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-}
 
-.modal-content {
-  transform: scale(0.9);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  transform: scale(0.95);
   transition: 0.2s;
 }
 
@@ -313,19 +318,17 @@ body {
 }
 
 .modal-content h2 {
-  margin-bottom: 15px;
+  margin-bottom: 10px;
 }
 
 .modal-content label {
   font-size: 14px;
-  margin-top: 10px;
-  display: block;
 }
 
-.modal-content input {
+.modal-content input,
+.modal-content select {
   width: 100%;
   padding: 10px;
-  margin-top: 5px;
   border-radius: 8px;
   border: 1px solid #ccc;
 }
@@ -333,7 +336,7 @@ body {
 .modal-buttons {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .modal-buttons button {
@@ -343,11 +346,87 @@ body {
   cursor: pointer;
 }
 
-.modal-buttons button[type="submit"] {
+#salvar-orcamento {
   background: #2e7d32;
   color: white;
 }
 
-#fechar {
+#fechar-modal {
   background: #eee;
-} */
+}
+
+.btn-editar,
+.btn-excluir {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-editar img,
+.btn-excluir img {
+  display: block;
+}
+
+.btn-excluir {
+  border: none;
+  background: none; 
+  cursor: pointer;
+  padding: 4px;
+  transition: 0.2s;
+}
+
+.btn-excluir img {
+  width: 18px;
+  height: 18px;
+  transition: 0.2s;
+}
+
+.btn-excluir:hover img {
+  transform: scale(1.2);
+}
+
+.btn-excluir:hover {
+  background: rgb(160, 0, 0); 
+  transform: translateY(-1px);
+}
+
+.btn-editar {
+  border: none;
+  background: none; 
+  cursor: pointer;
+  padding: 4px;
+  transition: 0.2s;
+}
+
+.btn-editar img {
+  width: 18px;
+  height: 18px;
+  transition: 0.2s;
+}
+
+.btn-editar:hover img {
+  transform: scale(1.2);
+}
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal.active,
+.modal[style*="flex"] {
+  display: flex;
+}

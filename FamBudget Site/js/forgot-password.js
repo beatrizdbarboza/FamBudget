@@ -1,7 +1,14 @@
 document.getElementById("forgotForm").addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  const email = document.getElementById("email").value;
+  const email = document.getElementById("email").value.trim();
+
+  if (!email) {
+    alert("Digite um e-mail válido");
+    return;
+  }
+
+  sessionStorage.setItem("email", email);
 
   try {
     const response = await fetch(
@@ -11,18 +18,18 @@ document.getElementById("forgotForm").addEventListener("submit", async (e) => {
       }
     );
 
+    const text = await response.text();
+    console.log("FORGOT RESPONSE:", text);
+
     if (!response.ok) {
       alert("Erro ao enviar código");
       return;
     }
 
-    localStorage.setItem("resetEmail", email);
-
-    alert("Código enviado para seu e-mail");
-
     window.location.href = "validate-code.html";
 
-  } catch {
+  } catch (error) {
+    console.error(error);
     alert("Erro ao conectar com servidor");
   }
 });

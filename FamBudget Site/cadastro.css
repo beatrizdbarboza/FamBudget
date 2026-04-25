@@ -292,6 +292,9 @@ a {
   border-radius: 12px;
   text-align: center;
   min-width: 250px;
+  transform: scale(0.9);
+  opacity: 0;
+  animation: popupFade 0.25s ease forwards;
 }
 
 .popup-content button {
@@ -338,4 +341,15 @@ a {
 
 .togglePassword:hover {
   color: #16a34a;
+}
+
+@keyframes popupFade {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }

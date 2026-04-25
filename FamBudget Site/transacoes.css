@@ -150,6 +150,11 @@ body {
   font-weight: 500;
 }
 
+.btn-add:hover {
+  background: #1b5e20;
+  transform: translateY(-1px);
+}
+
 /* SALDO */
 .saldo-card {
   background: rgb(255, 255, 255);
@@ -230,14 +235,14 @@ body {
   background: transparent;
 }
 
+.tabela thead {
+  background: #f1f5f9;
+}
+
 .tabela th,
 .tabela td {
   padding: 12px;
   text-align: left;
-}
-
-.tabela thead {
-  background: #f1f5f9;
 }
 
 .tabela tbody tr {
@@ -301,6 +306,10 @@ body {
   outline: none;
 }
 
+#parcelas-container {
+  margin-top: -5px;
+}
+
 /* BOTÃO SALVAR */
 .btn-salvar {
   background: #2e7d32;
@@ -342,4 +351,88 @@ body {
 
 .negativo {
   color: #d32f2f !important;
+}
+
+.btn-delete {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 4px;
+  transition: 0.2s;
+}
+
+.icon-delete {
+  width: 18px;
+  height: 18px;
+  transition: 0.2s;
+}
+
+.btn-delete:hover .icon-delete {
+  transform: scale(1.2);
+}
+
+.btn-delete:hover {
+  transform: translateY(-1px);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.5);
+
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-content {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  width: 320px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.btn-cancelar {
+  flex: 1;
+  background: #e5e7eb;
+  color: #374151;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-cancelar:hover {
+  background: #d1d5db;
+  transform: translateY(-1px);
+}
+
+.btn-excluir {
+  flex: 1;
+  background: #d32f2f;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.btn-excluir:hover {
+  background: #b71c1c;
+  transform: translateY(-1px);
 }
