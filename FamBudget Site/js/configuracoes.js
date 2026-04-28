@@ -66,13 +66,33 @@ inputAvatar.addEventListener("change", () => {
   }
 });
 
+// ===== INPUT FILE =====
 const inputFile = document.getElementById("inputAvatar");
 const fileName = document.getElementById("fileName");
 
-inputFile.addEventListener("change", () => {
-  if (inputFile.files.length > 0) {
-    fileName.textContent = inputFile.files[0].name;
-  } else {
-    fileName.textContent = "Nenhum arquivo escolhido";
-  }
-});s
+
+if (inputFile && fileName) {
+  inputFile.addEventListener("change", () => {
+    if (inputFile.files.length > 0) {
+      let nome = inputFile.files[0].name;
+
+      if (nome.length > 20) {
+        nome = nome.substring(0, 20) + "...";
+      }
+
+      fileName.textContent = nome;
+    } else {
+      fileName.textContent = "Nenhum arquivo escolhido";
+    }
+  });
+}
+
+const avatarCard = document.getElementById("avatarCard");
+
+reader.onload = function(e) {
+  const img = `<img src="${e.target.result}" style="width:100%; height:100%; border-radius:50%;">`;
+
+  avatarPreview.innerHTML = img;
+  avatarTopo.innerHTML = img;
+  avatarCard.innerHTML = img;
+};
