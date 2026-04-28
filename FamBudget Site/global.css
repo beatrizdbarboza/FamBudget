@@ -270,3 +270,36 @@ body.dark .status.accepted {
 body.dark #fechar-modal {
   background: #676565;
 }
+
+/* modal config */
+body.dark .upload-card {
+  background: #1e1e1e; /* 🔥 fundo escuro */
+  border: 1px dashed #444;
+}
+
+body.dark #fileName {
+  color: #ccc;
+}
+
+body.dark .info-arquivo {
+  color: #aaa;
+}
+
+body.dark .custom-file-btn {
+  border: 1px solid #4caf50;
+  color: #4caf50;
+}
+
+body.dark .custom-file-btn:hover {
+  background: #4caf50;
+  color: black;
+}
+
+body.dark .input-icon input{
+  background-color: #1e1e1e;
+  border: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  display: none;
+}
