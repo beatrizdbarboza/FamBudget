@@ -545,7 +545,7 @@ input[type="number"]::-webkit-inner-spin-button {
   display: none;
   align-items: center;
   justify-content: center;
-  z-index: 999;
+  z-index: 9999;
 }
 
 /* CAIXA */
@@ -918,4 +918,193 @@ input[type="number"]::-webkit-inner-spin-button {
   background: linear-gradient(135deg, #2e7d32, #4caf50);
   color: white;
   font-weight: bold;
+}
+
+/* MODAL CATEGORIA */
+.catModalBox {
+  width: 95%;
+  max-width: 700px;
+  border-radius: 20px;
+}
+
+/* HEADER */
+.catHeader {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.catIconCircle {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: rgba(46, 125, 50, 0.1);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 10px;
+}
+
+.catIconCircle img {
+  width: 26px;
+}
+
+/* PESQUISA */
+.catSearchBox input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 15px;
+}
+
+/* ADD */
+.catAddBox {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+
+  background: #f9fafb;
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.catAddBox input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.catAddBox input:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 2px rgba(46,125,50,0.15);
+}
+
+/* UPLOAD */
+.catUploadIcon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #e8f5e9;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.catUploadIcon:hover {
+  background: #d7efda;
+}
+
+.catUploadIcon img {
+  width: 20px;
+}
+
+.catUploadIcon img {
+  width: 18px;
+  filter: invert(40%);
+}
+
+.catUploadIcon input {
+  display: none;
+}
+
+/* LISTA */
+.catListaBox {
+  max-height: 250px;
+  overflow-y: auto;
+}
+
+/* ITEM */
+.catItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+
+  background: #f9fafb;
+}
+
+/* INFO */
+.catInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ICON */
+.catIcon {
+  width: 35px;
+  height: 35px;
+  border-radius: 8px;
+  background: #e8f5e9;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.catIcon img {
+  width: 20px;
+}
+
+/* AÇÕES */
+.catActions {
+  display: flex;
+  gap: 10px;
+}
+
+.catActions img {
+  width: 18px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: 0.2s;
+}
+
+.catActions img:hover {
+  opacity: 1;
+}
+
+.catDivider {
+  height: 1px;
+  width: 100%;
+  background: #e0e0e0;
+  margin: 15px 0;
+}
+
+.catTopBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+/* INPUT */
+#catBuscarInput {
+  flex: 1;
+  min-width: 0; /* 🔥 MUITO IMPORTANTE */
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* BOTÃO */
+#catBtnAdd {
+  height: 40px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
 }
