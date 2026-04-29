@@ -135,7 +135,7 @@
                 <img src="imagem/iconConfig/rotulo.png" class="icon-img">
                 Categorias Personalizadas
             </h3>
-            <button class="btn">+ Nova Categoria</button>
+            <button class="btn" id="abrirCategorias">+ Nova Categoria</button>
         </div>
 
         <div class="divider"></div>
@@ -268,8 +268,51 @@
     </div>
 </div>
 
+<!-- POP UP CATEGORIA -->
+<!-- MODAL CATEGORIAS -->
+<div class="modal" id="modalCategoriasCustom">
+    <div class="modal-content catModalBox">
+
+        <div class="catHeader">
+            <div class="catIconCircle">
+                <img src="imagem/iconConfig/rotulo.png">
+            </div>
+            <h2>Categorias</h2>
+            <p class="sub-modal">Gerencie suas categorias personalizadas</p>
+        </div>
+
+        <div class="catDivider"></div>
+
+        <!-- PESQUISA -->
+        <div class="catTopBar">
+            <input type="text" id="catBuscarInput" placeholder="Pesquisar categoria...">
+            
+            <button class="btn" id="catBtnAdd">
+                Adicionar categoria
+            </button>
+        </div>
+
+        <!-- ADICIONAR -->
+        <div class="catAddBox">
+
+            <div class="catUploadIcon">
+                <label for="catIconInput">
+                <img src="imagem/iconConfig/simbolo-de-interface-de-camera-fotografica-para-botao.png">
+                </label>
+                <input type="file" id="catIconInput" accept="image/*">
+            </div>
+
+            <input type="text" id="catNomeInput" placeholder="Nome da categoria">
+
+        </div>
+
+        <!-- LISTA -->
+        <div class="catListaBox" id="catLista">
+        </div>
+
+    </div>
 </div>
-</div>
+
 
 <script src="js/configuracoes.js" defer></script> 
 <script src="main.js" defer></script>
