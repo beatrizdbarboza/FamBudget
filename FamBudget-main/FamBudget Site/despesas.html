@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="despesas.css">
+    <link rel="stylesheet" href="global.css">
+    <link rel="icon" href="imagem/logo_fambudget.png" type="image/png">
+    <title>Fambuget</title>
+</head>
+<body>
+    <header class="topo">
+        <div class="logo">
+            <img src="imagem/logo_fambudget.png" alt="FamBudget">
+            <span>FamBudget</span>
+        </div>
+    
+        <div class="user">
+            <div class="notificacao">
+                <img 
+                src="imagem/vetorhome/notificacao.png" 
+                class="icone-sino" 
+                id="icone-notificacao"
+                alt="Notificações"
+                >
+
+                <span id="badge-notificacao" class="badge">0</span>
+            </div>
+            <div class="avatar" id="avatar">U</div>
+            <span id="nome-usuario" onclick="irPara('configuracoes.html')">Usuário</span>
+        </div>
+    </header>
+    
+    <div class="layout">
+    
+        <aside class="sidebar">
+            <div>
+                <ul class="menu">
+                    <li data-link="home.html"><img src="imagem/vetorhome/casa.png">Início</li>
+                    <li data-link="transacoes.html"><img src="imagem/carteira.png">Transações</li>
+                    <li data-link="despesas.html">Despesas</li>
+                    <li data-link="receitas.html">Receitas</li>
+                    <li data-link="orcamentos.html"><img src="imagem/vetorhome/ocamento.png">Orçamentos</li>
+                    <li data-link="relatorios.html"><img src="imagem/vetorhome/relatorio.png">Relatórios</li>
+                </ul>
+    
+                <div class="divider"></div>
+    
+                <ul class="menu">
+                    <li data-link="configuracoes.html"><img src="imagem/vetorhome/configuracoes.png">Configurações</li>
+                    <li id="logout-btn"><img src="imagem/vetorhome/logout.png">Sair</li>
+                </ul>
+            </div>
+        </aside>
+    
+    </div>   
+
+<script>
+function irPara(pagina){
+    window.location.href = pagina;
+}
+    
+    function logout(){
+    localStorage.clear();
+    window.location.href = "index.html";
+}
+</script>
+
+<script src="js/authGuard.js"></script>
+<script src="js/despesas.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
