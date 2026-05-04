@@ -1,0 +1,807 @@
+/* DARK MODE GLOBAL */
+body.dark {
+  background: #121212;
+  color: #eee;
+}
+
+body {
+  transition: background 0.3s, color 0.3s;
+}
+
+/* TOPO */
+body.dark .card,
+body.dark .card-topo,
+body.dark .saldo-card,
+body.dark .card-filtros,
+body.dark .card-tabela,
+body.dark .card-orcamento {
+  background: #1e1e1e;
+  color: #eee;
+}
+
+body.dark .topo {
+  background: #1a1a1a;
+  border-bottom: 1px solid #333;
+  color: #eee;
+}
+
+/* SIDEBAR */
+body.dark .sidebar {
+  background: #1a1a1a;
+  border-right: 1px solid #333;
+}
+
+body.dark .menu li {
+  color: #ccc;
+}
+
+body.dark .menu li:hover {
+  background: #2a2a2a;
+}
+
+/* CARDS */
+body.dark .card {
+  background: #1e1e1e;
+}
+
+/* INPUTS */
+body.dark input,
+body.dark select {
+  background: #2a2a2a;
+  color: white;
+  border: 1px solid #444;
+}
+
+/* TEXTOS */
+body.dark p {
+  color: #aaa;
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark strong {
+  color: #fff;
+}
+
+/* BOTÕES */
+body.dark .btn-outline {
+  border-color: #4caf50;
+  color: #4caf50;
+}
+
+body.dark .btn-outline:hover {
+  background: #4caf50;
+  color: white;
+}
+
+body.dark .btn-add {
+  background: #4caf50;
+}
+
+body.dark .btn-add:hover {
+  background: #388e3c;
+}
+
+body.dark .btn-limpar {
+  background: #444;
+  color: #fff;
+}
+
+/* TABELA TRANSAÇÕES */
+body.dark .tabela thead {
+  background: #2a2a2a;
+}
+
+body.dark .tabela tbody tr {
+  border-top: 1px solid #333;
+}
+
+body.dark .tabela tbody tr:hover {
+  background: #2a2a2a;
+}
+
+body.dark .tabela td,
+body.dark .tabela th {
+  color: #eee;
+}
+
+/* FILTRO E INPUTS */
+body.dark input,
+body.dark select {
+  background: #2a2a2a;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+/* SALDOS */
+body.dark .positivo {
+  color: #4caf50 !important;
+}
+
+body.dark .negativo {
+  color: #ef5350 !important;
+}
+
+/* BARRA ORÇAMENTO */
+body.dark .barra {
+  background: #333;
+}
+
+body.dark .progresso {
+  background: #4caf50;
+}
+
+/* MODAL */
+body.dark .modal-content {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+/* FORÇA */
+body.dark .card *,
+body.dark .card-tabela *,
+body.dark .card-orcamento * {
+  color: inherit;
+}
+body.dark .dados-item * {
+  color: inherit;
+}
+
+/* topo da pagina */
+body.dark .logo span {
+  color: #4caf50;
+}
+
+body.dark .user span {
+  color: #eee;
+}
+
+body.dark .avatar {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+}
+
+/* Container e dados  */
+body.dark .dados-container {
+  background: transparent;
+}
+
+body.dark .dados-item {
+  background: #1e1e1e;
+  color: #eee;
+}
+
+/* exportar verde */
+body.dark .dados-item.verde {
+  background: #1b2a1b;
+}
+
+body.dark .dados-item.verde .dados-icon {
+  background: #2e7d32;
+}
+
+/* limpar vermelho */
+body.dark .dados-item.vermelho {
+  background: #2a1b1b;
+}
+
+body.dark .dados-item.vermelho .dados-icon {
+  background: #c62828;
+}
+
+/* textos */
+body.dark .dados-item p {
+  color: #aaa;
+}
+
+body.dark .dados-item strong {
+  color: #fff;
+}
+
+/* botoes verde/vermelho */
+body.dark .btn-outline {
+  border-color: #4caf50;
+  color: #4caf50;
+}
+
+body.dark .btn-red-outline {
+  border-color: #ef5350;
+  color: #ef5350;
+}
+
+body.dark .dados-icon img {
+  filter: brightness(0) invert(1);
+}
+
+body.dark .membro {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+body.dark .menu .ativo {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+body.dark .membro {
+  background: #2a2a2a;
+}
+
+body.dark .avatar-membro {
+  background: #4caf50;
+}
+
+body.dark .btn-remover {
+  color: #ef5350;
+}
+
+body.dark .modal-content {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+body.dark #form-familia input {
+  background: #2a2a2a;
+  border: 1px solid #444;
+  color: white;
+}
+
+body.dark #form-familia input:focus {
+  border-color: #4caf50;
+}
+
+body.dark .fechar {
+  color: #ccc;
+}
+
+body.dark .fechar:hover {
+  color: #fff;
+}
+
+/* dark mode modal familia*/
+body.dark .status.pending {
+  color: #ffd54f;
+}
+
+body.dark .status.accepted {
+  color: #4caf50;
+}
+
+body.dark #fechar-modal {
+  background: #676565;
+}
+
+/* modal config */
+body.dark .upload-card {
+  background: #1e1e1e; /* 🔥 fundo escuro */
+  border: 1px dashed #444;
+}
+
+body.dark #fileName {
+  color: #ccc;
+}
+
+body.dark .info-arquivo {
+  color: #aaa;
+}
+
+body.dark .custom-file-btn {
+  border: 1px solid #4caf50;
+  color: #4caf50;
+}
+
+body.dark .custom-file-btn:hover {
+  background: #4caf50;
+  color: black;
+}
+
+body.dark .input-icon input{
+  background-color: #1e1e1e;
+  border: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+.avatar {
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.avatar-mini {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #2f8f3a;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* ================= SINO / NOTIFICAÇÃO PADRÃO ================= */
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.notificacao {
+  position: relative;
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.icone-sino {
+  width: 22px;
+  height: 22px;
+
+  object-fit: contain;
+  display: block;
+
+  margin: 0;
+  padding: 0;
+
+  cursor: pointer;
+}
+
+.icone-sino:hover {
+  transform: rotate(10deg);
+  transition: 0.2s;
+}
+
+.badge {
+  position: absolute;
+
+  top: -8px;
+  right: -2px;
+
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+
+  border-radius: 999px;
+
+  background: #ff3939;
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 5;
+}
+
+/* ================= SIDEBAR PADRÃO DESKTOP ================= */
+
+.sidebar {
+  width: 220px;
+}
+
+.main-content,
+.content {
+  margin-left: 220px;
+  width: calc(100% - 220px);
+}
+
+/* ================= SIDEBAR COMPACTA EM TELAS MENORES ================= */
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 100px !important;
+    padding: 20px 14px !important;
+    align-items: center;
+  }
+
+  .menu {
+    width: 100%;
+  }
+
+  .menu li {
+    width: 64px !important;
+    height: 54px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 0 !important;
+    margin: 0 auto 12px auto !important;
+
+    border-radius: 12px !important;
+
+    font-size: 0 !important;
+    gap: 0 !important;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  .menu li:hover,
+  .menu li.ativo {
+    background: #e8f5e9 !important;
+    color: #2e7d32 !important;
+  }
+
+  .menu li img {
+    width: 28px !important;
+    height: 28px !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+  }
+
+  .menu li span,
+  .icone-categoria-menu {
+    font-size: 26px !important;
+    width: 28px !important;
+    height: 28px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .divider {
+    width: 74px !important;
+    margin: 20px auto !important;
+  }
+
+  .main-content,
+  .content {
+    margin-left: 100px !important;
+    width: calc(100% - 100px) !important;
+  }
+}
+
+/* ================= CONVITE NO MODO ESCURO ================= */
+/* Deixa apenas o card do convite com a mesma cor do fundo da tela */
+
+body.tema-escuro .convite-card,
+body.tema-escuro .convite-item,
+body.tema-escuro .item-convite,
+body.tema-escuro .card-convite {
+  background-color: #1118 !important;
+  border: 1px solid #262d38 !important;
+  color: #f9fafb !important;
+}
+
+/* Textos dentro do convite */
+body.tema-escuro .convite-card p,
+body.tema-escuro .convite-card span,
+body.tema-escuro .convite-card strong,
+body.tema-escuro .convite-card h3,
+body.tema-escuro .convite-item p,
+body.tema-escuro .convite-item span,
+body.tema-escuro .convite-item strong,
+body.tema-escuro .convite-item h3,
+body.tema-escuro .item-convite p,
+body.tema-escuro .item-convite span,
+body.tema-escuro .item-convite strong,
+body.tema-escuro .item-convite h3,
+body.tema-escuro .card-convite p,
+body.tema-escuro .card-convite span,
+body.tema-escuro .card-convite strong,
+body.tema-escuro .card-convite h3 {
+  color: #f9fafb !important;
+}
+
+/* Texto secundário do convite */
+body.tema-escuro .convite-card small,
+body.tema-escuro .convite-card .descricao,
+body.tema-escuro .convite-card .subtexto,
+body.tema-escuro .convite-item small,
+body.tema-escuro .convite-item .descricao,
+body.tema-escuro .convite-item .subtexto,
+body.tema-escuro .item-convite small,
+body.tema-escuro .item-convite .descricao,
+body.tema-escuro .item-convite .subtexto,
+body.tema-escuro .card-convite small,
+body.tema-escuro .card-convite .descricao,
+body.tema-escuro .card-convite .subtexto {
+  color: #d1d5db !important;
+}
+
+/* =====================================================
+   SIDEBAR RESPONSIVA - MODO ESCURO
+   Corrige item branco quando a tela fica menor
+===================================================== */
+
+@media (max-width: 900px) {
+  body.tema-escuro .sidebar {
+    background-color: #1118 !important;
+    border-right: 1px solid #374151 !important;
+  }
+
+  body.tema-escuro .sidebar .menu,
+  body.tema-escuro .sidebar ul {
+    background-color: transparent !important;
+  }
+
+  body.tema-escuro .sidebar .menu li,
+  body.tema-escuro .sidebar li {
+    background-color: transparent !important;
+    color: #f9fafb !important;
+  }
+
+  body.tema-escuro .sidebar .menu li.active,
+  body.tema-escuro .sidebar .menu li.ativo,
+  body.tema-escuro .sidebar .menu li.selecionado,
+  body.tema-escuro .sidebar .menu li:hover,
+  body.tema-escuro .sidebar li.active,
+  body.tema-escuro .sidebar li.ativo,
+  body.tema-escuro .sidebar li.selecionado,
+  body.tema-escuro .sidebar li:hover {
+    background-color: #1f2937 !important;
+    color: #ffffff !important;
+  }
+
+  body.tema-escuro .sidebar .menu li a,
+  body.tema-escuro .sidebar .menu li span,
+  body.tema-escuro .sidebar .menu li button,
+  body.tema-escuro .sidebar li a,
+  body.tema-escuro .sidebar li span,
+  body.tema-escuro .sidebar li button {
+    background-color: transparent !important;
+    color: #f9fafb !important;
+  }
+
+  body.tema-escuro .sidebar .menu li.active a,
+  body.tema-escuro .sidebar .menu li.ativo a,
+  body.tema-escuro .sidebar .menu li.selecionado a,
+  body.tema-escuro .sidebar li.active a,
+  body.tema-escuro .sidebar li.ativo a,
+  body.tema-escuro .sidebar li.selecionado a {
+    background-color: transparent !important;
+    color: #ffffff !important;
+  }
+
+  body.tema-escuro .sidebar .menu li img,
+  body.tema-escuro .sidebar li img {
+    filter: brightness(0) saturate(100%) invert(38%) sepia(97%) saturate(544%) hue-rotate(88deg) brightness(93%) contrast(92%) !important;
+  }
+
+  body.tema-escuro .sidebar .menu li.active img,
+  body.tema-escuro .sidebar .menu li.ativo img,
+  body.tema-escuro .sidebar .menu li.selecionado img,
+  body.tema-escuro .sidebar .menu li:hover img,
+  body.tema-escuro .sidebar li.active img,
+  body.tema-escuro .sidebar li.ativo img,
+  body.tema-escuro .sidebar li.selecionado img,
+  body.tema-escuro .sidebar li:hover img {
+    filter: brightness(0) saturate(100%) invert(54%) sepia(74%) saturate(461%) hue-rotate(88deg) brightness(95%) contrast(92%) !important;
+  }
+}
+
+/* =====================================================
+   NOTIFICAÇÕES - MODO ESCURO
+   Corrige painel, toast e cards internos
+===================================================== */
+
+/* Toast pequeno que aparece ao enviar/receber notificação */
+body.tema-escuro .toast-notificacao,
+body.tema-escuro #toast-notificacao,
+body.tema-escuro .notificacao-toast,
+body.tema-escuro .toast,
+body.dark .toast-notificacao,
+body.dark #toast-notificacao,
+body.dark .notificacao-toast,
+body.dark .toast {
+  background: #1e1e1e !important;
+  color: #f9fafb !important;
+  border: 1px solid #374151 !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Texto do toast */
+body.tema-escuro .toast-notificacao p,
+body.tema-escuro .toast-notificacao span,
+body.tema-escuro .toast-notificacao strong,
+body.tema-escuro #toast-notificacao p,
+body.tema-escuro #toast-notificacao span,
+body.tema-escuro #toast-notificacao strong,
+body.dark .toast-notificacao p,
+body.dark .toast-notificacao span,
+body.dark .toast-notificacao strong,
+body.dark #toast-notificacao p,
+body.dark #toast-notificacao span,
+body.dark #toast-notificacao strong {
+  color: #f9fafb !important;
+}
+
+/* Botão X do toast */
+body.tema-escuro .toast-notificacao .fechar-toast,
+body.tema-escuro .toast-notificacao .close,
+body.tema-escuro .toast-notificacao button,
+body.tema-escuro #toast-notificacao .fechar-toast,
+body.tema-escuro #toast-notificacao .close,
+body.tema-escuro #toast-notificacao button,
+body.dark .toast-notificacao .fechar-toast,
+body.dark .toast-notificacao .close,
+body.dark .toast-notificacao button,
+body.dark #toast-notificacao .fechar-toast,
+body.dark #toast-notificacao .close,
+body.dark #toast-notificacao button {
+  background: transparent !important;
+  color: #d1d5db !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Painel/dropdown de notificações */
+body.tema-escuro .painel-notificacoes,
+body.tema-escuro #painel-notificacoes,
+body.tema-escuro .dropdown-notificacoes,
+body.tema-escuro .notificacoes-dropdown,
+body.tema-escuro .box-notificacoes,
+body.dark .painel-notificacoes,
+body.dark #painel-notificacoes,
+body.dark .dropdown-notificacoes,
+body.dark .notificacoes-dropdown,
+body.dark .box-notificacoes {
+  background: #1e1e1e !important;
+  color: #f9fafb !important;
+  border: 1px solid #374151 !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Título do painel */
+body.tema-escuro .painel-notificacoes h1,
+body.tema-escuro .painel-notificacoes h2,
+body.tema-escuro .painel-notificacoes h3,
+body.tema-escuro #painel-notificacoes h1,
+body.tema-escuro #painel-notificacoes h2,
+body.tema-escuro #painel-notificacoes h3,
+body.tema-escuro .dropdown-notificacoes h1,
+body.tema-escuro .dropdown-notificacoes h2,
+body.tema-escuro .dropdown-notificacoes h3,
+body.dark .painel-notificacoes h1,
+body.dark .painel-notificacoes h2,
+body.dark .painel-notificacoes h3,
+body.dark #painel-notificacoes h1,
+body.dark #painel-notificacoes h2,
+body.dark #painel-notificacoes h3,
+body.dark .dropdown-notificacoes h1,
+body.dark .dropdown-notificacoes h2,
+body.dark .dropdown-notificacoes h3 {
+  color: #f9fafb !important;
+}
+
+/* Textos do painel */
+body.tema-escuro .painel-notificacoes p,
+body.tema-escuro .painel-notificacoes span,
+body.tema-escuro .painel-notificacoes strong,
+body.tema-escuro #painel-notificacoes p,
+body.tema-escuro #painel-notificacoes span,
+body.tema-escuro #painel-notificacoes strong,
+body.tema-escuro .dropdown-notificacoes p,
+body.tema-escuro .dropdown-notificacoes span,
+body.tema-escuro .dropdown-notificacoes strong,
+body.dark .painel-notificacoes p,
+body.dark .painel-notificacoes span,
+body.dark .painel-notificacoes strong,
+body.dark #painel-notificacoes p,
+body.dark #painel-notificacoes span,
+body.dark #painel-notificacoes strong,
+body.dark .dropdown-notificacoes p,
+body.dark .dropdown-notificacoes span,
+body.dark .dropdown-notificacoes strong {
+  color: #d1d5db !important;
+}
+
+/* Card interno da notificação */
+body.tema-escuro .notificacao-item,
+body.tema-escuro .item-notificacao,
+body.tema-escuro .notificacao-card,
+body.tema-escuro .card-notificacao,
+body.tema-escuro .notificacao-box,
+body.dark .notificacao-item,
+body.dark .item-notificacao,
+body.dark .notificacao-card,
+body.dark .card-notificacao,
+body.dark .notificacao-box {
+  background: #1e1e1e !important;
+  color: #f9fafb !important;
+  border: 1px solid #374151 !important;
+}
+
+/* Card interno ao passar o mouse */
+body.tema-escuro .notificacao-item:hover,
+body.tema-escuro .item-notificacao:hover,
+body.tema-escuro .notificacao-card:hover,
+body.tema-escuro .card-notificacao:hover,
+body.tema-escuro .notificacao-box:hover,
+body.dark .notificacao-item:hover,
+body.dark .item-notificacao:hover,
+body.dark .notificacao-card:hover,
+body.dark .card-notificacao:hover,
+body.dark .notificacao-box:hover {
+  background: #272828 !important;
+}
+
+/* Título dentro do card */
+body.tema-escuro .notificacao-item strong,
+body.tema-escuro .item-notificacao strong,
+body.tema-escuro .notificacao-card strong,
+body.tema-escuro .card-notificacao strong,
+body.dark .notificacao-item strong,
+body.dark .item-notificacao strong,
+body.dark .notificacao-card strong,
+body.dark .card-notificacao strong {
+  color: #f9fafb !important;
+}
+
+/* Descrição dentro do card */
+body.tema-escuro .notificacao-item p,
+body.tema-escuro .notificacao-item span,
+body.tema-escuro .item-notificacao p,
+body.tema-escuro .item-notificacao span,
+body.tema-escuro .notificacao-card p,
+body.tema-escuro .notificacao-card span,
+body.tema-escuro .card-notificacao p,
+body.tema-escuro .card-notificacao span,
+body.dark .notificacao-item p,
+body.dark .notificacao-item span,
+body.dark .item-notificacao p,
+body.dark .item-notificacao span,
+body.dark .notificacao-card p,
+body.dark .notificacao-card span,
+body.dark .card-notificacao p,
+body.dark .card-notificacao span {
+  color: #d1d5db !important;
+}
+
+/* Linha divisória do painel */
+body.tema-escuro .painel-notificacoes hr,
+body.tema-escuro #painel-notificacoes hr,
+body.tema-escuro .dropdown-notificacoes hr,
+body.tema-escuro .painel-notificacoes .divider,
+body.tema-escuro #painel-notificacoes .divider,
+body.tema-escuro .dropdown-notificacoes .divider,
+body.dark .painel-notificacoes hr,
+body.dark #painel-notificacoes hr,
+body.dark .dropdown-notificacoes hr,
+body.dark .painel-notificacoes .divider,
+body.dark #painel-notificacoes .divider,
+body.dark .dropdown-notificacoes .divider {
+  border-color: #374151 !important;
+  background: #374151 !important;
+}
+
+/* Ícone redondo dentro da notificação */
+body.tema-escuro .notificacao-item .icone,
+body.tema-escuro .item-notificacao .icone,
+body.tema-escuro .notificacao-card .icone,
+body.tema-escuro .card-notificacao .icone,
+body.dark .notificacao-item .icone,
+body.dark .item-notificacao .icone,
+body.dark .notificacao-card .icone,
+body.dark .card-notificacao .icone {
+  background: #1f2937 !important;
+}
