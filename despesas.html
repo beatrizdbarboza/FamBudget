@@ -77,28 +77,69 @@
                     <input type="text" placeholder="Buscar despesas...">
                 </div>
 
-                <div class="filtro">Categoria </div>
-                <div class="filtro">Abril 2026</div>
+                <div class="filtro" id="filtroTipo">
+                    Tipo
+
+                    <div class="dropdown" id="dropdownTipo">
+                        <div class="item-filtro tipo-fixa" data-tipo="fixa">Fixa</div>
+                        <div class="item-filtro tipo-variavel" data-tipo="variavel">Variável</div>
+                        <div class="item-filtro tipo-sazonal" data-tipo="sazonal">Sazonal</div>
+                    </div>
+                </div>
+
+                <div class="filtro" id="filtroStatus">
+                    Status
+                    <div class="dropdown" id="dropdownStatus">
+                        <div class="item-filtro" data-status="pago">Pago</div>
+                        <div class="item-filtro" data-status="pendente">Pendente</div>
+                    </div>
+                </div>
+
+                <div class="filtro" id="filtroData">
+                    Data
+
+                    <div class="dropdown calendario" id="dropdownData">
+
+                        <div class="cal-header">
+                            <button id="prevMes">‹</button>
+                            <span id="mesAtual"></span>
+                            <button id="nextMes">›</button>
+                        </div>
+
+                        <div class="cal-dias-semana">
+                            <span>Dom</span>
+                            <span>Seg</span>
+                            <span>Ter</span>
+                            <span>Qua</span>
+                            <span>Qui</span>
+                            <span>Sex</span>
+                            <span>Sáb</span>
+                        </div>
+
+                        <div class="cal-grid" id="calGrid"></div>
+
+                    </div>
+                </div>
             </div>
 
             <!-- TABELA -->
-            <div class="tabela">
+            <div class="tabela" id="tabelaDespesas">
 
                 <!-- HEADER -->
                 <div class="linha header">
+                    <span>Tipo</span>
                     <span>Categoria</span>
                     <span>Descrição</span>
-                    <span></span>
                     <span>Data</span>
                     <span>Valor</span>
+                    <span>Status</span>
                 </div>
 
                 <!-- LINHAS (JS vai gerar várias dessas) -->
-
             </div>
         </div>
     </div>
-</div>   
+   
 
 <div class="modal" id="modalNovaDespesa">
     <div class="modal-content modal-despesa">
@@ -109,14 +150,33 @@
                 <img src="imagem/iconConfig/despesas.png" alt="">
             </div>
         
-
             <h2>Nova Despesa</h2>
             <p class="sub-modal">Adicione uma nova despesa ao sistema</p>
         </div>
 
-        <div class="divider"></div>
+        <div class="divider-modal"></div>
 
         <!-- CAMPOS -->
+
+        <div class="modal-field">
+            <label>Categoria</label>
+
+            <div class="select-categoria" id="selectCategoria">
+                <span id="categoriaSelecionada">Selecione uma categoria</span>
+
+                <div class="dropdown" id="dropdownCategoriaModal">
+                    <div class="item-categoria cat-orange" data-categoria="Alimentação">Alimentação</div>
+                        <div class="item-categoria cat-blue" data-categoria="Transporte">Transporte</div>
+                        <div class="item-categoria cat-pink" data-categoria="Lazer">Lazer</div>
+                        <div class="item-categoria cat-brown" data-categoria="Moradia">Moradia</div>
+                        <div class="item-categoria cat-green" data-categoria="Saúde">Saúde</div>
+                        <div class="item-categoria cat-purple" data-categoria="Cartão de crédito">Cartão de crédito</div>
+                        <div class="item-categoria cat-yellow" data-categoria="Cartão de débito">Cartão de débito</div>
+                        <div class="item-categoria cat-gray" data-categoria="Outros">Outros</div>
+                    </div>
+            </div>
+        </div>
+
         <div class="modal-field">
             <label>Descrição</label>
             <input type="text" id="descDespesa" placeholder="Ex: Supermercado">
@@ -135,41 +195,44 @@
         <div class="campo-check">
             <label class="switch-check">
                 <input type="checkbox" id="checkPago">
+                <span class="switch"></span>
                 <span class="slider-check">Despesa paga</span>
             </label>
         </div>
 
+
         <div class="modal-field">
 
-        <label>Tipo de despesa</label>
+            <label>Tipo de despesa</label>
 
-        <div class="tipo-despesa">
-            <label class="tipo-item">
-                <input type="radio" name="tipoDespesa" value="fixa" checked>
-                <span>Fixa</span>
-            </label>
+            <div class="tipo-despesa">
+                <label class="tipo-item">
+                    <input type="radio" name="tipoDespesa" value="fixa" checked>
+                    <span>Fixa</span>
+                </label>
 
-            <label class="tipo-item">
-                <input type="radio" name="tipoDespesa" value="variavel">
-                <span>Variável</span>
-            </label>
+                <label class="tipo-item">
+                    <input type="radio" name="tipoDespesa" value="variavel">
+                    <span>Variável</span>
+                </label>
 
-            <label class="tipo-item">
-                <input type="radio" name="tipoDespesa" value="sazonal">
-                <span>Sazonal</span>
-            </label>
-        </div>
-        
+                <label class="tipo-item">
+                    <input type="radio" name="tipoDespesa" value="sazonal">
+                    <span>Sazonal</span>
+                </label>
+            </div>
+            
 
-        <!-- BOTÕES -->
-        <div class="modal-actions">
-            <button class="btn-outline-modal" id="cancelarDespesa">
-                Cancelar
-            </button>
+            <!-- BOTÕES -->
+            <div class="modal-actions">
+                <button class="btn-outline-modal" id="cancelarDespesa">
+                    Cancelar
+                </button>
 
-            <button class="btn" id="salvarDespesa">
-                Salvar
-            </button>
+                <button class="btn" id="salvarDespesa">
+                    Salvar
+                </button>
+            </div>
         </div>
     </div>
 </div>
