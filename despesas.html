@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="despesas.css">
     <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="despesas.css">
     <link rel="icon" href="imagem/logo_fambudget.png" type="image/png">
     <title>Fambuget</title>
 </head>
@@ -37,7 +37,7 @@
             <div>
                 <ul class="menu">
                     <li data-link="home.html"><img src="imagem/vetorhome/casa.png">Início</li>
-                    <li data-link="extratos.html"><img src="imagem/carteira.png">Extratos</li>
+                    <li data-link="transacoes.html"><img src="imagem/carteira.png">Extratos</li>
                     <li data-link="despesas.html"><img src="imagem/iconConfig/despesas.png" alt="">Despesas</li>
                     <li data-link="receitas.html"><img src="imagem/iconConfig/receitas.png" alt="">Receitas</li>
                     <li data-link="categorias.html"><img src="imagem/iconConfig/categories.png">Categorias</li>
@@ -94,52 +94,70 @@
                         <div class="item-filtro" data-status="pendente">Pendente</div>
                     </div>
                 </div>
+            </div>
 
-                <div class="filtro" id="filtroData">
-                    Data
+            <section class="controle-mes">
+                <button type="button" id="mes-anterior" class="btn-mes">‹</button>
+                <h2 id="mes-atual">Abril 2026</h2>
+                <button type="button" id="proximo-mes" class="btn-mes">›</button>
+            </section>
 
-                    <div class="dropdown calendario" id="dropdownData">
+            <section class="card extratos-card">
+                <div class="topo-extratos">
+                    <div class="abas">
 
-                        <div class="cal-header">
-                            <button id="prevMes">‹</button>
-                            <span id="mesAtual"></span>
-                            <button id="nextMes">›</button>
-                        </div>
-
-                        <div class="cal-dias-semana">
-                            <span>Dom</span>
-                            <span>Seg</span>
-                            <span>Ter</span>
-                            <span>Qua</span>
-                            <span>Qui</span>
-                            <span>Sex</span>
-                            <span>Sáb</span>
-                        </div>
-
-                        <div class="cal-grid" id="calGrid"></div>
+                        <button type="button" class="aba" data-filtro="despesa">
+                            ↓ Despesas
+                        </button>
 
                     </div>
-                </div>
-            </div>
 
-            <!-- TABELA -->
-            <div class="tabela" id="tabelaDespesas">
+                    <div class="resumo-valores">
+                        <div class="divisor"></div>
 
-                <!-- HEADER -->
-                <div class="linha header">
-                    <span>Tipo</span>
-                    <span>Categoria</span>
-                    <span>Descrição</span>
-                    <span>Data</span>
-                    <span>Valor</span>
-                    <span>Status</span>
+                        <div>
+                            <span>Saídas</span>
+                            <strong class="negativo" id="total-saidas">R$ 0,00</strong>
+                        </div>
+                    </div>
                 </div>
 
-                <!-- LINHAS (JS vai gerar várias dessas) -->
-            </div>
+                <div class="tabela-container">
+                    <table class="tabela-extratos">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Descrição</th>
+                                <th>Categoria</th>
+                                <th>Tipo</th>
+                                <th>Satus</th>
+                                <th class="valor-coluna">Valor (R$)</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="lista-extratos">
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="sem-dados" id="sem-dados">
+                    Nenhuma despesa encontrada para este mês.
+                </div>
+
+                <div class="paginacao" id="paginacao">
+                </div>
+
+            </section>
+
+            <section class="dica">
+                <span>i</span>
+                <p>Dica: acompanhe suas despesas para identificar padrões de gastos e manter seu controle financeiro em dia.</p>
+            </section>
         </div>
     </div>
-   
+
+
+
 
 <div class="modal" id="modalNovaDespesa">
     <div class="modal-content modal-despesa">
@@ -166,16 +184,17 @@
 
                 <div class="dropdown" id="dropdownCategoriaModal">
                     <div class="item-categoria cat-orange" data-categoria="Alimentação">Alimentação</div>
-                        <div class="item-categoria cat-blue" data-categoria="Transporte">Transporte</div>
-                        <div class="item-categoria cat-pink" data-categoria="Lazer">Lazer</div>
-                        <div class="item-categoria cat-brown" data-categoria="Moradia">Moradia</div>
-                        <div class="item-categoria cat-green" data-categoria="Saúde">Saúde</div>
-                        <div class="item-categoria cat-purple" data-categoria="Cartão de crédito">Cartão de crédito</div>
-                        <div class="item-categoria cat-yellow" data-categoria="Cartão de débito">Cartão de débito</div>
-                        <div class="item-categoria cat-gray" data-categoria="Outros">Outros</div>
-                    </div>
+                    <div class="item-categoria cat-blue" data-categoria="Transporte">Transporte</div>
+                    <div class="item-categoria cat-pink" data-categoria="Lazer">Lazer</div>
+                    <div class="item-categoria cat-brown" data-categoria="Moradia">Moradia</div>
+                    <div class="item-categoria cat-green" data-categoria="Saúde">Saúde</div>
+                    <div class="item-categoria cat-purple" data-categoria="Cartão de crédito">Cartão de crédito</div>
+                    <div class="item-categoria cat-yellow" data-categoria="Cartão de débito">Cartão de débito</div>
+                    <div class="item-categoria cat-gray" data-categoria="Outros">Outros</div>
+                </div>
             </div>
         </div>
+        
 
         <div class="modal-field">
             <label>Descrição</label>
@@ -247,6 +266,7 @@ function irPara(pagina){
     window.location.href = "index.html";
 }
 </script>
+
 
 <script src="js/api.js"></script>
 <script src="js/authGuard.js"></script>
