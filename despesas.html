@@ -37,7 +37,7 @@
             <div>
                 <ul class="menu">
                     <li data-link="home.html"><img src="imagem/vetorhome/casa.png">Início</li>
-                    <li data-link="transacoes.html"><img src="imagem/carteira.png">Extratos</li>
+                    <li data-link="transacoes.html"><img src="imagem/carteira.png">Transações</li>
                     <li data-link="despesas.html"><img src="imagem/iconConfig/despesas.png" alt="">Despesas</li>
                     <li data-link="receitas.html"><img src="imagem/iconConfig/receitas.png" alt="">Receitas</li>
                     <li data-link="categorias.html"><img src="imagem/iconConfig/categories.png">Categorias</li>
@@ -74,10 +74,10 @@
             <div class="filtros">
                 <div class="input-busca">
                     <span class="icone-lupa">⌕</span>
-                    <input type="text" placeholder="Buscar despesas...">
+                    <input class="buscar" type="text" placeholder="Buscar despesas...">
                 </div>
 
-                <div class="filtro" id="filtroTipo">
+                <div class="filtro" id="filtroTipo" tabindex="0">
                     Tipo
 
                     <div class="dropdown" id="dropdownTipo">
@@ -87,7 +87,7 @@
                     </div>
                 </div>
 
-                <div class="filtro" id="filtroStatus">
+                <div class="filtro" id="filtroStatus" tabindex="0">
                     Status
                     <div class="dropdown" id="dropdownStatus">
                         <div class="item-filtro" data-status="pago">Pago</div>
@@ -179,8 +179,8 @@
         <div class="modal-field">
             <label>Categoria</label>
 
-            <div class="select-categoria" id="selectCategoria">
-                <span id="categoriaSelecionada">Selecione uma categoria</span>
+            <div class="select-categoria" id="selectCategoria"tabindex="0">
+                <div id="categoriaSelecionada">Selecione uma categoria</div>
 
                 <div class="dropdown" id="dropdownCategoriaModal">
                     <div class="item-categoria cat-orange" data-categoria="Alimentação">Alimentação</div>
