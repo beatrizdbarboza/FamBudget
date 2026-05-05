@@ -33,13 +33,11 @@ const inputValor = document.getElementById("valorDespesa");
 const inputData = document.getElementById("dataDespesa");
 const checkPago = document.getElementById("checkPago");
 
-const tabela = document.getElementById("tabelaDespesas");
+// ✅ CORRIGIDO AQUI
+const tabela = document.getElementById("lista-extratos");
 
 // BUSCA
 const inputBusca = document.querySelector(".input-busca input");
-
-// DATA
-const filtroDia = document.getElementById("filtroDia");
 
 // DROPDOWNS
 const filtroTipo = document.getElementById("filtroTipo");
@@ -47,9 +45,6 @@ const dropdownTipo = document.getElementById("dropdownTipo");
 
 const filtroStatus = document.getElementById("filtroStatus");
 const dropdownStatus = document.getElementById("dropdownStatus");
-
-const filtroData = document.getElementById("filtroData");
-const dropdownData = document.getElementById("dropdownData");
 
 // CATEGORIA
 const selectCategoria = document.getElementById("selectCategoria");
@@ -81,7 +76,7 @@ window.onclick = (e) => {
 };
 
 // =======================
-// DROPDOWN (abrir/fechar)
+// DROPDOWN PADRÃO
 // =======================
 function toggleDropdown(btn, drop) {
   btn.addEventListener("click", (e) => {
@@ -92,22 +87,32 @@ function toggleDropdown(btn, drop) {
 
 toggleDropdown(filtroTipo, dropdownTipo);
 toggleDropdown(filtroStatus, dropdownStatus);
-toggleDropdown(filtroData, dropdownData);
-
-document.addEventListener("click", () => {
-  dropdownTipo.style.display = "none";
-  dropdownStatus.style.display = "none";
-  dropdownData.style.display = "none";
-  dropdownCategoriaModal.style.display = "none";
-});
 
 // =======================
-// CATEGORIA
+// CATEGORIA (CORRIGIDO)
 // =======================
+
+// abrir/fechar
 selectCategoria.addEventListener("click", (e) => {
   e.stopPropagation();
+
   dropdownCategoriaModal.style.display =
     dropdownCategoriaModal.style.display === "block" ? "none" : "block";
+});
+
+// selecionar categoria
+document.querySelectorAll(".item-categoria").forEach(item => {
+  item.addEventListener("click", (e) => {
+    e.stopPropagation();
+
+    const categoria = item.dataset.categoria;
+
+    categoriaTexto.innerText = categoria;
+    selectCategoria.dataset.categoria = categoria;
+
+    // fecha corretamente
+    dropdownCategoriaModal.style.display = "none";
+  });
 });
 
 document.querySelectorAll(".item-categoria").forEach(item => {
@@ -119,8 +124,29 @@ document.querySelectorAll(".item-categoria").forEach(item => {
     categoriaTexto.innerText = categoria;
     selectCategoria.dataset.categoria = categoria;
 
+    // REMOVE TODAS as classes
+    categoriaTexto.className = "";
+
+    // ADICIONA A CLASSE DE COR DO ITEM
+    item.classList.forEach(cls => {
+      if (cls.startsWith("cat-")) {
+        categoriaTexto.classList.add(cls);
+      }
+    });
+
     dropdownCategoriaModal.style.display = "none";
   });
+});
+
+// fechar ao clicar fora (CORRETO)
+document.addEventListener("click", (e) => {
+
+  if (!selectCategoria.contains(e.target)) {
+    dropdownCategoriaModal.style.display = "none";
+  }
+
+  dropdownTipo.style.display = "none";
+  dropdownStatus.style.display = "none";
 });
 
 // =======================
@@ -155,16 +181,16 @@ btnSalvar.addEventListener("click", () => {
 });
 
 // =======================
-// FILTROS
-// =======================
-
 // BUSCA
+// =======================
 inputBusca.addEventListener("input", (e) => {
   filtros.busca = e.target.value.toLowerCase();
   aplicarFiltros();
 });
 
-// TIPO
+// =======================
+// FILTROS
+// =======================
 document.querySelectorAll("[data-tipo]").forEach(item => {
   item.addEventListener("click", () => {
     filtros.tipo = item.dataset.tipo;
@@ -172,7 +198,6 @@ document.querySelectorAll("[data-tipo]").forEach(item => {
   });
 });
 
-// STATUS
 document.querySelectorAll("[data-status]").forEach(item => {
   item.addEventListener("click", () => {
     filtros.status = item.dataset.status;
@@ -181,94 +206,33 @@ document.querySelectorAll("[data-status]").forEach(item => {
 });
 
 // =======================
-// CALENDÁRIO
+// RENDER
 // =======================
-const calGrid = document.getElementById("calGrid");
-const mesAtualEl = document.getElementById("mesAtual");
+function renderizarDespesas(lista = despesas) {
 
-const prevMes = document.getElementById("prevMes");
-const nextMes = document.getElementById("nextMes");
+  tabela.innerHTML = "";
 
-let dataAtual = new Date();
-let dataSelecionada = null;
+  lista.forEach(despesa => {
 
-const meses = [
-  "Janeiro","Fevereiro","Março","Abril","Maio","Junho",
-  "Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"
-];
+    const tr = document.createElement("tr");
 
-function renderCalendario() {
+    const status = despesa.pago ? "Pago" : "Pendente";
 
-  const ano = dataAtual.getFullYear();
-  const mes = dataAtual.getMonth();
+    tr.innerHTML = `
+      <td>${despesa.data}</td>
+      <td>${despesa.descricao}</td>
+      <td>${despesa.categoria}</td>
+      <td>${despesa.tipo}</td>
+      <td>${status}</td>
+      <td>R$ ${despesa.valor.toFixed(2)}</td>
+    `;
 
-  mesAtualEl.innerText = `${meses[mes]} ${ano}`;
-
-  calGrid.innerHTML = "";
-
-  const primeiroDia = new Date(ano, mes, 1).getDay();
-  const diasNoMes = new Date(ano, mes + 1, 0).getDate();
-
-  // espaços vazios
-  for (let i = 0; i < primeiroDia; i++) {
-    calGrid.innerHTML += `<div></div>`;
-  }
-
-  for (let dia = 1; dia <= diasNoMes; dia++) {
-
-    const hoje = new Date();
-    const isHoje =
-      dia === hoje.getDate() &&
-      mes === hoje.getMonth() &&
-      ano === hoje.getFullYear();
-
-    const div = document.createElement("div");
-    div.classList.add("dia");
-
-    if (isHoje) div.classList.add("hoje");
-
-    div.innerText = dia;
-
-    div.onclick = () => {
-
-      dataSelecionada = `${ano}-${String(mes+1).padStart(2,'0')}-${String(dia).padStart(2,'0')}`;
-
-      filtros.data = dataSelecionada;
-
-      aplicarFiltros();
-
-      renderCalendario();
-    };
-
-    // selecionado
-    if (dataSelecionada) {
-      const [y,m,d] = dataSelecionada.split("-");
-      if (dia == d && mes+1 == m && ano == y) {
-        div.classList.add("ativo");
-      }
-    }
-
-    calGrid.appendChild(div);
-  }
+    tabela.appendChild(tr);
+  });
 }
 
-// navegação
-prevMes.onclick = () => {
-  dataAtual.setMonth(dataAtual.getMonth() - 1);
-  renderCalendario();
-};
-
-nextMes.onclick = () => {
-  dataAtual.setMonth(dataAtual.getMonth() + 1);
-  renderCalendario();
-};
-
-// iniciar
-renderCalendario();
-
-
 // =======================
-// APLICAR FILTROS
+// FILTRAR
 // =======================
 function aplicarFiltros() {
 
@@ -289,48 +253,10 @@ function aplicarFiltros() {
       if (status !== filtros.status) return false;
     }
 
-    if (filtros.data) {
-      const [ano, mes, dia] = filtros.data.split("-");
-      const dataFormatada = `${dia}/${mes}/${ano}`;
-      if (d.data !== dataFormatada) return false;
-    }
-
     return true;
   });
 
   renderizarDespesas(lista);
-}
-
-// =======================
-// RENDER
-// =======================
-function renderizarDespesas(lista = despesas) {
-
-  tabela.querySelectorAll(".linha:not(.header)").forEach(e => e.remove());
-
-  lista.forEach(despesa => {
-
-    const linha = document.createElement("div");
-    linha.classList.add("linha");
-
-    const statusHTML = despesa.pago
-      ? '<span class="status pago">Pago</span>'
-      : '<span class="status pendente">Pendente</span>';
-
-    const tipoClasse = `tipo-${despesa.tipo}`;
-    const classeCategoria = coresCategoria[despesa.categoria] || "cat-gray";
-
-    linha.innerHTML = `
-      <span><span class="tipo-tag ${tipoClasse}">${despesa.tipo}</span></span>
-      <span><span class="categoria-tag ${classeCategoria}">${despesa.categoria}</span></span>
-      <span>${despesa.descricao}</span>
-      <span>${despesa.data}</span>
-      <span class="valor negativo">R$ ${despesa.valor.toFixed(2)}</span>
-      <span>${statusHTML}</span>
-    `;
-
-    tabela.appendChild(linha);
-  });
 }
 
 // =======================
