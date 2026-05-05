@@ -28,6 +28,16 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // =======================
+    // FILTROS
+    // =======================
+    document.querySelectorAll("[data-tipo]").forEach(item => {
+    item.addEventListener("click", () => {
+        filtros.tipo = item.dataset.tipo;
+        aplicarFiltros();
+    });
+    });
+
 
     // =========================
     // SELECT CATEGORIA
