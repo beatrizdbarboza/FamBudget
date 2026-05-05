@@ -75,10 +75,10 @@
             <div class="filtros">
                 <div class="input-busca">
                     <span class="icone-lupa">⌕</span>
-                    <input type="text" placeholder="Buscar receitas...">
+                    <input class="buscar" type="text" placeholder="Buscar receitas...">
                 </div>
 
-                <div class="filtro" id="filtroTipo">
+                <div class="filtro" id="filtroTipo" tabindex="0">
                     Tipo
 
                     <div class="dropdown" id="dropdownTipo">
@@ -151,7 +151,7 @@
 
             <section class="dica">
                 <span>i</span>
-                <p>Dica: acompanhe suas receitass para manter seu controle financeiro em dia.</p>
+                <p>Dica: acompanhe suas receitas para manter seu controle financeiro em dia.</p>
             </section>
         </div>
     </div>
@@ -180,7 +180,7 @@
             <label>Categoria</label>
 
             <div class="select-categoria" id="selectCategoria">
-                <span id="categoriaSelecionada">Selecione uma categoria</span>
+                <label class="select-categorias" id="categoriaSelecionada" tabindex="0">Selecione uma categoria</label>
 
                 <div class="dropdown" id="dropdownCategoriaModal">
                     <div class="item-categoria cat-yellow" data-categoria="Salário">Salário</div>
