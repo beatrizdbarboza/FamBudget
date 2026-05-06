@@ -152,6 +152,22 @@
     return { res, data };
   }
 
+  function pegarMensagemErroApi(data, fallback) {
+    if (!data) return fallback;
+
+    if (typeof data === "string") {
+      return data;
+    }
+
+    return (
+      data.message ||
+      data.detail ||
+      data.error ||
+      data.msg ||
+      fallback
+    );
+  }
+
   /* ================= POPUP ESTILIZADO ================= */
   function criarPopupBase() {
     let popup = document.getElementById("popup-familia");
@@ -223,6 +239,7 @@
           opacity: 0;
           transform: translateY(15px) scale(0.96);
         }
+
         to {
           opacity: 1;
           transform: translateY(0) scale(1);
@@ -321,6 +338,229 @@
         color: transparent;
         border: 2px solid #2e7d32;
         background-color: #e8f5e9;
+      }
+
+      /* ================= POPUP NO MODO ESCURO ================= */
+
+      body.tema-escuro .popup-familia,
+      body.dark .popup-familia {
+        background: rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(4px);
+      }
+
+      body.tema-escuro .popup-familia-card,
+      body.dark .popup-familia-card {
+        background: #1e1e1e;
+        border: 1px solid #5e6063;
+        box-shadow: 0 20px 55px rgba(0, 0, 0, 0.45);
+      }
+
+      body.tema-escuro .popup-familia-card h3,
+      body.dark .popup-familia-card h3 {
+        color: #f9fafb;
+      }
+
+      body.tema-escuro .popup-familia-card p,
+      body.dark .popup-familia-card p {
+        color: #d1d5db;
+      }
+
+      body.tema-escuro .popup-btn-cancelar,
+      body.dark .popup-btn-cancelar {
+        background: #2a2a2a;
+        color: #f9fafb;
+        border: 1px solid #5e6063;
+      }
+
+      body.tema-escuro .popup-btn-ok,
+      body.dark .popup-btn-ok {
+        background: #238636;
+        color: #ffffff;
+      }
+
+      body.tema-escuro .popup-btn-confirmar,
+      body.dark .popup-btn-confirmar {
+        background: #ef4444;
+        color: #ffffff;
+      }
+
+      /* ================= CONVITES NO MODO ESCURO ================= */
+
+      body.tema-escuro .convites-card,
+      body.dark .convites-card {
+        background: #1e1e1e !important;
+        color: #f9fafb !important;
+        border: 1px solid #5e6063 !important;
+        box-shadow: none !important;
+      }
+
+      body.tema-escuro .convites-card h3,
+      body.dark .convites-card h3 {
+        color: #f9fafb !important;
+      }
+
+      body.tema-escuro .lista-convites p,
+      body.tema-escuro .convites-card p,
+      body.dark .lista-convites p,
+      body.dark .convites-card p {
+        color: #d1d5db !important;
+      }
+
+      body.tema-escuro .convite-item,
+      body.dark .convite-item {
+        background: #1e1e1e !important;
+        border: 1px solid #5e6063 !important;
+        color: #f9fafb !important;
+      }
+
+      body.tema-escuro .convite-item:hover,
+      body.dark .convite-item:hover {
+        background: #2a2a2a !important;
+      }
+
+      body.tema-escuro .convite-info strong,
+      body.tema-escuro .convite-item strong,
+      body.tema-escuro .dados strong,
+      body.dark .convite-info strong,
+      body.dark .convite-item strong,
+      body.dark .dados strong {
+        color: #f9fafb !important;
+      }
+
+      body.tema-escuro .convite-info span,
+      body.tema-escuro .convite-item span,
+      body.tema-escuro .dados span,
+      body.dark .convite-info span,
+      body.dark .convite-item span,
+      body.dark .dados span {
+        color: #d1d5db !important;
+      }
+
+      body.tema-escuro .btn-aceitar,
+      body.dark .btn-aceitar {
+        background: #2e7d32 !important;
+        color: #ffffff !important;
+      }
+
+      body.tema-escuro .btn-aceitar:hover,
+      body.dark .btn-aceitar:hover {
+        background: #1b5e20 !important;
+      }
+
+      body.tema-escuro .btn-recusar,
+      body.dark .btn-recusar {
+        background: #ef5350 !important;
+        color: #ffffff !important;
+      }
+
+      body.tema-escuro .btn-recusar:hover,
+      body.dark .btn-recusar:hover {
+        background: #c62828 !important;
+      }
+
+      /* ================= FAMÍLIA NO MODO ESCURO ================= */
+
+      body.tema-escuro .familia-card,
+      body.dark .familia-card {
+        background: #1e1e1e !important;
+        color: #f9fafb !important;
+        border: 1px solid #5e6063 !important;
+        box-shadow: none !important;
+      }
+
+      body.tema-escuro .familia-card h3,
+      body.dark .familia-card h3 {
+        color: #f9fafb !important;
+      }
+
+      body.tema-escuro .familia-card .divider,
+      body.dark .familia-card .divider {
+        background: #5e6063 !important;
+      }
+
+      body.tema-escuro .membro,
+      body.dark .membro {
+        background: #1e1e1e !important;
+        border: 1px solid #5e6063 !important;
+        color: #f9fafb !important;
+      }
+
+      body.tema-escuro .membro:hover,
+      body.dark .membro:hover {
+        background: #2a2a2a !important;
+      }
+
+      body.tema-escuro .membro-info span,
+      body.tema-escuro .membro-dados span,
+      body.dark .membro-info span,
+      body.dark .membro-dados span {
+        color: #f9fafb !important;
+      }
+
+      body.tema-escuro .membro-info small,
+      body.tema-escuro .membro-dados small,
+      body.dark .membro-info small,
+      body.dark .membro-dados small {
+        color: #d1d5db !important;
+      }
+
+      body.tema-escuro .btn-remove,
+      body.dark .btn-remove {
+        background: transparent !important;
+        color: #ef5350 !important;
+        border: 1px solid #ef5350 !important;
+      }
+
+      body.tema-escuro .btn-remove:hover,
+      body.dark .btn-remove:hover {
+        background: #ef5350 !important;
+        color: #ffffff !important;
+      }
+
+      /* ================= MODAL FAMÍLIA NO MODO ESCURO ================= */
+
+      body.tema-escuro #modal-familia,
+      body.dark #modal-familia {
+        background: rgba(0, 0, 0, 0.65) !important;
+      }
+
+      body.tema-escuro #modal-familia .modal-content,
+      body.dark #modal-familia .modal-content {
+        background: #1e1e1e !important;
+        color: #f9fafb !important;
+        border: 1px solid #5e6063 !important;
+      }
+
+      body.tema-escuro #modal-familia .modal-content h2,
+      body.tema-escuro #modal-familia .modal-content h3,
+      body.dark #modal-familia .modal-content h2,
+      body.dark #modal-familia .modal-content h3 {
+        color: #f9fafb !important;
+      }
+
+      body.tema-escuro #modal-familia input,
+      body.dark #modal-familia input {
+        background: #2a2a2a !important;
+        color: #f9fafb !important;
+        border: 1px solid #444 !important;
+      }
+
+      body.tema-escuro #modal-familia input::placeholder,
+      body.dark #modal-familia input::placeholder {
+        color: #9ca3af !important;
+      }
+
+      body.tema-escuro #modal-familia .fechar,
+      body.dark #modal-familia .fechar {
+        background: transparent !important;
+        color: #f9fafb !important;
+        border: none !important;
+        box-shadow: none !important;
+      }
+
+      body.tema-escuro #modal-familia .fechar:hover,
+      body.dark #modal-familia .fechar:hover {
+        color: #22c55e !important;
       }
     `;
 
@@ -526,12 +766,10 @@
       membro?.email ||
       membro?.userEmail ||
       membro?.emailUser ||
-
       membro?.user?.email ||
       membro?.usuario?.email ||
       membro?.member?.email ||
       membro?.familyUser?.email ||
-
       ""
     ).toLowerCase().trim();
   }
@@ -559,31 +797,26 @@
       membro?.name ||
       membro?.nome ||
       membro?.email ||
-
       membro?.user?.nickname ||
       membro?.user?.nickName ||
       membro?.user?.name ||
       membro?.user?.nome ||
       membro?.user?.email ||
-
       membro?.usuario?.nickname ||
       membro?.usuario?.nickName ||
       membro?.usuario?.name ||
       membro?.usuario?.nome ||
       membro?.usuario?.email ||
-
       membro?.member?.nickname ||
       membro?.member?.nickName ||
       membro?.member?.name ||
       membro?.member?.nome ||
       membro?.member?.email ||
-
       membro?.familyUser?.nickname ||
       membro?.familyUser?.nickName ||
       membro?.familyUser?.name ||
       membro?.familyUser?.nome ||
       membro?.familyUser?.email ||
-
       `Usuário #${id || "?"}`
     );
   }
@@ -622,7 +855,6 @@
       membro?.avatarURL ||
       membro?.picture ||
       membro?.pictureUrl ||
-
       membro?.user?.photo ||
       membro?.user?.foto ||
       membro?.user?.avatar ||
@@ -636,7 +868,6 @@
       membro?.user?.avatarURL ||
       membro?.user?.picture ||
       membro?.user?.pictureUrl ||
-
       membro?.usuario?.photo ||
       membro?.usuario?.foto ||
       membro?.usuario?.avatar ||
@@ -650,7 +881,6 @@
       membro?.usuario?.avatarURL ||
       membro?.usuario?.picture ||
       membro?.usuario?.pictureUrl ||
-
       ""
     );
   }
@@ -672,7 +902,7 @@
       });
 
       if (!create.res.ok) {
-        showPopup(String(create.data), "error");
+        showPopup(pegarMensagemErroApi(create.data, "Erro ao criar família."), "error");
         return false;
       }
 
@@ -1117,7 +1347,7 @@
     });
 
     if (!res.ok) {
-      showPopup(typeof data === "string" ? data : "Erro ao enviar convite.", "error");
+      showPopup(pegarMensagemErroApi(data, "Erro ao enviar convite."), "error");
       return;
     }
 
@@ -1143,15 +1373,23 @@
       method: "PUT"
     });
 
+    console.log("ACEITAR CONVITE STATUS:", res.status);
+    console.log("ACEITAR CONVITE RESPOSTA:", data);
+
     if (!res.ok) {
-      showPopup(typeof data === "string" ? data : "Erro ao aceitar convite.", "error");
+      const mensagem = pegarMensagemErroApi(data, "Erro ao aceitar convite.");
+      showPopup(mensagem, "error");
+      await syncFamily();
       return;
     }
 
     showPopup("Convite aceito com sucesso!");
 
     await syncFamily();
-    setTimeout(syncFamily, 800);
+
+    setTimeout(() => {
+      syncFamily();
+    }, 800);
   }
 
   async function declineInvite(id) {
@@ -1164,14 +1402,23 @@
       method: "PUT"
     });
 
+    console.log("NEGAR CONVITE STATUS:", res.status);
+    console.log("NEGAR CONVITE RESPOSTA:", data);
+
     if (!res.ok) {
-      showPopup(typeof data === "string" ? data : "Erro ao negar convite.", "error");
+      const mensagem = pegarMensagemErroApi(data, "Erro ao negar convite.");
+      showPopup(mensagem, "error");
+      await syncFamily();
       return;
     }
 
     showPopup("Convite negado.");
 
     await syncFamily();
+
+    setTimeout(() => {
+      syncFamily();
+    }, 800);
   }
 
   async function leaveFamily() {
@@ -1181,7 +1428,7 @@
       });
 
       if (!res.ok) {
-        showPopup(typeof data === "string" ? data : "Erro ao sair da família.", "error");
+        showPopup(pegarMensagemErroApi(data, "Erro ao sair da família."), "error");
         return;
       }
 
@@ -1221,6 +1468,7 @@
       }
 
       const button = document.getElementById("salvar-membro");
+      const textoOriginal = button ? button.textContent : "Adicionar";
 
       if (button) {
         button.disabled = true;
@@ -1231,7 +1479,7 @@
 
       if (button) {
         button.disabled = false;
-        button.textContent = "Adicionar";
+        button.textContent = textoOriginal;
       }
 
       form.reset();
@@ -1252,17 +1500,36 @@
         const action = button.dataset.action;
         const id = button.dataset.id;
 
-        button.disabled = true;
+        const conviteItem = button.closest(".convite-item");
+        const botoesDoConvite = conviteItem
+          ? conviteItem.querySelectorAll("button")
+          : [button];
+
+        const textoOriginal = button.textContent;
+
+        botoesDoConvite.forEach((btn) => {
+          btn.disabled = true;
+          btn.style.opacity = "0.7";
+          btn.style.cursor = "not-allowed";
+        });
 
         if (action === "accept") {
+          button.textContent = "Aceitando...";
           await acceptInvite(id);
         }
 
         if (action === "decline") {
+          button.textContent = "Negando...";
           await declineInvite(id);
         }
 
-        button.disabled = false;
+        button.textContent = textoOriginal;
+
+        botoesDoConvite.forEach((btn) => {
+          btn.disabled = false;
+          btn.style.opacity = "";
+          btn.style.cursor = "";
+        });
       });
     }
 
@@ -1273,14 +1540,21 @@
         if (!button) return;
 
         const action = button.dataset.action;
+        const textoOriginal = button.textContent;
 
         button.disabled = true;
+        button.style.opacity = "0.7";
+        button.style.cursor = "not-allowed";
 
         if (action === "leave-family") {
+          button.textContent = "Saindo...";
           await leaveFamily();
         }
 
+        button.textContent = textoOriginal;
         button.disabled = false;
+        button.style.opacity = "";
+        button.style.cursor = "";
       });
     }
   }

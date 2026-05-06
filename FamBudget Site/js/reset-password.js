@@ -1,15 +1,78 @@
 function abrirPopup(mensagem) {
-  document.getElementById("popup-text").innerText = mensagem;
-  document.getElementById("popup").classList.add("show");
+  const popupText = document.getElementById("popup-text");
+  const popup = document.getElementById("popup");
+
+  if (popupText) {
+    popupText.innerText = mensagem;
+  }
+
+  if (popup) {
+    popup.classList.add("show");
+    popup.classList.remove("hidden");
+  }
 }
 
 function fecharPopup() {
-  document.getElementById("popup").classList.remove("show");
+  const popup = document.getElementById("popup");
+
+  if (popup) {
+    popup.classList.remove("show");
+    popup.classList.add("hidden");
+  }
+}
+
+/* ================= VALIDAR SENHA FORTE ================= */
+function validarSenhaForte(senha) {
+  const temMinimo8 = senha.length >= 8;
+  const temMaiuscula = /[A-Z]/.test(senha);
+  const temMinuscula = /[a-z]/.test(senha);
+  const temNumero = /[0-9]/.test(senha);
+  const temEspecial = /[!@#$%^&*(),.?":{}|<>_\-+=/\\[\];']/g.test(senha);
+
+  return (
+    temMinimo8 &&
+    temMaiuscula &&
+    temMinuscula &&
+    temNumero &&
+    temEspecial
+  );
+}
+
+/* ================= MENSAGEM ABAIXO DA SENHA ================= */
+function atualizarMensagemSenha() {
+  const password = document.getElementById("password");
+  const passwordRequirements = document.getElementById("passwordRequirements");
+
+  if (!password || !passwordRequirements) return;
+
+  const senha = password.value;
+
+  if (!senha) {
+    passwordRequirements.classList.remove("show");
+    passwordRequirements.classList.remove("valid");
+
+    passwordRequirements.innerText =
+      "A senha deve ter no mínimo 8 caracteres, letra maiúscula, letra minúscula, número e caractere especial.";
+
+    return;
+  }
+
+  if (validarSenhaForte(senha)) {
+    passwordRequirements.classList.add("show");
+    passwordRequirements.classList.add("valid");
+    passwordRequirements.innerText = "Senha forte.";
+  } else {
+    passwordRequirements.classList.add("show");
+    passwordRequirements.classList.remove("valid");
+
+    passwordRequirements.innerText =
+      "A senha deve ter no mínimo 8 caracteres, letra maiúscula, letra minúscula, número e caractere especial.";
+  }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
 
-  // 👁️ mostrar/ocultar senha
+  /* ================= OLHO DA SENHA ================= */
   const toggles = document.querySelectorAll(".togglePassword");
 
   toggles.forEach(icon => {
@@ -20,6 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!input) return;
 
       const isPassword = input.type === "password";
+
       input.type = isPassword ? "text" : "password";
 
       icon.classList.toggle("fa-eye");
@@ -27,17 +91,42 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // 🔐 SUBMIT ÚNICO
-  document.getElementById("resetForm").addEventListener("submit", async (e) => {
+  /* ================= SENHA FORTE EM TEMPO REAL ================= */
+  const passwordInput = document.getElementById("password");
+
+  if (passwordInput) {
+    passwordInput.addEventListener("input", atualizarMensagemSenha);
+  }
+
+  /* ================= FORMULÁRIO ================= */
+  const form = document.getElementById("resetForm");
+
+  if (!form) return;
+
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
+
+    const btnResetar = form.querySelector("button[type='submit']");
 
     const password = document.getElementById("password").value.trim();
     const confirmPassword = document.getElementById("confirmPassword").value.trim();
-    const email = sessionStorage.getItem("email");
+
+    const email =
+      sessionStorage.getItem("email") ||
+      sessionStorage.getItem("resetEmail");
+
+    const code =
+      sessionStorage.getItem("code") ||
+      sessionStorage.getItem("resetToken");
+
+    if (!validarSenhaForte(password)) {
+      atualizarMensagemSenha();
+      return;
+    }
 
     if (password !== confirmPassword) {
-      abrirPopup("As senhas não coincidem");
-      return; 
+      abrirPopup("As senhas não coincidem.");
+      return;
     }
 
     if (!email) {
@@ -45,8 +134,19 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
+    if (!code) {
+      abrirPopup("Código inválido ou expirado. Valide o código novamente.");
+      return;
+    }
+
+    if (btnResetar) {
+      btnResetar.disabled = true;
+      btnResetar.innerText = "Redefinindo...";
+    }
+
     const payload = {
       email: email,
+      code: code,
       newPassword: password
     };
 
@@ -64,13 +164,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const text = await response.text();
 
+      console.log("RESET STATUS:", response.status);
+      console.log("RESET RESPONSE:", text);
+
       if (!response.ok) {
-        abrirPopup("Erro ao redefinir senha");
+        abrirPopup("Erro ao redefinir senha.");
         return;
       }
 
       sessionStorage.removeItem("email");
+      sessionStorage.removeItem("resetEmail");
       sessionStorage.removeItem("code");
+      sessionStorage.removeItem("resetToken");
 
       abrirPopup("Senha redefinida com sucesso!");
 
@@ -79,7 +184,14 @@ document.addEventListener("DOMContentLoaded", () => {
       }, 1500);
 
     } catch (error) {
-      abrirPopup("Erro ao conectar com servidor");
+      console.error("ERRO RESET:", error);
+      abrirPopup("Erro ao conectar com servidor.");
+
+    } finally {
+      if (btnResetar) {
+        btnResetar.disabled = false;
+        btnResetar.innerText = "Redefinir senha";
+      }
     }
   });
 

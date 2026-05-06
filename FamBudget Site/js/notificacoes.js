@@ -15,13 +15,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
   inicializarNotificacoes(true);
 
+  setTimeout(() => {
+    inicializarNotificacoes(true);
+  }, 1000);
+
   if (intervaloNotificacoes) {
     clearInterval(intervaloNotificacoes);
   }
 
   intervaloNotificacoes = setInterval(() => {
     inicializarNotificacoes(true);
-  }, 10000);
+  }, 3000);
 
   window.testarToastNotificacao = testarToastNotificacao;
 });
@@ -137,45 +141,38 @@ function inserirCssNotificacoes() {
       position: absolute;
       top: -7px;
       right: -7px;
-
       min-width: 18px;
       height: 18px;
-
       padding: 0 5px;
-
       background: #ef4444;
       color: #ffffff;
-
       border-radius: 999px;
-
       display: none;
       align-items: center;
       justify-content: center;
-
       font-size: 11px;
       font-weight: 700;
-
       border: 2px solid #ffffff;
       z-index: 20;
+    }
+
+    body.dark .badge,
+    body.tema-escuro .badge {
+      border-color: #1a1a1a !important;
     }
 
     .dropdown-notificacao {
       position: fixed;
       top: 72px;
       right: 24px;
-
       width: 360px;
       max-width: calc(100vw - 32px);
       max-height: 430px;
-
       background: #ffffff;
       border-radius: 18px;
-
       box-shadow: 0 18px 45px rgba(15, 23, 42, 0.18);
       border: 1px solid #e5e7eb;
-
       z-index: 99998;
-
       overflow: hidden;
       animation: notificacaoDropdownShow 0.2s ease;
     }
@@ -198,11 +195,9 @@ function inserirCssNotificacoes() {
 
     .dropdown-notificacao-header {
       padding: 16px 18px;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
-
       background: linear-gradient(135deg, #ecfdf5, #ffffff);
       border-bottom: 1px solid #e5e7eb;
     }
@@ -235,13 +230,10 @@ function inserirCssNotificacoes() {
     .notificacao-item {
       display: flex;
       gap: 12px;
-
       padding: 13px;
       border-radius: 14px;
-
       background: #f9fafb;
       border: 1px solid #eef2f7;
-
       margin-bottom: 10px;
     }
 
@@ -256,16 +248,17 @@ function inserirCssNotificacoes() {
     .notificacao-icon {
       width: 42px;
       height: 42px;
-
+      min-width: 42px;
+      min-height: 42px;
       border-radius: 50%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
       flex-shrink: 0;
-
       font-size: 20px;
+      line-height: 1 !important;
+      text-align: center !important;
+      padding: 0 !important;
     }
 
     .notificacao-conteudo {
@@ -314,24 +307,17 @@ function inserirCssNotificacoes() {
       position: fixed;
       top: 90px;
       right: 24px;
-
       width: 360px;
       max-width: calc(100vw - 32px);
-
       background: #ffffff;
       border-radius: 18px;
-
       box-shadow: 0 20px 55px rgba(15, 23, 42, 0.25);
       border: 1px solid #e5e7eb;
-
       padding: 14px;
-
       display: none;
       align-items: flex-start;
       gap: 12px;
-
       z-index: 999999;
-
       animation: toastNotificacaoShow 0.25s ease;
     }
 
@@ -354,16 +340,17 @@ function inserirCssNotificacoes() {
     .toast-notificacao-global .toast-icon {
       width: 44px;
       height: 44px;
-
+      min-width: 44px;
+      min-height: 44px;
       border-radius: 50%;
-
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
       flex-shrink: 0;
-
       font-size: 21px;
+      line-height: 1 !important;
+      text-align: center !important;
+      padding: 0 !important;
     }
 
     .toast-notificacao-global .toast-texto {
@@ -393,7 +380,12 @@ function inserirCssNotificacoes() {
       line-height: 1;
     }
 
-    .toast-notificacao-global.familia {
+    .toast-notificacao-global.familia,
+    .toast-notificacao-global.despesa,
+    .toast-notificacao-global.vencida,
+    .toast-notificacao-global.vencimento,
+    .toast-notificacao-global.cartao,
+    .toast-notificacao-global.orcamento {
       border-left: 5px solid #2e7d32;
     }
 
@@ -401,40 +393,20 @@ function inserirCssNotificacoes() {
       background: #e0f2fe;
     }
 
-    .toast-notificacao-global.despesa {
-      border-left: 5px solid #2e7d32;
-    }
-
     .toast-notificacao-global.despesa .toast-icon {
       background: #fef3c7;
-    }
-
-    .toast-notificacao-global.vencida {
-      border-left: 5px solid #2e7d32;
     }
 
     .toast-notificacao-global.vencida .toast-icon {
       background: #fee2e2;
     }
 
-    .toast-notificacao-global.vencimento {
-      border-left: 5px solid #2e7d32;
-    }
-
     .toast-notificacao-global.vencimento .toast-icon {
       background: #ffedd5;
     }
 
-    .toast-notificacao-global.cartao {
-      border-left: 5px solid #2e7d32;
-    }
-
     .toast-notificacao-global.cartao .toast-icon {
       background: #ede9fe;
-    }
-
-    .toast-notificacao-global.orcamento {
-      border-left: 5px solid #2e7d32;
     }
 
     .toast-notificacao-global.orcamento .toast-icon {
@@ -445,20 +417,88 @@ function inserirCssNotificacoes() {
       position: fixed;
       bottom: 24px;
       right: 24px;
-
       background: #111827;
       color: #ffffff;
-
       padding: 12px 16px;
       border-radius: 12px;
-
       font-size: 14px;
       font-weight: 600;
-
       display: none;
       z-index: 999999;
-
       box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+
+    body.dark .dropdown-notificacao,
+    body.tema-escuro .dropdown-notificacao {
+      background: #1e1e1e !important;
+      border: 1px solid #333 !important;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    body.dark .dropdown-notificacao-header,
+    body.tema-escuro .dropdown-notificacao-header {
+      background: #1e1e1e !important;
+      border-bottom: 1px solid #333 !important;
+    }
+
+    body.dark .dropdown-notificacao-header h3,
+    body.tema-escuro .dropdown-notificacao-header h3 {
+      color: #ffffff !important;
+    }
+
+    body.dark .dropdown-notificacao-header span,
+    body.tema-escuro .dropdown-notificacao-header span {
+      color: #d1d5db !important;
+    }
+
+    body.dark .notificacao-vazia,
+    body.tema-escuro .notificacao-vazia {
+      color: #d1d5db !important;
+    }
+
+    body.dark .notificacao-item,
+    body.tema-escuro .notificacao-item {
+      background: #1e1e1e !important;
+      border: 1px solid #333 !important;
+      color: #ffffff !important;
+    }
+
+    body.dark .notificacao-item:hover,
+    body.tema-escuro .notificacao-item:hover {
+      background: #2a2a2a !important;
+    }
+
+    body.dark .notificacao-conteudo strong,
+    body.tema-escuro .notificacao-conteudo strong {
+      color: #ffffff !important;
+    }
+
+    body.dark .notificacao-conteudo p,
+    body.tema-escuro .notificacao-conteudo p {
+      color: #d1d5db !important;
+    }
+
+    body.dark .toast-notificacao-global,
+    body.tema-escuro .toast-notificacao-global {
+      background: #1e1e1e !important;
+      border: 1px solid #333 !important;
+      color: #ffffff !important;
+      box-shadow: 0 20px 55px rgba(0, 0, 0, 0.5) !important;
+    }
+
+    body.dark .toast-notificacao-global strong,
+    body.tema-escuro .toast-notificacao-global strong {
+      color: #ffffff !important;
+    }
+
+    body.dark .toast-notificacao-global p,
+    body.tema-escuro .toast-notificacao-global p {
+      color: #d1d5db !important;
+    }
+
+    body.dark .toast-notificacao-global .toast-fechar,
+    body.tema-escuro .toast-notificacao-global .toast-fechar {
+      color: #d1d5db !important;
     }
 
     @media (max-width: 600px) {
@@ -613,30 +653,27 @@ function transformarEmArrayNotificacoes(data) {
 /* ================= PREFERÊNCIAS ================= */
 function carregarPreferenciasNotificacoes() {
   const inputNotificacoes = document.getElementById("notificacoesSistema");
-  const inputOrcamento = document.getElementById("lembreteOrcamento");
+  const inputLembreteFatura = document.getElementById("lembreteOrcamento");
 
   if (inputNotificacoes) {
     inputNotificacoes.checked = preferenciaAtiva("notificacoesSistema");
   }
 
-  if (inputOrcamento) {
-    inputOrcamento.checked = preferenciaAtiva("lembreteOrcamento");
+  if (inputLembreteFatura) {
+    inputLembreteFatura.checked = preferenciaAtiva("lembreteFaturaCartao");
   }
 }
 
 function configurarPreferenciasNotificacoes() {
   const inputNotificacoes = document.getElementById("notificacoesSistema");
-  const inputOrcamento = document.getElementById("lembreteOrcamento");
+  const inputLembreteFatura = document.getElementById("lembreteOrcamento");
 
   if (inputNotificacoes) {
     inputNotificacoes.addEventListener("change", () => {
       salvarPreferenciaNotificacao("notificacoesSistema", inputNotificacoes.checked);
 
-      const badge = document.getElementById("badge-notificacao");
-
-      if (!inputNotificacoes.checked && badge) {
-        badge.textContent = "0";
-        badge.style.display = "none";
+      if (!inputNotificacoes.checked) {
+        limparTodasNotificacoesDaTela();
       }
 
       mostrarToastNotificacao(
@@ -649,14 +686,14 @@ function configurarPreferenciasNotificacoes() {
     });
   }
 
-  if (inputOrcamento) {
-    inputOrcamento.addEventListener("change", () => {
-      salvarPreferenciaNotificacao("lembreteOrcamento", inputOrcamento.checked);
+  if (inputLembreteFatura) {
+    inputLembreteFatura.addEventListener("change", () => {
+      salvarPreferenciaNotificacao("lembreteFaturaCartao", inputLembreteFatura.checked);
 
       mostrarToastNotificacao(
-        inputOrcamento.checked
-          ? "Lembrete de orçamento ativado."
-          : "Lembrete de orçamento desativado."
+        inputLembreteFatura.checked
+          ? "Lembrete da fatura ativado."
+          : "Lembrete da fatura desativado."
       );
 
       inicializarNotificacoes(true);
@@ -870,7 +907,7 @@ async function buscarNotificacoesConvitesFamilia() {
   return notificacoes;
 }
 
-/* ================= CARTÃO ================= */
+/* ================= CARTÃO / FATURA ================= */
 function buscarNotificacaoCartao() {
   const notificacoes = [];
 
@@ -878,43 +915,81 @@ function buscarNotificacaoCartao() {
     return notificacoes;
   }
 
+  if (!preferenciaAtiva("lembreteFaturaCartao")) {
+    return notificacoes;
+  }
+
   const userKey = getUserKeyNotificacoes();
 
   const diaSalvo =
     localStorage.getItem(`${userKey}_pagamentoCartao`) ||
+    localStorage.getItem("pagamentoCartao") ||
     sessionStorage.getItem("pagamentoCartao");
 
-  if (!diaSalvo) return notificacoes;
+  console.log("DIA DO CARTÃO SALVO:", diaSalvo);
+
+  if (!diaSalvo) {
+    console.warn("Nenhum dia de pagamento do cartão foi encontrado.");
+    return notificacoes;
+  }
 
   const dia = Number(diaSalvo);
 
   if (!dia || dia < 1 || dia > 31) {
+    console.warn("Dia de pagamento do cartão inválido:", diaSalvo);
     return notificacoes;
   }
 
   const hoje = new Date();
+  hoje.setHours(0, 0, 0, 0);
+
   const ano = hoje.getFullYear();
   const mes = hoje.getMonth();
 
-  let dataPagamento = new Date(ano, mes, dia, 12, 0, 0);
+  let dataPagamento = new Date(ano, mes, dia);
+  dataPagamento.setHours(0, 0, 0, 0);
 
   if (dataPagamento < hoje) {
-    dataPagamento = new Date(ano, mes + 1, dia, 12, 0, 0);
+    dataPagamento = new Date(ano, mes + 1, dia);
+    dataPagamento.setHours(0, 0, 0, 0);
   }
 
   const dias = diasAte(dataPagamento);
 
-  if (dias <= 3) {
-    notificacoes.push({
-      id: `cartao-${dia}-${dataPagamento.getMonth()}-${dataPagamento.getFullYear()}`,
-      tipo: "cartao",
-      titulo: "Pagamento do cartão",
-      texto: dias === 0
-        ? `Seu cartão vence hoje, dia ${dia}.`
-        : `Seu cartão vence em ${dias} dia(s), no dia ${dia}.`,
-      icone: "💳"
-    });
+  console.log("DIAS ATÉ VENCIMENTO DA FATURA:", dias);
+
+  const deveNotificar =
+    dias === 7 ||
+    dias === 3 ||
+    dias === 0;
+
+  if (!deveNotificar) {
+    return notificacoes;
   }
+
+  let titulo = "Vencimento da fatura";
+  let texto = "";
+
+  if (dias === 7) {
+    texto = `Sua fatura do cartão vence em 7 dias, no dia ${dia}.`;
+  }
+
+  if (dias === 3) {
+    texto = `Atenção! Sua fatura do cartão vence em 3 dias, no dia ${dia}.`;
+  }
+
+  if (dias === 0) {
+    titulo = "Fatura vence hoje";
+    texto = `Sua fatura do cartão vence hoje, dia ${dia}.`;
+  }
+
+  notificacoes.push({
+    id: `cartao-${dia}-${dataPagamento.getMonth()}-${dataPagamento.getFullYear()}-${dias}`,
+    tipo: "cartao",
+    titulo,
+    texto,
+    icone: "💳"
+  });
 
   return notificacoes;
 }
@@ -924,10 +999,6 @@ function buscarNotificacoesOrcamento() {
   const notificacoes = [];
 
   if (!preferenciaAtiva("notificacoesSistema")) {
-    return notificacoes;
-  }
-
-  if (!preferenciaAtiva("lembreteOrcamento")) {
     return notificacoes;
   }
 
@@ -1019,55 +1090,19 @@ function normalizarTextoNotificacao(texto) {
     .replace(/[\u0300-\u036f]/g, "");
 }
 
-/* ================= INICIALIZAR ================= */
-async function inicializarNotificacoes(verificarNovas = false) {
-  const badge = document.getElementById("badge-notificacao");
-
-  if (!preferenciaAtiva("notificacoesSistema")) {
-    if (badge) {
-      badge.textContent = "0";
-      badge.style.display = "none";
-    }
-
-    notificacoesAtuais = [];
-    renderizarPainelNotificacoes([]);
-    return;
-  }
-
-  const notificacoes = [];
-
-  const notificacoesConvites = await buscarNotificacoesConvitesFamilia();
-  const notificacoesDespesas = await buscarNotificacoesDespesas();
-  const notificacaoCartao = buscarNotificacaoCartao();
-  const notificacoesOrcamento = buscarNotificacoesOrcamento();
-
-  notificacoes.push(
-    ...notificacoesConvites,
-    ...notificacoesDespesas,
-    ...notificacaoCartao,
-    ...notificacoesOrcamento
-  );
-
-  console.log("NOTIFICAÇÕES FINAIS:", notificacoes);
-
-  notificacoesAtuais = notificacoes;
-
-  renderizarNotificacoes(notificacoes);
-  renderizarPainelNotificacoes(notificacoes);
-
-  if (verificarNovas) {
-    verificarEMostrarNovasNotificacoes(notificacoes);
-  }
+/* ================= ASSINATURA ================= */
+function criarAssinaturaNotificacao(notificacao) {
+  return `${notificacao.id || ""}|${notificacao.tipo}|${notificacao.titulo}|${notificacao.texto}`;
 }
 
 /* ================= NOTIFICAÇÕES VISUALIZADAS ================= */
 function getChaveNotificacoesVisualizadas() {
-  return `${getUserKeyNotificacoes()}_notificacoesVisualizadasNestaAba`;
+  return `${getUserKeyNotificacoes()}_notificacoesVisualizadas`;
 }
 
 function buscarNotificacoesVisualizadas() {
   try {
-    const dados = sessionStorage.getItem(getChaveNotificacoesVisualizadas());
+    const dados = localStorage.getItem(getChaveNotificacoesVisualizadas());
 
     if (!dados) return [];
 
@@ -1080,13 +1115,15 @@ function buscarNotificacoesVisualizadas() {
 }
 
 function salvarNotificacoesVisualizadas(lista) {
-  sessionStorage.setItem(
+  localStorage.setItem(
     getChaveNotificacoesVisualizadas(),
-    JSON.stringify(lista.slice(-120))
+    JSON.stringify(lista.slice(-300))
   );
 }
 
 function marcarNotificacoesComoVisualizadas(notificacoes) {
+  if (!Array.isArray(notificacoes) || !notificacoes.length) return;
+
   const visualizadas = buscarNotificacoesVisualizadas();
 
   const novasAssinaturas = notificacoes.map(criarAssinaturaNotificacao);
@@ -1110,16 +1147,62 @@ function buscarNotificacoesNaoVisualizadas(notificacoes) {
   });
 }
 
-/* ================= RENDER BADGE ================= */
-function renderizarNotificacoes(notificacoes) {
+/* ================= INICIALIZAR ================= */
+async function inicializarNotificacoes(verificarNovas = false) {
   const badge = document.getElementById("badge-notificacao");
 
-  if (!badge) return;
+  if (!preferenciaAtiva("notificacoesSistema")) {
+    limparTodasNotificacoesDaTela();
+    notificacoesAtuais = [];
+    return;
+  }
 
-  const naoVisualizadas = buscarNotificacoesNaoVisualizadas(notificacoes);
+  const notificacoes = [];
 
-  badge.textContent = naoVisualizadas.length;
-  badge.style.display = naoVisualizadas.length > 0 ? "inline-flex" : "none";
+  const notificacoesConvites = await buscarNotificacoesConvitesFamilia();
+  const notificacoesDespesas = await buscarNotificacoesDespesas();
+  const notificacaoCartao = buscarNotificacaoCartao();
+  const notificacoesOrcamento = buscarNotificacoesOrcamento();
+
+  notificacoes.push(
+    ...notificacoesConvites,
+    ...notificacoesDespesas,
+    ...notificacaoCartao,
+    ...notificacoesOrcamento
+  );
+
+  console.log("NOTIFICAÇÕES FINAIS:", notificacoes);
+
+  notificacoesAtuais = notificacoes;
+
+  const notificacoesNaoVisualizadas =
+    buscarNotificacoesNaoVisualizadas(notificacoes);
+
+  if (badge) {
+    badge.textContent = notificacoesNaoVisualizadas.length;
+    badge.style.display =
+      notificacoesNaoVisualizadas.length > 0 ? "inline-flex" : "none";
+  }
+
+  renderizarPainelNotificacoes(notificacoesNaoVisualizadas);
+
+  if (verificarNovas) {
+    verificarEMostrarNovasNotificacoes(notificacoesNaoVisualizadas);
+  }
+}
+
+/* ================= LIMPAR TELA ================= */
+function limparTodasNotificacoesDaTela() {
+  const badge = document.getElementById("badge-notificacao");
+
+  if (badge) {
+    badge.textContent = "0";
+    badge.style.display = "none";
+  }
+
+  notificacoesAtuais = [];
+  renderizarPainelNotificacoes([]);
+  esconderToastNotificacaoGlobal();
 }
 
 /* ================= RENDER PAINEL ================= */
@@ -1170,15 +1253,21 @@ function configurarCliqueSino() {
   sino.onclick = (e) => {
     e.stopPropagation();
 
+    const vaiAbrir = dropdown.classList.contains("hidden");
+
     dropdown.classList.toggle("hidden");
 
     esconderToastNotificacaoGlobal();
 
-    marcarNotificacoesComoVisualizadas(notificacoesAtuais);
+    if (vaiAbrir) {
+      marcarNotificacoesComoVisualizadas(notificacoesAtuais);
 
-    if (badge) {
-      badge.textContent = "0";
-      badge.style.display = "none";
+      if (badge) {
+        badge.textContent = "0";
+        badge.style.display = "none";
+      }
+
+      renderizarPainelNotificacoes([]);
     }
   };
 
@@ -1192,10 +1281,6 @@ function configurarCliqueSino() {
 }
 
 /* ================= DETECTAR NOVAS PARA TOAST ================= */
-function criarAssinaturaNotificacao(notificacao) {
-  return `${notificacao.id || ""}|${notificacao.tipo}|${notificacao.titulo}|${notificacao.texto}`;
-}
-
 function getChaveSessaoNotificacoes() {
   return `${getUserKeyNotificacoes()}_notificacoesMostradasNestaAba`;
 }
@@ -1229,9 +1314,17 @@ function verificarEMostrarNovasNotificacoes(notificacoes) {
     return;
   }
 
+  const notificacoesNaoVisualizadas =
+    buscarNotificacoesNaoVisualizadas(notificacoes);
+
+  if (!notificacoesNaoVisualizadas.length) {
+    console.log("Todas as notificações já foram visualizadas.");
+    return;
+  }
+
   const mostradasNestaAba = buscarNotificacoesMostradasNestaAba();
 
-  const novas = notificacoes.filter((notificacao) => {
+  const novas = notificacoesNaoVisualizadas.filter((notificacao) => {
     const assinatura = criarAssinaturaNotificacao(notificacao);
     return !mostradasNestaAba.includes(assinatura);
   });

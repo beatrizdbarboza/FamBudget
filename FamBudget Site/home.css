@@ -11,7 +11,6 @@ body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
   
-
 .layout {
     display: flex;
     height: calc(100vh - 70px);
@@ -35,7 +34,6 @@ body {
   
 .sidebar h2 {
     color: #2e7d32;
-
 }
   
 .menu {
@@ -43,10 +41,15 @@ body {
 }
   
 .menu li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
     padding: 12px;
     margin-bottom: 10px;
     border-radius: 8px;
     cursor: pointer;
+
     color: #555;
     transition: 0.3s;
 }
@@ -54,6 +57,11 @@ body {
 .menu li:hover {
     background: #e8f5e9;
     color: #2e7d32;
+}
+
+.menu li img {
+    width: 20px;
+    height: 20px;
 }
   
 .divider {
@@ -66,7 +74,6 @@ body {
 .main-content {
     margin-left: 220px;
     margin-top: 70px;
-    width: 100%;
     width: calc(100% - 220px);
 }
   
@@ -76,33 +83,33 @@ body {
     height: 70px;
     display: flex;
     position: fixed;
-    justify-content: space-between; /* separa esquerda e direita */
+    justify-content: space-between;
     align-items: center;
     background: #ffffff;
     padding: 15px 25px;
     border-bottom: 1px solid #e0e0e0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.08);
     margin: 0 0 20px 0;
-
+    z-index: 1000;
 }
 
-.conteudo{
+.conteudo {
     padding: 30px;
 }
 
-.logo{
+.logo {
     display: flex;
     align-items: center;
     gap: 10px;
 }
 
-.logo img{
+.logo img {
     width: 35px;
     height: 35px;
     object-fit: contain;
 }
 
-.logo span{
+.logo span {
     font-size: 20px;
     font-weight: bold;
     color: #2e7d32;
@@ -126,7 +133,7 @@ body {
     background: linear-gradient(135deg, #2e7d32, rgb(78, 187, 10));
 }
   
-.user span:hover{
+.user span:hover {
     cursor: pointer;
 }
 
@@ -136,10 +143,12 @@ body {
     border-radius: 14px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
-.card h1{
+
+.card h1 {
     padding-bottom: 10px;
 }
-.card h3{
+
+.card h3 {
     font-weight: 400;
     font-size: 15px;
     color: #555;
@@ -152,11 +161,10 @@ body {
 .titulo-orcamento {
     display: flex;
     align-items: center;
-    gap: 8px; /* espaço entre ícone e texto */
+    gap: 8px;
     margin-bottom: 10px;
 }
 
-/* tamanho do ícone */
 .titulo-orcamento img {
     width: 18px;
     height: 18px;
@@ -172,17 +180,14 @@ body {
     gap: 10px;
 }
 
-/* seta */
 #seta {
     font-size: 20px;
 }
 
-/* positivo */
 .positivo {
     color: #2e7d32;
 }
 
-/* negativo */
 .negativo {
     color: #d32f2f;
 }
@@ -192,7 +197,6 @@ body {
     margin-top: 5px;
 }
 
-/* cores */
 .mensagem.positivo {
     color: #2e7d32;
 }
@@ -207,8 +211,8 @@ body {
     margin-top: 20px;
 }
 
-.resumo{
-    flex: 1; /* 🔥 divide espaço igualmente */
+.resumo {
+    flex: 1;
     padding: 20px;
     border-radius: 16px;
     color: #1c1c1c;
@@ -226,7 +230,6 @@ body {
     box-shadow: 0 10px 20px rgba(0,0,0,0.15);
 }
 
-/* TOPO (ícone + texto) */
 .card-top {
     display: flex;
     align-items: center;
@@ -241,14 +244,14 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.15)
+    box-shadow: 0 2px 6px rgba(0,0,0,0.15);
 }
+
 .card-top img {
     width: 28px;
     height: 28px;
 }
 
-/* TEXTO */
 .resumo span {
     font-size: 16px;
     font-weight: 500;
@@ -268,7 +271,6 @@ body {
     background: #f4b942;
 }
 
-/* 💰 RECEITAS */
 .card-resumo-receitas {
     background: linear-gradient(135deg, #74ebd5, #74a9ff);
 }
@@ -283,12 +285,12 @@ body {
 }
 
 /* NOTIFICAÇÃO */
-
 .notificacao {
   position: relative;
   display: inline-block;
 }
 
+/* ORÇAMENTO */
 .orcamento-container {
     display: flex;
     align-items: center;
@@ -301,22 +303,20 @@ body {
     appearance: none;
 }
 
-/* fundo da barra */
 #orcamento::-webkit-progress-bar {
     background-color: #e5e7eb;
-    border-radius: 10px;;
+    border-radius: 10px;
 }
 
-/* parte preenchida */
 #orcamento::-webkit-progress-value {
     background-color: #2e7d32;
     border-radius: 10px;
 }
 
-/* Firefox */
 #orcamento::-moz-progress-bar {
     background-color: #2e7d32;
 }
+
 .porcentagem {
     font-size: 12px;
     color: #555;
@@ -351,52 +351,6 @@ body {
     background: #2e7d32;
 }
 
-.menu li {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-
-    padding: 12px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-
-    color: #555;
-    transition: 0.3s;
-}
-
-.menu li img {
-    width: 20px;
-    height: 20px;
-}
-
-@media (max-width: 600px) {
-    .cards {
-        flex-direction: column;
-    }
-}
-
-.positivo {
-    color: #2e7d32;
-}
-
-.negativo {
-    color: #d32f2f;
-}
-
-.mensagem {
-    font-size: 14px;
-    margin-top: 5px;
-}
-
-.mensagem.positivo {
-    color: #2e7d32;
-}
-
-.mensagem.negativo {
-    color: #d32f2f;
-}
-
 .seta-positiva {
   color: #2e7d32;
 }
@@ -405,14 +359,14 @@ body {
   color: #d32f2f;
 }
 
-/* Família */
+/* ================= FAMÍLIA ================= */
 .familia-lista {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.familia-card{
+.familia-card {
     margin-top: 20px;
     width: 100%;
     max-width: 100%;
@@ -430,38 +384,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.membro {
-    padding: 10px;
-    border-radius: 8px;
-    background: #ffffff;
-}
-
-.membro-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.avatar-mini {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: #2e7d32;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
-
-.btn-remove {
-    background: none;
-    border: none;
-    color: #d32f2f;
-    font-size: 18px;
-    cursor: pointer;
 }
 
 .titulo-card {
@@ -493,112 +415,142 @@ body {
   transform: translateY(-1px);
 }
 
-/* FUNDO ESCURO */
+/* ================= MODAL ADICIONAR MEMBRO ================= */
+
 .modal {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
+  display: none;
+  position: fixed;
+  inset: 0;
 
-    align-items: center;
-    justify-content: center;
+  width: 100%;
+  height: 100%;
 
-    backdrop-filter: blur(4px); /* 🔥 efeito moderno */
-    z-index: 999;
+  background: rgba(0, 0, 0, 0.6);
+
+  align-items: center;
+  justify-content: center;
+
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+
+  padding: 20px;
 }
 
-/* CAIXA */
 .modal-content {
-    background: #ffffff;
-    padding: 25px;
-    border-radius: 16px;
-    width: 100%;
-    max-width: 350px;
+  position: relative;
 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-    animation: aparecer 0.3s ease;
-    position: relative;
+  width: 100%;
+  max-width: 380px;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+
+  padding: 28px 24px 24px;
+
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2);
+  animation: aparecer 0.25s ease;
 }
 
-/* ANIMAÇÃO */
 @keyframes aparecer {
   from {
-    transform: scale(0.9);
+    transform: scale(0.94);
     opacity: 0;
   }
+
   to {
     transform: scale(1);
     opacity: 1;
   }
 }
 
-/* BOTÃO FECHAR */
 .fechar {
   position: absolute;
   top: 12px;
-  right: 15px;
-  font-size: 22px;
+  right: 14px;
+
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+
+  color: #6b7280;
+  font-size: 28px;
+  font-weight: 400;
+  line-height: 1;
   cursor: pointer;
-  color: #999;
+
+  width: auto;
+  height: auto;
+  padding: 0;
+  margin: 0;
+
+  display: block;
 }
 
 .fechar:hover {
-  color: #000;
+  background: transparent !important;
+  color: #1118;
 }
 
-/* TITULO */
 .modal-content h2 {
-  margin-bottom: 15px;
-  font-size: 20px;
+  margin-bottom: 18px;
+  font-size: 22px;
   text-align: center;
+  color: #1118;
 }
 
 .modal-content h3 {
   margin-bottom: 15px;
   font-size: 10px;
   text-align: center;
-  color: #555;
+  color: #5e6063;
   font-weight: 400;
 }
 
-/* FORM */
 #form-familia {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
 }
 
-/* INPUT BONITO */
 #form-familia input {
-  padding: 12px;
-  border-radius: 10px;
-  border: 1px solid #ddd;
+  width: 100%;
+  padding: 13px 14px;
+
+  border-radius: 12px;
+  border: 1px solid #d1d5db;
+
   outline: none;
-  font-size: 14px;
+  font-size: 15px;
+
   transition: 0.2s;
+
+  background: #ffffff;
+  color: #1118;
 }
 
 #form-familia input:focus {
   border-color: #2e7d32;
-  box-shadow: 0 0 0 2px rgba(46,125,50,0.15);
+  box-shadow: 0 0 0 3px rgba(46,125,50,0.14);
 }
 
 #form-familia input::placeholder {
-  color: #aaa;
+  color: #9ca3af;
 }
 
-/* BOTÃO */
 #form-familia button {
   background: #2e7d32;
   color: white;
+
   border: none;
-  padding: 12px;
-  border-radius: 10px;
+  padding: 13px;
+  border-radius: 12px;
+
   cursor: pointer;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 15px;
+
   transition: 0.2s;
 }
 
@@ -607,23 +559,24 @@ body {
   transform: translateY(-1px);
 }
 
+/* ================= STATUS ================= */
+
 .status {
   font-size: 12px;
   margin-top: 3px;
   font-weight: 500;
 }
 
-/* pendente */
 .status.pending {
   color: #f9a825;
 }
 
-/* aceito */
 .status.accepted {
   color: #2e7d32;
 }
 
-/* CONVITES */
+/* ================= CONVITES ================= */
+
 .convites-card {
   margin-top: 20px;
 }
@@ -635,195 +588,6 @@ body {
   gap: 12px;
 }
 
-/* item */
-.convite-item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  padding: 12px;
-  border-radius: 10px;
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-}
-
-/* info */
-.convite-info {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-/* avatar */
-.avatar-convite {
-  width: 35px;
-  height: 35px;
-  border-radius: 50%;
-  background: #2e7d32;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-}
-
-/* email */
-.convite-info span {
-  font-size: 14px;
-  color: #333;
-}
-
-/* ações */
-.convite-acoes {
-  display: flex;
-  gap: 8px;
-}
-
-/* botão aceitar */
-.btn-aceitar {
-  background: #2e7d32;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.btn-aceitar:hover {
-  background: #1b5e20;
-}
-
-/* botão recusar */
-.btn-recusar {
-  background: #ef5350;
-  color: white;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-}
-
-.btn-recusar:hover {
-  background: #c62828;
-}
-
-/* vazio */
-.sem-convites {
-  text-align: center;
-  color: #777;
-  font-size: 14px;
-}
-
-.icon-circle-familia {
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-
-  background: rgba(46, 125, 50, 0.1); /* 🔥 verde claro */
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  margin: 0 auto 10px; /* 🔥 centraliza */
-}
-
-.icon-circle-familia img {
-  width: 28px;
-  height: 28px;
-}
-
-/* ================= FAMÍLIA - MEMBROS ================= */
-.membro {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-
-  padding: 12px 16px;
-  margin-bottom: 12px;
-
-  transition: 0.2s ease;
-}
-
-.membro:hover {
-  background: #f9fafb;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.membro-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.avatar-mini {
-  width: 38px;
-  height: 38px;
-
-  border-radius: 50%;
-  background: linear-gradient(135deg, #2e7d32, #43a047);
-
-  color: #ffffff;
-  font-weight: 700;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.membro-info span {
-  font-size: 15px;
-  color: #222;
-  font-weight: 500;
-}
-
-.membro-info small {
-  color: #2e7d32;
-  font-size: 13px;
-  font-weight: 600;
-}
-
-/* BOTÃO SAIR DA FAMÍLIA */
-.btn-remove {
-  background: #ffffff;
-  color: #d32f2f;
-
-  border: 1px solid #d32f2f;
-  border-radius: 10px;
-
-  padding: 8px 14px;
-
-  cursor: pointer;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  transition: 0.2s ease;
-}
-
-.btn-remove:hover {
-  background: #d32f2f;
-  color: #ffffff;
-
-  transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(211, 47, 47, 0.25);
-}
-
-.btn-remove:active {
-  transform: scale(0.97);
-}
-
-.btn-remove:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* ================= CONVITES ================= */
 .convite-item {
   display: flex;
   align-items: center;
@@ -924,7 +688,140 @@ body {
   transform: translateY(-1px);
 }
 
+.sem-convites {
+  text-align: center;
+  color: #777;
+  font-size: 14px;
+}
+
+/* ================= FAMÍLIA - MEMBROS ================= */
+
+.membro {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  padding: 12px 16px;
+  margin-bottom: 12px;
+
+  transition: 0.2s ease;
+}
+
+.membro:hover {
+  background: #f9fafb;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.membro-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar-mini {
+  width: 38px;
+  height: 38px;
+
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2e7d32, #43a047);
+
+  color: #ffffff;
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.membro-info span {
+  font-size: 15px;
+  color: #222;
+  font-weight: 500;
+}
+
+.membro-info small {
+  color: #2e7d32;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.membro-dados {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.membro-dados span {
+  font-size: 15px;
+  color: #222;
+  font-weight: 600;
+}
+
+.membro-dados small {
+  font-size: 12px;
+  color: #777;
+}
+
+.btn-remove {
+  background: #ffffff;
+  color: #d32f2f;
+
+  border: 1px solid #d32f2f;
+  border-radius: 10px;
+
+  padding: 8px 14px;
+
+  cursor: pointer;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  transition: 0.2s ease;
+}
+
+.btn-remove:hover {
+  background: #d32f2f;
+  color: #ffffff;
+
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(211, 47, 47, 0.25);
+}
+
+.btn-remove:active {
+  transform: scale(0.97);
+}
+
+.btn-remove:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.icon-circle-familia {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+
+  background: rgba(46, 125, 50, 0.1);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin: 0 auto 10px;
+}
+
+.icon-circle-familia img {
+  width: 28px;
+  height: 28px;
+}
+
 /* ================= POPUP CONFIRMAÇÃO ================= */
+
 .popup-confirmacao-overlay {
   position: fixed;
   inset: 0;
@@ -1045,184 +942,20 @@ body {
   transform: translateY(-1px);
 }
 
-/* ================= FAMÍLIA - MEMBROS ================= */
-.membro {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
+/* ================= RESPONSIVO ================= */
 
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
+@media (max-width: 600px) {
+    .cards {
+        flex-direction: column;
+    }
 
-  padding: 12px 16px;
-  margin-bottom: 12px;
+    .convite-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
 
-  transition: 0.2s ease;
-}
-
-.membro:hover {
-  background: #f9fafb;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.membro-info {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.avatar-mini {
-  width: 38px;
-  height: 38px;
-
-  border-radius: 50%;
-  background: linear-gradient(135deg, #2e7d32, #43a047);
-
-  color: #ffffff;
-  font-weight: 700;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.membro-dados {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.membro-dados span {
-  font-size: 15px;
-  color: #222;
-  font-weight: 600;
-}
-
-.membro-dados small {
-  font-size: 12px;
-  color: #777;
-}
-
-/* BOTÃO SAIR DA FAMÍLIA */
-.btn-remove {
-  background: #ffffff;
-  color: #d32f2f;
-
-  border: 1px solid #d32f2f;
-  border-radius: 10px;
-
-  padding: 8px 14px;
-
-  cursor: pointer;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  transition: 0.2s ease;
-}
-
-.btn-remove:hover {
-  background: #d32f2f;
-  color: #ffffff;
-
-  transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(211, 47, 47, 0.25);
-}
-
-.btn-remove:active {
-  transform: scale(0.97);
-}
-
-.btn-remove:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* ================= MODO ESCURO - FAMÍLIA ================= */
-
-body.dark .familia-card {
-  background: #1f1f1f;
-  color: #ffffff;
-  border: none;
-  box-shadow: none;
-}
-
-body.dark .familia-card h3,
-body.dark .familia-card .titulo-card {
-  color: #ffffff;
-}
-
-body.dark .familia-card .divider {
-  background: #6b7280;
-}
-
-/* Cards dos membros */
-body.dark .membro {
-  background: #262626;
-  border: 1px solid #d1d5db;
-  color: #ffffff;
-}
-
-body.dark .membro:hover {
-  background: #2f2f2f;
-  box-shadow: none;
-}
-
-body.dark .membro-info span,
-body.dark .membro-dados span {
-  color: #ffffff;
-}
-
-body.dark .membro-info small,
-body.dark .membro-dados small {
-  color: #d1d5db;
-}
-
-/* Avatar menor */
-body.dark .avatar-mini {
-  background: linear-gradient(135deg, #2e7d32, #43a047);
-  color: #ffffff;
-}
-
-/* Botão remover/sair da família - modo escuro */
-body.dark .btn-remove {
-  background: transparent;
-  color: #ef5350;
-
-  border: 1px solid #ef5350;
-  border-radius: 10px;
-
-  padding: 6px 10px;
-
-  font-size: 14px;
-  font-weight: 600;
-
-  cursor: pointer;
-  transition: 0.2s ease;
-}
-
-body.dark .btn-remove:hover {
-  background: #ef5350;
-  color: #ffffff;
-
-  transform: translateY(-1px);
-  box-shadow: 0 6px 14px rgba(239, 83, 80, 0.25);
-}
-
-body.dark .btn-remove:active {
-  transform: scale(0.97);
-}
-
-body.dark .btn-remove:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
-
-/* Se o botão vier vazio, mostra "Sair" sem aumentar o tamanho */
-body.dark .btn-remove:empty::before {
-  content: "Sair";
-  font-size: 14px;
-  font-weight: 600;
+    .acoes {
+      width: 100%;
+      justify-content: flex-end;
+    }
 }

@@ -47,9 +47,9 @@
           Início
         </li>
 
-        <li data-link="extratos.html">
+        <li data-link="transacoes.html">
           <img src="imagem/carteira.png" alt="">
-          Extratos
+          Transações
         </li>
 
         <li data-link="despesas.html">
@@ -162,9 +162,78 @@
         <p>Dica: acompanhe suas categorias de maior gasto para ajustar melhor seus orçamentos.</p>
       </section>
 
+      <!-- ================= DADOS ================= -->
+      <section class="card dados-card">
+        <div class="titulo-dados">
+          <div class="icone-titulo-dados">
+            <img src="imagem/iconConfig/categories.png" alt="">
+          </div>
+
+          <h2>Dados</h2>
+        </div>
+
+        <div class="linha-dados"></div>
+
+        <div class="dados-opcoes">
+
+          <div class="dados-box dados-exportar">
+            <div class="dados-info">
+              <div class="dados-icone">
+                <span>⬇</span>
+              </div>
+
+              <div>
+                <h3>Exportar Dados</h3>
+                <p>Baixe suas transações em arquivo CSV</p>
+              </div>
+            </div>
+
+            <button type="button" class="btn-exportar-dados" id="btn-exportar-dados">
+              Exportar
+            </button>
+          </div>
+
+          <div class="dados-box dados-limpar">
+            <div class="dados-info">
+              <div class="dados-icone">
+                <span>🗑</span>
+              </div>
+
+              <div>
+                <h3>Limpar Dados</h3>
+                <p>Remover todas as transações</p>
+              </div>
+            </div>
+
+            <button type="button" class="btn-limpar-dados" id="btn-limpar-dados">
+              Limpar
+            </button>
+          </div>
+
+        </div>
+      </section>
+
     </div>
   </main>
 
+</div>
+
+<!-- POPUP LIMPAR DADOS -->
+<div class="popup-dados" id="popup-dados">
+  <div class="popup-dados-card">
+    <h3>Limpar dados?</h3>
+    <p>Essa ação removerá todas as transações salvas neste navegador.</p>
+
+    <div class="popup-dados-botoes">
+      <button type="button" class="btn-cancelar-dados" id="btn-cancelar-dados">
+        Cancelar
+      </button>
+
+      <button type="button" class="btn-confirmar-dados" id="btn-confirmar-dados">
+        Sim, limpar
+      </button>
+    </div>
+  </div>
 </div>
 
 <script>
@@ -199,8 +268,10 @@
 
 <script src="js/api.js"></script>
 <script src="js/authGuard.js"></script>
+<script src="js/tema.js"></script>
 <script src="js/notificacoes.js"></script>
 <script src="js/categorias.js" defer></script>
+<script src="js/dados.js" defer></script>
 <script src="main.js" defer></script>
 
 </body>

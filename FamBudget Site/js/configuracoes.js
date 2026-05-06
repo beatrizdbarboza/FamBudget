@@ -623,3 +623,93 @@ function configurarPreferenciasPerfil() {
     });
   }
 }
+
+/* ================= ALTERAR SENHA POR CÓDIGO ================= */
+
+const API_URL_CONFIG = "https://www.manage-control-dev.com.br/api/v1";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btnAlterarSenha = document.getElementById("btnAlterarSenha");
+
+  if (btnAlterarSenha) {
+    btnAlterarSenha.addEventListener("click", enviarCodigoAlterarSenha);
+  }
+});
+
+async function enviarCodigoAlterarSenha() {
+  const btnAlterarSenha = document.getElementById("btnAlterarSenha");
+
+  const email =
+    sessionStorage.getItem("emailUsuario") ||
+    localStorage.getItem("emailUsuario") ||
+    sessionStorage.getItem("email") ||
+    localStorage.getItem("email");
+
+  if (!email) {
+    abrirPopup("Não foi possível identificar seu e-mail. Faça login novamente.");
+    return;
+  }
+
+  if (btnAlterarSenha) {
+    btnAlterarSenha.disabled = true;
+    btnAlterarSenha.innerText = "Enviando código...";
+  }
+
+  try {
+    const response = await fetch(
+      `${API_URL_CONFIG}/user/forgot-password/email/${encodeURIComponent(email)}`,
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    );
+
+    const text = await response.text();
+
+    let data = {};
+
+    try {
+      data = text ? JSON.parse(text) : {};
+    } catch {
+      data = {};
+    }
+
+    console.log("STATUS ENVIO CÓDIGO:", response.status);
+    console.log("RESPOSTA ENVIO CÓDIGO:", data || text);
+
+    if (!response.ok) {
+      abrirPopup(
+        data.message ||
+        data.detail ||
+        text ||
+        "Não foi possível enviar o código para seu e-mail."
+      );
+      return;
+    }
+
+    /*
+      Salva o e-mail para a tela validate-code usar.
+      Assim o usuário não precisa digitar novamente.
+    */
+    sessionStorage.setItem("email", email);
+    sessionStorage.setItem("resetEmail", email);
+
+    abrirPopup("Código enviado para seu e-mail.");
+
+    setTimeout(() => {
+      window.location.href = "validate-code.html";
+    }, 1200);
+
+  } catch (error) {
+    console.error("ERRO AO ENVIAR CÓDIGO:", error);
+    abrirPopup("Erro ao conectar com o servidor.");
+
+  } finally {
+    if (btnAlterarSenha) {
+      btnAlterarSenha.disabled = false;
+      btnAlterarSenha.innerText = "Alterar Senha";
+    }
+  }
+}

@@ -479,3 +479,329 @@ input[type="number"]::-webkit-inner-spin-button {
     width: calc(100% - 100px) !important;
   }
 }
+
+/* ================= CONVITE NO MODO ESCURO ================= */
+/* Deixa apenas o card do convite com a mesma cor do fundo da tela */
+
+body.tema-escuro .convite-card,
+body.tema-escuro .convite-item,
+body.tema-escuro .item-convite,
+body.tema-escuro .card-convite {
+  background-color: #1118 !important;
+  border: 1px solid #262d38 !important;
+  color: #f9fafb !important;
+}
+
+/* Textos dentro do convite */
+body.tema-escuro .convite-card p,
+body.tema-escuro .convite-card span,
+body.tema-escuro .convite-card strong,
+body.tema-escuro .convite-card h3,
+body.tema-escuro .convite-item p,
+body.tema-escuro .convite-item span,
+body.tema-escuro .convite-item strong,
+body.tema-escuro .convite-item h3,
+body.tema-escuro .item-convite p,
+body.tema-escuro .item-convite span,
+body.tema-escuro .item-convite strong,
+body.tema-escuro .item-convite h3,
+body.tema-escuro .card-convite p,
+body.tema-escuro .card-convite span,
+body.tema-escuro .card-convite strong,
+body.tema-escuro .card-convite h3 {
+  color: #f9fafb !important;
+}
+
+/* Texto secundário do convite */
+body.tema-escuro .convite-card small,
+body.tema-escuro .convite-card .descricao,
+body.tema-escuro .convite-card .subtexto,
+body.tema-escuro .convite-item small,
+body.tema-escuro .convite-item .descricao,
+body.tema-escuro .convite-item .subtexto,
+body.tema-escuro .item-convite small,
+body.tema-escuro .item-convite .descricao,
+body.tema-escuro .item-convite .subtexto,
+body.tema-escuro .card-convite small,
+body.tema-escuro .card-convite .descricao,
+body.tema-escuro .card-convite .subtexto {
+  color: #d1d5db !important;
+}
+
+/* =====================================================
+   SIDEBAR RESPONSIVA - MODO ESCURO
+   Corrige item branco quando a tela fica menor
+===================================================== */
+
+@media (max-width: 900px) {
+  body.tema-escuro .sidebar {
+    background-color: #1118 !important;
+    border-right: 1px solid #374151 !important;
+  }
+
+  body.tema-escuro .sidebar .menu,
+  body.tema-escuro .sidebar ul {
+    background-color: transparent !important;
+  }
+
+  body.tema-escuro .sidebar .menu li,
+  body.tema-escuro .sidebar li {
+    background-color: transparent !important;
+    color: #f9fafb !important;
+  }
+
+  body.tema-escuro .sidebar .menu li.active,
+  body.tema-escuro .sidebar .menu li.ativo,
+  body.tema-escuro .sidebar .menu li.selecionado,
+  body.tema-escuro .sidebar .menu li:hover,
+  body.tema-escuro .sidebar li.active,
+  body.tema-escuro .sidebar li.ativo,
+  body.tema-escuro .sidebar li.selecionado,
+  body.tema-escuro .sidebar li:hover {
+    background-color: #1f2937 !important;
+    color: #ffffff !important;
+  }
+
+  body.tema-escuro .sidebar .menu li a,
+  body.tema-escuro .sidebar .menu li span,
+  body.tema-escuro .sidebar .menu li button,
+  body.tema-escuro .sidebar li a,
+  body.tema-escuro .sidebar li span,
+  body.tema-escuro .sidebar li button {
+    background-color: transparent !important;
+    color: #f9fafb !important;
+  }
+
+  body.tema-escuro .sidebar .menu li.active a,
+  body.tema-escuro .sidebar .menu li.ativo a,
+  body.tema-escuro .sidebar .menu li.selecionado a,
+  body.tema-escuro .sidebar li.active a,
+  body.tema-escuro .sidebar li.ativo a,
+  body.tema-escuro .sidebar li.selecionado a {
+    background-color: transparent !important;
+    color: #ffffff !important;
+  }
+
+  body.tema-escuro .sidebar .menu li img,
+  body.tema-escuro .sidebar li img {
+    filter: brightness(0) saturate(100%) invert(38%) sepia(97%) saturate(544%) hue-rotate(88deg) brightness(93%) contrast(92%) !important;
+  }
+
+  body.tema-escuro .sidebar .menu li.active img,
+  body.tema-escuro .sidebar .menu li.ativo img,
+  body.tema-escuro .sidebar .menu li.selecionado img,
+  body.tema-escuro .sidebar .menu li:hover img,
+  body.tema-escuro .sidebar li.active img,
+  body.tema-escuro .sidebar li.ativo img,
+  body.tema-escuro .sidebar li.selecionado img,
+  body.tema-escuro .sidebar li:hover img {
+    filter: brightness(0) saturate(100%) invert(54%) sepia(74%) saturate(461%) hue-rotate(88deg) brightness(95%) contrast(92%) !important;
+  }
+}
+
+/* =====================================================
+   NOTIFICAÇÕES - MODO ESCURO
+   Corrige painel, toast e cards internos
+===================================================== */
+
+/* Toast pequeno que aparece ao enviar/receber notificação */
+body.tema-escuro .toast-notificacao,
+body.tema-escuro #toast-notificacao,
+body.tema-escuro .notificacao-toast,
+body.tema-escuro .toast,
+body.dark .toast-notificacao,
+body.dark #toast-notificacao,
+body.dark .notificacao-toast,
+body.dark .toast {
+  background: #1e1e1e !important;
+  color: #f9fafb !important;
+  border: 1px solid #374151 !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* Texto do toast */
+body.tema-escuro .toast-notificacao p,
+body.tema-escuro .toast-notificacao span,
+body.tema-escuro .toast-notificacao strong,
+body.tema-escuro #toast-notificacao p,
+body.tema-escuro #toast-notificacao span,
+body.tema-escuro #toast-notificacao strong,
+body.dark .toast-notificacao p,
+body.dark .toast-notificacao span,
+body.dark .toast-notificacao strong,
+body.dark #toast-notificacao p,
+body.dark #toast-notificacao span,
+body.dark #toast-notificacao strong {
+  color: #f9fafb !important;
+}
+
+/* Botão X do toast */
+body.tema-escuro .toast-notificacao .fechar-toast,
+body.tema-escuro .toast-notificacao .close,
+body.tema-escuro .toast-notificacao button,
+body.tema-escuro #toast-notificacao .fechar-toast,
+body.tema-escuro #toast-notificacao .close,
+body.tema-escuro #toast-notificacao button,
+body.dark .toast-notificacao .fechar-toast,
+body.dark .toast-notificacao .close,
+body.dark .toast-notificacao button,
+body.dark #toast-notificacao .fechar-toast,
+body.dark #toast-notificacao .close,
+body.dark #toast-notificacao button {
+  background: transparent !important;
+  color: #d1d5db !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Painel/dropdown de notificações */
+body.tema-escuro .painel-notificacoes,
+body.tema-escuro #painel-notificacoes,
+body.tema-escuro .dropdown-notificacoes,
+body.tema-escuro .notificacoes-dropdown,
+body.tema-escuro .box-notificacoes,
+body.dark .painel-notificacoes,
+body.dark #painel-notificacoes,
+body.dark .dropdown-notificacoes,
+body.dark .notificacoes-dropdown,
+body.dark .box-notificacoes {
+  background: #1e1e1e !important;
+  color: #f9fafb !important;
+  border: 1px solid #374151 !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* Título do painel */
+body.tema-escuro .painel-notificacoes h1,
+body.tema-escuro .painel-notificacoes h2,
+body.tema-escuro .painel-notificacoes h3,
+body.tema-escuro #painel-notificacoes h1,
+body.tema-escuro #painel-notificacoes h2,
+body.tema-escuro #painel-notificacoes h3,
+body.tema-escuro .dropdown-notificacoes h1,
+body.tema-escuro .dropdown-notificacoes h2,
+body.tema-escuro .dropdown-notificacoes h3,
+body.dark .painel-notificacoes h1,
+body.dark .painel-notificacoes h2,
+body.dark .painel-notificacoes h3,
+body.dark #painel-notificacoes h1,
+body.dark #painel-notificacoes h2,
+body.dark #painel-notificacoes h3,
+body.dark .dropdown-notificacoes h1,
+body.dark .dropdown-notificacoes h2,
+body.dark .dropdown-notificacoes h3 {
+  color: #f9fafb !important;
+}
+
+/* Textos do painel */
+body.tema-escuro .painel-notificacoes p,
+body.tema-escuro .painel-notificacoes span,
+body.tema-escuro .painel-notificacoes strong,
+body.tema-escuro #painel-notificacoes p,
+body.tema-escuro #painel-notificacoes span,
+body.tema-escuro #painel-notificacoes strong,
+body.tema-escuro .dropdown-notificacoes p,
+body.tema-escuro .dropdown-notificacoes span,
+body.tema-escuro .dropdown-notificacoes strong,
+body.dark .painel-notificacoes p,
+body.dark .painel-notificacoes span,
+body.dark .painel-notificacoes strong,
+body.dark #painel-notificacoes p,
+body.dark #painel-notificacoes span,
+body.dark #painel-notificacoes strong,
+body.dark .dropdown-notificacoes p,
+body.dark .dropdown-notificacoes span,
+body.dark .dropdown-notificacoes strong {
+  color: #d1d5db !important;
+}
+
+/* Card interno da notificação */
+body.tema-escuro .notificacao-item,
+body.tema-escuro .item-notificacao,
+body.tema-escuro .notificacao-card,
+body.tema-escuro .card-notificacao,
+body.tema-escuro .notificacao-box,
+body.dark .notificacao-item,
+body.dark .item-notificacao,
+body.dark .notificacao-card,
+body.dark .card-notificacao,
+body.dark .notificacao-box {
+  background: #1e1e1e !important;
+  color: #f9fafb !important;
+  border: 1px solid #374151 !important;
+}
+
+/* Card interno ao passar o mouse */
+body.tema-escuro .notificacao-item:hover,
+body.tema-escuro .item-notificacao:hover,
+body.tema-escuro .notificacao-card:hover,
+body.tema-escuro .card-notificacao:hover,
+body.tema-escuro .notificacao-box:hover,
+body.dark .notificacao-item:hover,
+body.dark .item-notificacao:hover,
+body.dark .notificacao-card:hover,
+body.dark .card-notificacao:hover,
+body.dark .notificacao-box:hover {
+  background: #272828 !important;
+}
+
+/* Título dentro do card */
+body.tema-escuro .notificacao-item strong,
+body.tema-escuro .item-notificacao strong,
+body.tema-escuro .notificacao-card strong,
+body.tema-escuro .card-notificacao strong,
+body.dark .notificacao-item strong,
+body.dark .item-notificacao strong,
+body.dark .notificacao-card strong,
+body.dark .card-notificacao strong {
+  color: #f9fafb !important;
+}
+
+/* Descrição dentro do card */
+body.tema-escuro .notificacao-item p,
+body.tema-escuro .notificacao-item span,
+body.tema-escuro .item-notificacao p,
+body.tema-escuro .item-notificacao span,
+body.tema-escuro .notificacao-card p,
+body.tema-escuro .notificacao-card span,
+body.tema-escuro .card-notificacao p,
+body.tema-escuro .card-notificacao span,
+body.dark .notificacao-item p,
+body.dark .notificacao-item span,
+body.dark .item-notificacao p,
+body.dark .item-notificacao span,
+body.dark .notificacao-card p,
+body.dark .notificacao-card span,
+body.dark .card-notificacao p,
+body.dark .card-notificacao span {
+  color: #d1d5db !important;
+}
+
+/* Linha divisória do painel */
+body.tema-escuro .painel-notificacoes hr,
+body.tema-escuro #painel-notificacoes hr,
+body.tema-escuro .dropdown-notificacoes hr,
+body.tema-escuro .painel-notificacoes .divider,
+body.tema-escuro #painel-notificacoes .divider,
+body.tema-escuro .dropdown-notificacoes .divider,
+body.dark .painel-notificacoes hr,
+body.dark #painel-notificacoes hr,
+body.dark .dropdown-notificacoes hr,
+body.dark .painel-notificacoes .divider,
+body.dark #painel-notificacoes .divider,
+body.dark .dropdown-notificacoes .divider {
+  border-color: #374151 !important;
+  background: #374151 !important;
+}
+
+/* Ícone redondo dentro da notificação */
+body.tema-escuro .notificacao-item .icone,
+body.tema-escuro .item-notificacao .icone,
+body.tema-escuro .notificacao-card .icone,
+body.tema-escuro .card-notificacao .icone,
+body.dark .notificacao-item .icone,
+body.dark .item-notificacao .icone,
+body.dark .notificacao-card .icone,
+body.dark .card-notificacao .icone {
+  background: #1f2937 !important;
+}
