@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validar código</title>
+  <link rel="icon" href="imagem/logo_fambudget.png" type="image/png">
+  <link rel="stylesheet" href="validate-code.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="card">
+    <h2>Verificar código</h2>
+    <p>Digite o código enviado ao seu e-mail</p>
+
+    <form id="codeForm">
+      <input type="text" id="code" placeholder="Código" required>
+      <button type="submit">Validar</button>
+    </form>
+  </div>
+</div>
+
+<script src="js/validate-code.js"></script>
+
+<div id="popup" class="popup-overlay">
+  <div class="popup-box">
+    <h2 id="popup-text"></h2>
+    <button onclick="fecharPopup()">OK</button>
+  </div>
+</div>
+
+</body>
+</html>

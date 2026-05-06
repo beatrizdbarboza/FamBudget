@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="relatorios.css">
+    <link rel="icon" href="imagem/logo_fambudget.png" type="image/png">
+
+    <title>FamBudget</title>
+</head>
+
+<body>
+
+    <header class="topo">
+        <div class="logo">
+            <img src="imagem/logo_fambudget.png" alt="FamBudget">
+            <span>FamBudget</span>
+        </div>
+    
+        <div class="user">
+            <div class="notificacao">
+                <img 
+                    src="imagem/vetorhome/notificacao.png" 
+                    class="icone-sino" 
+                    id="icone-notificacao"
+                    alt="Notificações"
+                >
+
+                <span id="badge-notificacao" class="badge">0</span>
+            </div>
+
+            <div class="avatar" id="avatar">U</div>
+            <span id="nome-usuario" onclick="irPara('configuracoes.html')">Usuário</span>
+        </div>
+    </header>
+    
+    <div class="layout">
+    
+        <aside class="sidebar">
+            <div>
+                <ul class="menu">
+                    <li data-link="home.html">
+                        <img src="imagem/vetorhome/casa.png" alt="">
+                        Início
+                    </li>
+
+                    <li data-link="transacoes.html">
+                        <img src="imagem/carteira.png" alt="">
+                        Transações
+                    </li>
+
+                    <li data-link="despesas.html">
+                        <img src="imagem/iconConfig/despesas.png" alt="">
+                        Despesas
+                    </li>
+
+                    <li data-link="receitas.html">
+                        <img src="imagem/iconConfig/receitas.png" alt="">
+                        Receitas
+                    </li>
+
+                    <li data-link="categorias.html">
+                        <img src="imagem/iconConfig/categories.png" alt="">
+                        Categorias
+                    </li>
+
+                    <li data-link="relatorios.html" class="ativo">
+                        <img src="imagem/vetorhome/relatorio.png" alt="">
+                        Relatórios
+                    </li>
+                </ul>
+    
+                <div class="divider"></div>
+    
+                <ul class="menu">
+                    <li data-link="configuracoes.html">
+                        <img src="imagem/vetorhome/configuracoes.png" alt="">
+                        Configurações
+                    </li>
+
+                    <li id="logout-btn">
+                        <img src="imagem/vetorhome/logout.png" alt="">
+                        Sair
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- CONTEÚDO DA PÁGINA DE RELATÓRIOS -->
+        <main class="main-content">
+
+            <section class="cabecalho-relatorios">
+                <div>
+                    <h1>Relatórios</h1>
+                    <p>Resumo financeiro do mês</p>
+                </div>
+
+                <div class="filtro-mes">
+                    <select id="filtro-periodo">
+                        <option value="2025-05">Maio/2025</option>
+                        <option value="2025-04">Abril/2025</option>
+                        <option value="2025-03">Março/2025</option>
+                        <option value="2025-02">Fevereiro/2025</option>
+                        <option value="2025-01">Janeiro/2025</option>
+                    </select>
+                </div>
+            </section>
+
+            <section class="cards-resumo">
+
+                <article class="card-topo">
+                    <div class="icone-card receita">
+                        <span>$</span>
+                    </div>
+
+                    <div>
+                        <h3>Receitas</h3>
+                        <strong id="valor-receitas">R$ 0,00</strong>
+                        <p class="positivo" id="variacao-receitas">▲ Atualizado</p>
+                    </div>
+                </article>
+
+                <article class="card-topo">
+                    <div class="icone-card despesa">
+                        <span>↓</span>
+                    </div>
+
+                    <div>
+                        <h3>Despesas</h3>
+                        <strong id="valor-despesas" class="vermelho">R$ 0,00</strong>
+                        <p class="negativo" id="variacao-despesas">▲ Atualizado</p>
+                    </div>
+                </article>
+
+                <article class="card-topo">
+                    <div class="icone-card saldo">
+                        <span>▣</span>
+                    </div>
+
+                    <div>
+                        <h3>Saldo</h3>
+                        <strong id="valor-saldo" class="azul">R$ 0,00</strong>
+                        <p class="positivo" id="variacao-saldo">▲ Saldo positivo</p>
+                    </div>
+                </article>
+
+            </section>
+
+            <section class="graficos">
+
+                <article class="card-grafico">
+                    <div class="topo-card">
+                        <div>
+                            <h2>Receitas vs. Despesas</h2>
+                            <p>Comparativo dos últimos 6 meses</p>
+                        </div>
+
+                        <button type="button" class="btn-opcoes">⋮</button>
+                    </div>
+
+                    <div class="legenda">
+                        <span><i class="legenda-verde"></i> Receitas</span>
+                        <span><i class="legenda-vermelha"></i> Despesas</span>
+                    </div>
+
+                    <div class="grafico-barras-area">
+                        <div class="eixo-y" id="eixo-y"></div>
+
+                        <div class="grafico-barras" id="grafico-barras"></div>
+                    </div>
+                </article>
+
+                <article class="card-grafico">
+                    <div class="topo-card">
+                        <div>
+                            <h2>Despesas por categoria</h2>
+                            <p>Distribuição das despesas no mês</p>
+                        </div>
+
+                        <button type="button" class="btn-opcoes">⋮</button>
+                    </div>
+
+                    <div class="categorias-area">
+                        <div class="grafico-rosca" id="grafico-rosca">
+                            <div class="centro-rosca">
+                                <strong id="total-despesas-rosca">R$ 0,00</strong>
+                                <span>Total</span>
+                            </div>
+                        </div>
+
+                        <div class="lista-categorias" id="lista-categorias"></div>
+                    </div>
+                </article>
+
+            </section>
+
+            <section class="resumo-mes">
+                <article class="card-resumo-mes">
+
+                    <div class="resumo-esquerda">
+                        <h2>Resumo do mês</h2>
+
+                        <div class="linha-resumo">
+                            <div class="icone-resumo verde">↗</div>
+                            <span>Total de receitas</span>
+                            <strong id="resumo-receitas">R$ 0,00</strong>
+                        </div>
+
+                        <div class="linha-resumo">
+                            <div class="icone-resumo vermelho-bg">↘</div>
+                            <span>Total de despesas</span>
+                            <strong id="resumo-despesas" class="vermelho">R$ 0,00</strong>
+                        </div>
+
+                        <div class="linha-resumo">
+                            <div class="icone-resumo cinza">▣</div>
+                            <span>Maior despesa</span>
+                            <strong id="maior-despesa">-</strong>
+                        </div>
+
+                        <div class="linha-resumo">
+                            <div class="icone-resumo azul-bg">↗</div>
+                            <span>Menor despesa</span>
+                            <strong id="menor-despesa">-</strong>
+                        </div>
+
+                        <div class="linha-resumo sem-borda">
+                            <div class="icone-resumo amarelo">◔</div>
+                            <span>Melhor dia para economizar</span>
+                            <strong id="melhor-dia">-</strong>
+                        </div>
+                    </div>
+
+                    <div class="resumo-direita">
+                        <div class="progresso-circular" id="progresso-circular">
+                            <div class="centro-progresso">
+                                <strong id="percentual-mes">0%</strong>
+                                <span>do mês concluído</span>
+                            </div>
+                        </div>
+
+                        <div class="dica-card">
+                            <strong>Dica 💡</strong>
+                            <p id="texto-dica">
+                                Você está no caminho certo! Continue assim para alcançar suas metas.
+                            </p>
+                        </div>
+                    </div>
+
+                </article>
+            </section>
+
+        </main>
+    
+    </div>   
+
+    <script>
+        function irPara(pagina) {
+            window.location.href = pagina;
+        }
+            
+        function logout() {
+            localStorage.clear();
+            sessionStorage.clear();
+            window.location.href = "index.html";
+        }
+    </script>
+
+    <script src="js/api.js"></script>
+    <script src="js/authGuard.js"></script>
+    <script src="js/notificacoes.js"></script>
+    <script src="js/relatorios.js"></script>
+    <script src="main.js"></script>
+
+</body>
+</html>
