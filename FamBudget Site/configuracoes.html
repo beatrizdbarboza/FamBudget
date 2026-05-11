@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FamBudget</title>
+
+    <link rel="stylesheet" href="configuracoes.css">
+    <link rel="stylesheet" href="global.css">
+    <link rel="icon" href="imagem/logo_fambudget.png" type="image/png">
+</head>
+
+<body>
+
+<header class="topo">
+    <div class="logo">
+        <img src="imagem/logo_fambudget.png" alt="FamBudget">
+        <span>FamBudget</span>
+    </div>
+
+    <div class="user">
+        <div class="notificacao">
+            <img 
+                src="imagem/vetorhome/notificacao.png" 
+                class="icone-sino" 
+                id="icone-notificacao"
+                alt="Notificações"
+            >
+
+            <span id="badge-notificacao" class="badge">0</span>
+        </div>
+
+        <div class="avatar" id="avatar">U</div>
+        <span id="nome-usuario" onclick="irPara('configuracoes.html')">Usuário</span>
+    </div>
+</header>
+
+<div class="layout">
+    <aside class="sidebar">
+        <div>
+            <ul class="menu">
+                <li data-link="home.html">
+                    <img src="imagem/vetorhome/casa.png" alt="">
+                    Início
+                </li>
+
+                <li data-link="transacoes.html">
+                    <img src="imagem/carteira.png" alt="">
+                    Transações
+                </li>
+
+                <li data-link="despesas.html">
+                    <img src="imagem/iconConfig/despesas.png" alt="">
+                    Despesas
+                </li>
+
+                <li data-link="receitas.html">
+                    <img src="imagem/iconConfig/receitas.png" alt="">
+                    Receitas
+                </li>
+
+                <li data-link="categorias.html">
+                    <img src="imagem/iconConfig/categories.png" alt="">
+                    Categorias
+                </li>
+
+                <li data-link="relatorios.html">
+                    <img src="imagem/vetorhome/relatorio.png" alt="">
+                    Relatórios
+                </li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <ul class="menu">
+                <li data-link="configuracoes.html" class="ativo">
+                    <img src="imagem/vetorhome/configuracoes.png" alt="">
+                    Configurações
+                </li>
+
+                <li id="logout-btn">
+                    <img src="imagem/vetorhome/logout.png" alt="">
+                    Sair
+                </li>
+            </ul>
+        </div>
+    </aside>
+</div>
+
+<div class="content">
+    <h1>Configurações</h1>
+    <p class="sub">Personalize sua experiência no FamBudget</p>
+
+    <!-- PERFIL -->
+    <div class="card">
+        <h3>
+            <img src="imagem/iconConfig/perfil.png" class="icon-title" alt="">
+            Perfil e Conta
+        </h3>
+
+        <div class="perfil">
+            <div class="avatar-config" id="avatarCard">U</div>
+
+            <div>
+                <strong id="nomeUsuario">Nome</strong>
+                <p id="emailUsuario">email@email.com</p>
+            </div>
+
+            <button class="btn-outline" id="editarPerfil" type="button">
+                Editar Perfil
+            </button>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="grid">
+            <div>
+                <label>Moeda</label>
+
+                <select id="selectMoeda">
+                    <option value="BRL">Real Brasileiro (R$)</option>
+                    <option value="USD">Dólar Americano (US$)</option>
+                    <option value="EUR">Euro (€)</option>
+                    <option value="GBP">Libra Esterlina (£)</option>
+                    <option value="ARS">Peso Argentino ($)</option>
+                    <option value="JPY">Iene Japonês (¥)</option>
+                </select>
+            </div>
+
+            <div>
+                <label>Data de pagamento do cartão</label>
+
+                <input 
+                    type="number"  
+                    id="inputPagamentoCartao" 
+                    min="1" 
+                    max="31" 
+                    placeholder="Ex: 10"
+                    required
+                >
+
+                <small class="info">Informe o dia do mês em que o cartão vence</small>
+            </div>
+        </div>
+    </div>
+
+    <!-- PREFERÊNCIAS -->
+    <div class="card">
+        <h3>
+            <img src="imagem/iconConfig/ao-controle.png" class="icon-img" alt="">
+            Preferências
+        </h3>
+
+        <div class="divider"></div>
+
+        <div class="linha">
+            <div>
+                <strong>Notificações</strong>
+                <p>Receba alertas gerais, convites, despesas e metas</p>
+            </div>
+            
+            <label class="switch">
+                <input type="checkbox" id="notificacoesSistema" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="linha">
+            <div>
+                <strong>Lembrete de vencimento da fatura</strong>
+                <p>Receber aviso próximo ao dia de pagamento do cartão</p>
+            </div>
+
+            <label class="switch">
+                <input type="checkbox" id="lembreteOrcamento" checked>
+                <span class="slider"></span>
+            </label>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="linha">
+            <div>
+                <strong>Tema</strong>
+                <p>Escolha o tema da aplicação</p>
+            </div>
+
+            <div class="tema-toggle">
+                <button id="temaClaro" class="ativo" type="button">Claro</button>
+                <button id="temaEscuro" type="button">Escuro</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEGURANÇA -->
+    <div class="card">
+        <h3>
+            <img src="imagem/iconConfig/cadeado.png" class="icon-img" alt="">
+            Segurança
+        </h3>
+
+        <div class="divider"></div>
+
+        <div class="flex">
+            <div>
+                <strong>Alterar Senha</strong>
+                <p>Atualize sua senha para manter sua conta segura</p>
+            </div>
+
+            <button class="btn-outline" id="btnAlterarSenha" type="button">
+                Alterar Senha
+            </button>
+        </div>
+    </div>
+
+    <!-- DADOS -->
+    <div class="card">
+        <h3>
+            <img src="imagem/iconConfig/gerenciamento-de-banco-de-dados.png" class="icon-img" alt="">
+            Dados
+        </h3>
+
+        <div class="divider"></div>
+
+        <div class="dados-container dados-container-ajustado">
+
+            <div class="dados-item verde">
+                <div class="dados-info">
+                    <div class="dados-icon">
+                        <img src="imagem/iconConfig/baixar-seta.png" alt="Exportar">
+                    </div>
+
+                    <div>
+                        <strong>Exportar Dados</strong>
+                        <p>Baixe o relatório financeiro em PDF</p>
+                    </div>
+                </div>
+
+                <button 
+                    class="btn-outline" 
+                    id="btn-exportar-dados" 
+                    type="button"
+                >
+                    Exportar
+                </button>
+            </div>
+
+            <div class="dados-item vermelho">
+                <div class="dados-info">
+                    <div class="dados-icon">
+                        <img src="imagem/iconConfig/lixeira.png" alt="Limpar">
+                    </div>
+
+                    <div>
+                        <strong>Limpar Dados</strong>
+                        <p>Remover transações salvas localmente</p>
+                    </div>
+                </div>
+
+                <button 
+                    class="btn-red-outline" 
+                    id="btn-limpar-dados" 
+                    type="button"
+                >
+                    Limpar
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- POPUP EDITAR PERFIL -->
+<div class="modal" id="modalPerfil">
+    <div class="modal-content">
+        <div class="header-modal">
+            <div class="icon-circle">
+                <img src="imagem/iconConfig/perfil.png" alt="">
+            </div>
+
+            <h2>Editar Perfil</h2>
+            <p class="sub-modal">Atualize suas informações pessoais</p>
+        </div>
+    
+        <div class="linha-verde"></div>
+
+        <h3 class="foto-perfil">Foto de perfil</h3>
+    
+        <div class="modal-avatar">
+            <div class="avatar-wrapper">
+                <div class="avatar-preview" id="avatarPreview">U</div>
+
+                <div class="avatar-camera" id="cameraAvatar">
+                    <img src="imagem/iconConfig/simbolo-de-interface-de-camera-fotografica-para-botao.png" alt="">
+                </div>
+            </div>
+            
+            <div class="upload-card">
+                <div class="upload-area">
+                    <label for="inputAvatar" class="custom-file-btn">
+                        <img src="imagem/iconConfig/imagem.png" class="camera-config" alt=""> 
+                        Escolher imagem
+                    </label>
+
+                    <span id="fileName">Nenhum arquivo escolhido</span>
+
+                    <input type="file" id="inputAvatar" accept="image/*">
+                </div>
+            </div>
+
+            <small class="info-arquivo">
+                Formatos aceitos: JPG, PNG. Máx: 5MB
+            </small>
+
+            <div class="modal-field">
+                <label>Nome de usuário</label>
+
+                <div class="input-icon">
+                    <div class="icon-box">
+                        <img src="imagem/iconConfig/perfil.png" alt="">
+                    </div>
+
+                    <input type="text" id="inputNome" placeholder="Usuário">
+                </div>
+
+                <small class="info">Esse será o nome exibido no sistema</small>
+            </div>
+    
+            <div class="modal-actions">
+                <button class="btn-outline-modal" id="cancelarModal" type="button">
+                    Cancelar
+                </button>
+
+                <button class="btn" id="salvarPerfil" type="button">
+                    Salvar alterações
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- POPUP LIMPAR DADOS -->
+<div class="popup-dados" id="popup-dados">
+    <div class="popup-dados-card">
+        <h3>Limpar dados?</h3>
+
+        <p>
+            Essa ação removerá apenas os dados salvos localmente neste navegador,
+            como transações, receitas, despesas e orçamentos.
+        </p>
+
+        <div class="popup-dados-botoes">
+            <button 
+                type="button" 
+                class="btn-cancelar-dados" 
+                id="btn-cancelar-dados"
+            >
+                Cancelar
+            </button>
+
+            <button 
+                type="button" 
+                class="btn-confirmar-dados" 
+                id="btn-confirmar-dados"
+            >
+                Sim, limpar
+            </button>
+        </div>
+    </div>
+</div>
+
+<script>
+function irPara(pagina) {
+    window.location.href = pagina;
+}
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="js/api.js"></script>
+<script src="js/authGuard.js"></script>
+<script src="js/tema.js"></script>
+<script src="js/notificacoes.js"></script>
+<script src="js/configuracoes.js"></script>
+<script src="js/dados.js" defer></script>
+<script src="main.js" defer></script>
+
+</body>
+</html>

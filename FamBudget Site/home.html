@@ -1,0 +1,214 @@
+<!DOCTYPE html> 
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FamBudget</title>
+
+  <link rel="stylesheet" href="global.css">
+  <link rel="stylesheet" href="home.css">
+  <link rel="icon" href="imagem/logo_fambudget.png" type="image/png">
+</head>
+
+<body>
+
+<header class="topo">
+  <div class="logo">
+    <img src="imagem/logo_fambudget.png" alt="FamBudget">
+    <span>FamBudget</span>
+  </div>
+
+  <div class="user">
+    <div class="notificacao">
+      <img 
+        src="imagem/vetorhome/notificacao.png" 
+        class="icone-sino" 
+        id="icone-notificacao"
+        alt="Notificações"
+      >
+
+      <span id="badge-notificacao" class="badge">0</span>
+    </div>
+
+    <div class="avatar" id="avatar">U</div>
+
+    <span id="nome-usuario" onclick="irPara('configuracoes.html')">
+      Usuário
+    </span>
+  </div>
+</header>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <div>
+      <ul class="menu">
+
+        <li onclick="irPara('home.html')">
+          <img src="imagem/vetorhome/casa.png" alt="">
+          Início
+        </li>
+
+        <li onclick="irPara('transacoes.html')">
+          <img src="imagem/carteira.png" alt="">
+          Transações
+        </li>
+
+        <li onclick="irPara('despesas.html')">
+          <img src="imagem/iconConfig/despesas.png" alt="">
+          Despesas
+        </li>
+        
+        <li onclick="irPara('receitas.html')">
+          <img src="imagem/iconConfig/receitas.png" alt="">
+          Receitas
+        </li>
+        
+        <li onclick="irPara('categorias.html')">
+          <img src="imagem/iconConfig/categories.png" alt="">
+          Categorias
+        </li>
+        
+        <li onclick="irPara('relatorios.html')">
+          <img src="imagem/vetorhome/relatorio.png" alt="">
+          Relatórios
+        </li>
+
+      </ul>
+
+      <div class="divider"></div>
+
+      <ul class="menu">
+        <li onclick="irPara('configuracoes.html')">
+          <img src="imagem/vetorhome/configuracoes.png" alt="">
+          Configurações
+        </li>
+
+        <li id="logout-btn">
+          <img src="imagem/vetorhome/logout.png" alt="">
+          Sair
+        </li>
+      </ul>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="conteudo">
+
+      <div class="card">
+        <h1 id="saudacao">Olá, Usuário!</h1>
+
+        <h3>Saldo Atual</h3>
+  
+        <p class="saldo">
+          <span id="valor">R$ 0,00</span>
+          <span id="seta">↑</span>
+        </p>
+
+        <p id="mensagem-saldo" class="mensagem"></p>
+      </div>
+
+      <div class="cards"> 
+        <div class="resumo card-resumo-despesas" onclick="irPara('despesas.html')">
+          <div class="card-top">
+            <div class="icon-box">
+              <img src="imagem/vetorhome/carteirinha.png" alt="">
+            </div>
+
+            <span>Despesas</span>
+          </div>
+
+          <h2 id="total-despesas">R$ 0,00</h2>
+        </div>
+
+        <div class="resumo card-resumo-receitas" onclick="irPara('receitas.html')">
+          <div class="card-top">
+            <div class="icon-box">
+              <img src="imagem/vetorhome/cartoes-com-cifrao.png" alt="">
+            </div>
+
+            <span>Receitas</span>
+          </div>
+
+          <h2 id="total-receitas">R$ 0,00</h2>
+        </div>
+      </div>
+
+      <div class="card convites-card">
+        <h3>📩 Convites recebidos</h3>
+
+        <div id="lista-convites" class="lista-convites"></div>
+      </div>
+
+      <div class="card familia-card">
+        <div class="flex">
+          <h3>
+            <img src="imagem/vetorhome/familia.png" class="icon-title" alt="">
+            Família
+          </h3>
+
+          <button class="btn" id="btn-abrir-familia">
+            + Adicionar membros
+          </button>
+        </div>
+
+        <div class="divider"></div>
+
+        <div id="lista-familia" class="familia-lista"></div>
+      </div>
+
+    </div> 
+  </main>
+
+</div>
+
+<div class="modal" id="modal-familia">
+  <div class="modal-content">
+    
+    <span class="fechar" id="fechar-modal">&times;</span>
+
+    <div class="header-modal">
+      <div class="icon-circle">
+        <img src="imagem/vetorhome/familia.png" alt="">
+      </div>
+      
+      <h2>Novo Membro</h2>
+
+      <p class="sub-modal">
+        Adicione membros a família e compartilhe suas finanças.
+      </p>
+    </div>
+
+    <div class="divider"></div>
+
+    <form id="form-familia">
+      <input 
+        type="email" 
+        id="email-familia" 
+        placeholder="Digite o email" 
+        required
+      >
+
+      <button type="submit" class="btn" id="salvar-membro">
+        Adicionar
+      </button>
+    </form>
+  </div>
+</div>
+
+<script>
+function irPara(pagina) {
+  window.location.href = pagina;
+}
+</script>
+
+<script src="js/authGuard.js"></script>
+<script src="js/tema.js"></script>
+<script src="js/familia.js"></script>
+<script src="js/home.js"></script>
+<script src="js/notificacoes.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
