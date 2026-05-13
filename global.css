@@ -1,0 +1,1032 @@
+/* DARK MODE GLOBAL */
+body.dark {
+  background: #121212;
+  color: #eee;
+}
+
+body {
+  transition: background 0.3s, color 0.3s;
+}
+
+/* TOPO */
+body.dark .card,
+body.dark .card-topo,
+body.dark .saldo-card,
+body.dark .card-filtros,
+body.dark .card-tabela,
+body.dark .card-orcamento {
+  background: #1e1e1e;
+  color: #eee;
+}
+
+body.dark .topo {
+  background: #1a1a1a;
+  border-bottom: 1px solid #333;
+  color: #eee;
+}
+
+/* SIDEBAR */
+body.dark .sidebar {
+  background: #1a1a1a;
+  border-right: 1px solid #333;
+}
+
+body.dark .menu li {
+  color: #ccc;
+}
+
+body.dark .menu li:hover {
+  background: #2a2a2a;
+}
+
+/* CARDS */
+body.dark .card {
+  background: #1e1e1e;
+}
+
+/* INPUTS */
+body.dark input,
+body.dark select {
+  background: #2a2a2a;
+  color: white;
+  border: 1px solid #444;
+}
+
+/* TEXTOS */
+body.dark p {
+  color: #aaa;
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark strong {
+  color: #fff;
+}
+
+/* BOTÕES */
+body.dark .btn-outline {
+  border-color: #4caf50;
+  color: #4caf50;
+}
+
+body.dark .btn-outline:hover {
+  background: #4caf50;
+  color: white;
+}
+
+body.dark .btn-add {
+  background: #4caf50;
+}
+
+body.dark .btn-add:hover {
+  background: #388e3c;
+}
+
+body.dark .btn-limpar {
+  background: #444;
+  color: #fff;
+}
+
+/* TABELA TRANSAÇÕES */
+body.dark .tabela thead {
+  background: #2a2a2a;
+}
+
+body.dark .tabela tbody tr {
+  border-top: 1px solid #333;
+}
+
+body.dark .tabela tbody tr:hover {
+  background: #2a2a2a;
+}
+
+body.dark .tabela td,
+body.dark .tabela th {
+  color: #eee;
+}
+
+/* FILTRO E INPUTS */
+body.dark input,
+body.dark select {
+  background: #2a2a2a;
+  color: #fff;
+  border: 1px solid #444;
+}
+
+/* SALDOS */
+body.dark .positivo {
+  color: #4caf50 !important;
+}
+
+body.dark .negativo {
+  color: #ef5350 !important;
+}
+
+/* BARRA ORÇAMENTO */
+body.dark .barra {
+  background: #333;
+}
+
+body.dark .progresso {
+  background: #4caf50;
+}
+
+/* MODAL */
+body.dark .modal-content {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+/* FORÇA */
+body.dark .card *,
+body.dark .card-tabela *,
+body.dark .card-orcamento * {
+  color: inherit;
+}
+body.dark .dados-item * {
+  color: inherit;
+}
+
+/* topo da pagina */
+body.dark .logo span {
+  color: #4caf50;
+}
+
+body.dark .user span {
+  color: #eee;
+}
+
+body.dark .avatar {
+  background: linear-gradient(135deg, #4caf50, #2e7d32);
+}
+
+/* Container e dados  */
+body.dark .dados-container {
+  background: transparent;
+}
+
+body.dark .dados-item {
+  background: #1e1e1e;
+  color: #eee;
+}
+
+/* exportar verde */
+body.dark .dados-item.verde {
+  background: #1b2a1b;
+}
+
+body.dark .dados-item.verde .dados-icon {
+  background: #2e7d32;
+}
+
+/* limpar vermelho */
+body.dark .dados-item.vermelho {
+  background: #2a1b1b;
+}
+
+body.dark .dados-item.vermelho .dados-icon {
+  background: #c62828;
+}
+
+/* textos */
+body.dark .dados-item p {
+  color: #aaa;
+}
+
+body.dark .dados-item strong {
+  color: #fff;
+}
+
+/* botoes verde/vermelho */
+body.dark .btn-outline {
+  border-color: #4caf50;
+  color: #4caf50;
+}
+
+body.dark .btn-red-outline {
+  border-color: #ef5350;
+  color: #ef5350;
+}
+
+body.dark .dados-icon img {
+  filter: brightness(0) invert(1);
+}
+
+body.dark .membro {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+body.dark .menu .ativo {
+  background: #2a2a2a;
+  color: #fff;
+}
+
+body.dark .membro {
+  background: #2a2a2a;
+}
+
+body.dark .avatar-membro {
+  background: #4caf50;
+}
+
+body.dark .btn-remover {
+  color: #ef5350;
+}
+
+body.dark .modal-content {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+body.dark #form-familia input {
+  background: #2a2a2a;
+  border: 1px solid #444;
+  color: white;
+}
+
+body.dark #form-familia input:focus {
+  border-color: #4caf50;
+}
+
+body.dark .fechar {
+  color: #ccc;
+}
+
+body.dark .fechar:hover {
+  color: #fff;
+}
+
+/* dark mode modal familia*/
+body.dark .status.pending {
+  color: #ffd54f;
+}
+
+body.dark .status.accepted {
+  color: #4caf50;
+}
+
+body.dark #fechar-modal {
+  background: #676565;
+}
+
+/* modal config */
+body.dark .upload-card {
+  background: #1e1e1e; /* 🔥 fundo escuro */
+  border: 1px dashed #444;
+}
+
+body.dark #fileName {
+  color: #ccc;
+}
+
+body.dark .info-arquivo {
+  color: #aaa;
+}
+
+body.dark .custom-file-btn {
+  border: 1px solid #4caf50;
+  color: #4caf50;
+}
+
+body.dark .custom-file-btn:hover {
+  background: #4caf50;
+  color: black;
+}
+
+body.dark .input-icon input{
+  background-color: #1e1e1e;
+  border: none;
+}
+
+input[type="number"]::-webkit-inner-spin-button {
+  display: none;
+}
+
+.avatar {
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  display: block;
+}
+
+.avatar-mini {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: #2f8f3a;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+/* ================= SINO / NOTIFICAÇÃO PADRÃO ================= */
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.notificacao {
+  position: relative;
+  width: 28px;
+  height: 28px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+}
+
+.icone-sino {
+  width: 22px;
+  height: 22px;
+
+  object-fit: contain;
+  display: block;
+
+  margin: 0;
+  padding: 0;
+
+  cursor: pointer;
+}
+
+.icone-sino:hover {
+  transform: rotate(10deg);
+  transition: 0.2s;
+}
+
+.badge {
+  position: absolute;
+
+  top: -8px;
+  right: -2px;
+
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+
+  border-radius: 999px;
+
+  background: #ff3939;
+  color: #ffffff;
+
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 18px;
+  text-align: center;
+
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 5;
+}
+
+/* ================= SIDEBAR PADRÃO DESKTOP ================= */
+
+.sidebar {
+  width: 220px;
+}
+
+.main-content,
+.content {
+  margin-left: 220px;
+  width: calc(100% - 220px);
+}
+
+/* ================= SIDEBAR COMPACTA EM TELAS MENORES ================= */
+
+@media (max-width: 900px) {
+  .sidebar {
+    width: 100px !important;
+    padding: 20px 14px !important;
+    align-items: center;
+  }
+
+  .menu {
+    width: 100%;
+  }
+
+  .menu li {
+    width: 64px !important;
+    height: 54px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    padding: 0 !important;
+    margin: 0 auto 12px auto !important;
+
+    border-radius: 12px !important;
+
+    font-size: 0 !important;
+    gap: 0 !important;
+
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  .menu li:hover,
+  .menu li.ativo {
+    background: #e8f5e9 !important;
+    color: #2e7d32 !important;
+  }
+
+  .menu li img {
+    width: 28px !important;
+    height: 28px !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+  }
+
+  .menu li span,
+  .icone-categoria-menu {
+    font-size: 26px !important;
+    width: 28px !important;
+    height: 28px !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .divider {
+    width: 74px !important;
+    margin: 20px auto !important;
+  }
+
+  .main-content,
+  .content {
+    margin-left: 100px !important;
+    width: calc(100% - 100px) !important;
+  }
+}
+
+/* ================= DARK MODE GLOBAL ================= */
+
+body.dark {
+  background: #121212;
+  color: #eee;
+}
+
+/* TOPO */
+body.dark .topo {
+  background: #1a1a1a;
+  border-bottom: 1px solid #333;
+}
+
+/* SIDEBAR */
+body.dark .sidebar {
+  background: #1a1a1a;
+  border-right: 1px solid #333;
+}
+
+body.dark .menu li {
+  color: #ccc;
+}
+
+body.dark .menu li:hover {
+  background: #2a2a2a;
+}
+
+/* CARDS / CONTAINERS */
+body.dark .card,
+body.dark .card-total,
+body.dark .tabela {
+  background: #1e1e1e;
+}
+
+/* INPUTS */
+body.dark input,
+body.dark select {
+  background: #2a2a2a;
+  border: 1px solid #444;
+  color: #fff;
+}
+
+/* FILTROS */
+body.dark .filtro {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  color: #ccc;
+}
+
+body.dark .filtro:hover {
+  border-color: #4caf50;
+  color: #4caf50;
+}
+
+/* DROPDOWN */
+body.dark .dropdown {
+  background: #1e1e1e;
+  border: 1px solid #333;
+}
+
+/* TABELA */
+body.dark .linha {
+  border-bottom: 1px solid #333;
+}
+
+body.dark .linha.header {
+  background: #2a2a2a;
+  color: #aaa;
+}
+
+/* VALORES */
+body.dark .valor.positivo {
+  color: #4caf50;
+}
+
+body.dark .valor.negativo {
+  color: #ef5350;
+}
+
+/* MODAL */
+body.dark .modal-content {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+/* BOTÕES */
+body.dark .btn {
+  background: #4caf50;
+}
+
+body.dark .btn:hover {
+  background: #388e3c;
+}
+
+/* SWITCH */
+body.dark .switch {
+  background: #444;
+}
+
+body.dark .switch-check input:checked + .switch {
+  background: #4caf50;
+}
+
+
+/* LINHA DIVISÓRIA */
+
+body.dark .item-filtro{
+  background-color: #201e1e;
+}
+
+body.dark .item-filtro.ativo {
+  background: #e8f5e9;
+  color: #219227;
+  font-weight: 500;
+}
+
+body.dark .dia.ativo {
+  background: #219227;
+  color: white;
+  font-weight: 500;
+}
+
+body.dark .tag-total {
+  background: #4f400e;
+  color: #b68b0a;
+}
+
+body.dark .input-busca {
+    background: #201e1e;
+    border: 1px solid #333;
+}
+
+body.dark .input-busca input {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+body.dark .tipo-fixa {
+  background: #4d6d83;
+  color: #213853;
+}
+
+body.dark .tipo-variavel {
+  background: #f1bb65;
+  color: #be5600;
+}
+
+body.dark .tipo-sazonal {
+  background: #ac3ebd;
+  color: #401851;
+}
+
+/* despesas */
+
+/* ================= INPUT BUSCA NO MODO ESCURO ================= */
+
+body.dark .campo-busca {
+  background: #262626;
+  border: 1px solid #3a3a3a;
+}
+
+body.dark .campo-busca:hover {
+  border-color: #4b5563;
+}
+
+body.dark .campo-busca:focus-within {
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.24);
+}
+
+body.dark .campo-busca span {
+  color: #9ca3af;
+}
+
+body.dark .campo-busca input {
+  color: #ffffff;
+  background: transparent !important;
+}
+
+body.dark .campo-busca input::placeholder {
+  color: #9ca3af;
+}
+
+/* ================= BUSCA / FILTROS ================= */
+
+body.dark .campo-busca {
+  background: #262626;
+  border: 1px solid #3a3a3a;
+  color: #ffffff;
+}
+
+body.dark .campo-busca span {
+  color: #bdbdbd;
+}
+
+body.dark .campo-busca input {
+  background: transparent;
+  color: #ffffff;
+}
+
+body.dark .campo-busca input::placeholder {
+  color: #9ca3af;
+}
+
+body.dark .btn-filtro {
+  background: #262626;
+  border: 1px solid #3a3a3a;
+  color: #ffffff;
+}
+
+body.dark .btn-filtro:hover {
+  background: #2e7d32;
+  border-color: #2e7d32;
+  color: #ffffff;
+}
+
+/* ================= CONTROLE DO MÊS ================= */
+
+body.dark .controle-mes h2 {
+  color: #ffffff;
+}
+
+body.dark .btn-mes {
+  color: #ffffff;
+}
+
+body.dark .btn-mes:hover {
+  color: #2e7d32;
+}
+
+/* ================= ABAS ================= */
+
+body.dark .abas {
+  background: #262626;
+  border: 1px solid #3a3a3a;
+}
+
+body.dark .aba {
+  color: #d1d5db;
+}
+
+body.dark .aba:hover {
+  background: #333333;
+  color: #ffffff;
+}
+
+body.dark .aba.ativa {
+  background: #2e7d32;
+  color: #ffffff;
+}
+
+/* ================= RESUMO ENTRADAS / SAÍDAS ================= */
+
+body.dark .resumo-valores span {
+  color: #d1d5db;
+}
+
+body.dark .resumo-valores strong {
+  color: #ffffff;
+}
+
+body.dark .divisor {
+  background: #4b5563;
+}
+
+body.dark .positivo {
+  color: #44b948 !important;
+}
+
+body.dark .negativo {
+  color: #ef5350 !important;
+}
+
+/* ================= TABELA ================= */
+
+body.dark .tabela-extratos th {
+  color: #ffffff;
+  border-bottom: 1px solid #6b7280;
+}
+
+body.dark .tabela-extratos td {
+  color: #ffffff;
+}
+
+body.dark .tabela-extratos tr.grupo-final td {
+  border-bottom: 1px solid #374151;
+}
+
+body.dark .valor-coluna {
+  color: #ffffff;
+}
+
+body.dark .descricao-cell span,
+body.dark .categoria-cell span,
+body.dark .tipo-cell span {
+  color: #ffffff;
+}
+
+/* Ícones da tabela */
+body.dark .icone-receita {
+  background: rgba(46, 125, 50, 0.22);
+  color: #44b948;
+}
+
+body.dark .icone-despesa {
+  background: rgba(211, 47, 47, 0.22);
+  color: #ef5350;
+}
+
+body.dark .icone-saude {
+  background: rgba(123, 85, 227, 0.22);
+  color: #a78bfa;
+}
+
+body.dark .ponto-receita {
+  background: #44b948;
+}
+
+body.dark .ponto-despesa {
+  background: #ef5350;
+}
+
+/* ================= SEM DADOS ================= */
+
+body.dark .sem-dados {
+  color: #d1d5db;
+}
+
+/* ================= PAGINAÇÃO ================= */
+
+body.dark .pagina-btn,
+body.dark .pagina-numero {
+  color: #ffffff;
+  background: transparent;
+}
+
+body.dark .pagina-btn {
+  background: #262626;
+  border-color: #3a3a3a;
+}
+
+body.dark .pagina-btn:hover,
+body.dark .pagina-numero:hover {
+  background: #333333;
+}
+
+body.dark .pagina-numero.ativa {
+  background: #2e7d32;
+  color: #ffffff;
+  border-color: #2e7d32;
+}
+
+body.dark .pagina-btn:disabled {
+  background: #1f1f1f;
+  color: #6b7280;
+}
+
+body.dark .pagina-reticencias {
+  color: #ffffff;
+}
+
+/* ================= DICA ================= */
+
+body.dark .dica {
+  background: #1f2937;
+  border: 1px solid #374151;
+  color: #dbeafe;
+}
+
+body.dark .dica span {
+  background: #2563eb;
+  color: #ffffff;
+}
+
+/* ================= SCROLL ================= */
+
+body.dark .tabela-container::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+body.dark .tabela-container::-webkit-scrollbar-thumb {
+  background: #4b5563;
+}
+
+body.dark .tabela-container::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+body.dark ::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+body.dark ::-webkit-scrollbar-track {
+  background: #111111;
+}
+
+body.dark ::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 999px;
+}
+
+body.dark ::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+/* ================= MODO ESCURO - EXTRATOS ================= */
+
+body.dark {
+  background-color: #111111;
+  color: #ffffff;
+}
+
+/* Área principal */
+body.dark .main-content {
+  background: #111111;
+}
+
+/* Cabeçalho da página */
+body.dark .cabecalho-pagina h1 {
+  color: #ffffff;
+}
+
+body.dark .cabecalho-pagina p {
+  color: #bdbdbd;
+}
+
+/* Cards */
+body.dark .card,
+body.dark .filtros-card,
+body.dark .extratos-card {
+  background: #1f1f1f;
+  color: #ffffff;
+  border: none;
+  box-shadow: none;
+}
+
+/* ITEM PADRÃO */
+body.dark .menu li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #777;
+    transition: 0.2s;
+}
+
+/* HOVER */
+body.dark .menu li:hover {
+    background: rgba(46, 125, 50, 0.1);
+    color: #2e7d32;
+}
+
+/* ITEM ATIVO (CORRIGIDO) */
+body.dark .menu li.ativo {
+    background: rgba(46, 125, 50, 0.15);
+    color: #4caf50;
+}
+
+/* ÍCONE */
+body.dark .menu li img {
+    width: 22px;
+    height: 22px;
+    transition: 0.2s;
+}
+
+/* ÍCONE ATIVO */
+body.dark .menu li.ativo img {
+    filter: brightness(1.2);
+}
+
+
+/* ===== TEMA CLARO (PADRÃO) ===== */
+body.dark .tipo-item span {
+    background: #f1f3f5;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+/* hover */
+body.dark .tipo-item span:hover {
+    background: #e6e6e6;
+}
+
+/* selecionado */
+body.dark .tipo-item input:checked + span {
+    background: #2e7d32;
+    color: #fff;
+    border: none;
+}
+
+body.dark .tipo-receita {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+body.dark .tipo-item {
+    flex: 1;
+}
+
+body.dark .tipo-item input {
+    display: none;
+}
+
+body.dark .tipo-item span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    background: #2a2a2a;
+    color: #aaa;
+
+}
+
+/* HOVER */
+body.dark .tipo-item span:hover {
+    background: #333;
+}
+
+/* ATIVO (SELECIONADO) */
+body.dark .tipo-item input:checked + span {
+    background: #2e7d32;
+    color: #fff;
+    font-weight: 600;
+}
+
+/* TEMA ESCURO */
+body.dark .modal .select-categoria {
+    background: #282828;
+    border: 1px solid #333;
+    color: #fff;
+}
+
+body.dark .modal #dropdownCategoriaModal {
+    background: #1e1e1e;
+    border: 1px solid #333;
+}
+
+body.dark .modal .item-categoria:hover {
+    background: #2a2a2a;
+}

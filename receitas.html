@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="receitas.css">
+    <link rel="icon" href="imagem/logo_fambudget.png" type="image/png">
+    <title>FamBudget</title>
+</head>
+<body>
+
+<header class="topo">
+    <div class="logo">
+        <img src="imagem/logo_fambudget.png" alt="FamBudget">
+        <span>FamBudget</span>
+    </div>
+
+    <div class="user">
+        <div class="notificacao">
+            <img 
+                src="imagem/vetorhome/notificacao.png" 
+                class="icone-sino" 
+                id="icone-notificacao"
+                alt="Notificações"
+            >
+
+            <span id="badge-notificacao" class="badge">0</span>
+        </div>
+        <div class="avatar" id="avatar">U</div>
+        <span id="nome-usuario" onclick="irPara('configuracoes.html')">Usuário</span>
+    </div>
+    
+</header>
+
+<div class="layout">
+    <aside class="sidebar">
+        <div>
+            <ul class="menu">
+                <li data-link="home.html"><img src="imagem/vetorhome/casa.png">Início</li>
+                <li data-link="transacoes.html"><img src="imagem/carteira.png">Transações</li>
+                <li data-link="despesas.html"><img src="imagem/iconConfig/despesas.png" alt="">Despesas</li>
+                <li data-link="receitas.html"><img src="imagem/iconConfig/receitas.png" alt="">Receitas</li>
+                <li data-link="categorias.html"><img src="imagem/iconConfig/categories.png">Categorias</li>
+                <li data-link="relatorios.html"><img src="imagem/vetorhome/relatorio.png">Relatórios</li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <ul class="menu">
+                <li data-link="configuracoes.html"><img src="imagem/vetorhome/configuracoes.png">Configurações</li>
+                <li id="logout-btn"><img src="imagem/vetorhome/logout.png">Sair</li>
+            </ul>
+        </div>
+    </aside>
+
+    <div class="content">
+
+            <div class="top-receitas">
+                <div class="titulo-box">
+                    <h1>Receitas</h1>
+                    <p>Visualize todas as receitas do mês</p>
+                </div>
+                
+                <button class="btn-add" id="btnNovaDespesa">+ Adicionar Receita</button>
+            </div>
+
+            <!-- CARD TOTAL -->
+            <div class="card-total">
+                <h2>R$</h2>
+                <span class="tag-total">● Total de Receitas</span>
+            </div>
+
+            <!-- FILTROS -->
+            <div class="filtros">
+                <div class="input-busca">
+                    <span class="icone-lupa">⌕</span>
+                    <input class="buscar" type="text" placeholder="Buscar receitas...">
+                </div>
+
+                <div class="filtro" id="filtroTipo" tabindex="0">
+                    Tipo
+
+                    <div class="dropdown" id="dropdownTipo">
+                        <div class="item-filtro tipo-fixa" data-tipo="fixa">Fixa</div>
+                        <div class="item-filtro tipo-variavel" data-tipo="variavel">Variável</div>
+                        <div class="item-filtro tipo-sazonal" data-tipo="sazonal">Sazonal</div>
+                    </div>
+                </div>
+
+                <!-- <div class="filtro" id="filtroStatus">
+                    Status
+                    <div class="dropdown" id="dropdownStatus">
+                        <div class="item-filtro" data-status="pago">Pago</div>
+                        <div class="item-filtro" data-status="pendente">Pendente</div>
+                    </div>
+                </div> -->
+            </div>
+
+            <section class="controle-mes">
+                <button type="button" id="mes-anterior" class="btn-mes">‹</button>
+                <h2 id="mes-atual">Abril 2026</h2>
+                <button type="button" id="proximo-mes" class="btn-mes">›</button>
+            </section>
+
+            <section class="card extratos-card">
+                <div class="topo-extratos">
+                    <div class="abas">
+
+                        <button type="button" class="aba" data-filtro="receita">
+                            ↑ Receitas
+                        </button>
+
+                    </div>
+
+                    <div class="resumo-valores">
+                        <div class="divisor"></div>
+
+                        <div>
+                            <span>Entradas</span>
+                            <strong class="positivo" id="total-entradas">R$ 0,00</strong>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tabela-container">
+                    <table class="tabela-extratos">
+                        <thead>
+                            <tr>
+                                <th>Data</th>
+                                <th>Descrição</th>
+                                <th>Categoria</th>
+                                <th>Tipo</th>
+                                <th class="valor-coluna">Valor (R$)</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="lista-extratos">
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="sem-dados" id="sem-dados">
+                    Nenhuma despesa encontrada para este mês.
+                </div>
+
+                <div class="paginacao" id="paginacao">
+                </div>
+
+            </section>
+
+            <section class="dica">
+                <span>i</span>
+                <p>Dica: acompanhe suas receitas para manter seu controle financeiro em dia.</p>
+            </section>
+        </div>
+    </div>
+
+
+
+
+<div class="modal" id="modalNovaReceita">
+    <div class="modal-content modal-Receita">
+
+        <!-- HEADER -->
+        <div class="header-modal">
+            <div class="icon-circle">
+                <img src="imagem/iconConfig/receitas.png" alt="">
+            </div>
+        
+            <h2>Nova Receita</h2>
+            <p class="sub-modal">Adicione uma nova receita ao sistema</p>
+        </div>
+
+        <div class="divider-modal"></div>
+
+        <!-- CAMPOS -->
+
+        <div class="modal-field">
+            <label>Categoria</label>
+
+            <div class="select-categoria" id="selectCategoria">
+                <label class="select-categorias" id="categoriaSelecionada" tabindex="0">Selecione uma categoria</label>
+
+                <div class="dropdown" id="dropdownCategoriaModal">
+                    <div class="item-categoria cat-yellow" data-categoria="Salário">Salário</div>
+                    <div class="item-categoria cat-blue" data-categoria="Aposentadoria">Aposentadoria</div>
+                    <div class="item-categoria cat-purple" data-categoria="Pensão Alimentícia">Pensão Alimentícia</div>
+                    <div class="item-categoria cat-brown " data-categoria="Outros">Outros</div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="modal-field">
+            <label>Descrição</label>
+            <input type="text" id="descReceita" placeholder="Ex: Salário">
+        </div>
+
+        <div class="modal-field">
+            <label>Valor</label>
+            <input type="number" id="valorReceita" placeholder="R$ 0,00">
+        </div>
+
+        <div class="modal-field">
+            <label>Data</label>
+            <input type="date" id="dataReceita">
+        </div>
+
+        <div class="campo-check">
+            <label class="switch-check">
+                <input type="checkbox" id="checkPago">
+                <span class="switch"></span>
+                <span class="slider-check">Salvar todo mês</span>
+            </label>
+        </div>
+
+
+        <div class="modal-field">
+
+            <label>Tipo de Receita</label>
+
+            <div class="tipo-receita">
+                <label class="tipo-item">
+                    <input type="radio" name="tipoReceita" value="fixa" checked>
+                    <span>Fixa</span>
+                </label>
+
+                <label class="tipo-item">
+                    <input type="radio" name="tipoReceita" value="variavel">
+                    <span>Variável</span>
+                </label>
+
+                <label class="tipo-item">
+                    <input type="radio" name="tipoReceita" value="sazonal">
+                    <span>Sazonal</span>
+                </label>
+            </div>
+            
+
+            <!-- BOTÕES -->
+            <div class="modal-actions">
+                <button class="btn-outline-modal" id="cancelarReceita">
+                    Cancelar
+                </button>
+
+                <button class="btn" id="salvarReceita">
+                    Salvar
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+function irPara(pagina){
+    window.location.href = pagina;
+}
+    
+    function logout(){
+    localStorage.clear();
+    window.location.href = "index.html";
+}
+</script>
+
+
+<script src="js/api.js"></script>
+<script src="js/authGuard.js"></script>
+<script src="js/receitas.js"></script>
+<script src="js/notificacoes.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>
+
