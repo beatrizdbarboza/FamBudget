@@ -1,0 +1,2230 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  
+}
+/* * {
+  outline: 1px solid red;
+} */
+
+body {
+  background-color: #f5f6f8;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  overflow-x: hidden;
+}
+
+.layout {
+  display: flex;
+  height: calc(100vh - 70px);
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.sidebar {
+  position: fixed;
+  top: 70px;
+  left: 0;
+
+  width: 220px;
+  height: calc(100vh - 70px); 
+  background: #fff;
+  padding: 20px;
+  border-right: 1px solid #e0e0e0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 9999;
+}
+
+.sidebar h2 {
+  color: #2e7d32;
+}
+
+/* ================= NOTIFICAÇÃO ================= */
+
+.notificacao {
+  position: relative;
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+}
+
+.icone-sino {
+  width: 20px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+  margin-right: 15px;
+}
+
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -6px;
+
+  background: #22c55e;
+  color: #ffffff;
+
+  font-size: 10px;
+  min-width: 15px;
+  height: 15px;
+
+  padding: 1px 4px;
+  border-radius: 999px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu {
+  list-style: none;
+}
+
+.menu li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+
+  color: #555;
+  transition: 0.3s;
+}
+
+.menu li:hover {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.menu li img {
+  width: 20px;
+  height: 20px;
+}
+
+.divider {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 20px 0;
+}
+
+/* MAIN */
+.main-content {
+  margin-left: 220px;
+  margin-top: 70px;
+  width: 100%;
+}
+
+/* TOPO */
+.topo {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  padding: 15px 25px;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+.topo h1 {
+  font-size: 35px;
+}
+
+.titulo-box p {
+  margin-top: 10px;
+  color: #555;
+  font-size: 15px;
+}
+
+/* LOGO */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 35px;
+}
+
+.logo span {
+  font-size: 20px;
+  font-weight: bold;
+  color: #2e7d32;
+}
+
+/* USER */
+.user {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user span:hover {
+    cursor: pointer;
+}
+
+/* ================= CORREÇÃO AVATAR / FOTO GIGANTE ================= */
+
+.avatar,
+#avatar {
+  width: 35px !important;
+  height: 35px !important;
+  min-width: 35px !important;
+  max-width: 35px !important;
+  min-height: 35px !important;
+  max-height: 35px !important;
+
+  border-radius: 50% !important;
+  overflow: hidden !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex: 0 0 35px !important;
+
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+}
+
+.avatar img,
+#avatar img {
+  width: 100% !important;
+  height: 100% !important;
+  max-width: 100% !important;
+  max-height: 100% !important;
+
+  object-fit: cover !important;
+  display: block !important;
+
+  border-radius: 50% !important;
+}
+
+/* Garante que imagem de perfil nunca vire fundo da página */
+body > img[src^="data:image"],
+.layout > img[src^="data:image"],
+.content > img[src^="data:image"],
+.main-content > img[src^="data:image"],
+.conteudo > img[src^="data:image"] {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Se algum JS aplicar imagem no container errado, neutraliza */
+.layout,
+.content,
+.main-content,
+.conteudo {
+  background-image: none !important;
+}
+
+
+.menu .ativo {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+/* CONTEÚDO */
+.content {
+  flex-grow: 1; /* Faz o conteúdo esticar para ocupar o espaço que sobrar */
+  margin-left: 220px; /* Alinhado exatamente com a largura da sidebar fixa */
+  margin-top: 70px;  /* Alinhado com a altura do topo fixo */
+  padding: 30px;   /* Espaçamento interno */
+  background-color: #f5f6f8;
+  overflow-x: hidden;
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+/* TOPO DESPESAS */
+.top-despesas {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-add {
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+
+.btn-add:hover {
+  background: #1b5e20;
+  transform: translateY(-1px);
+}
+
+
+/* CARD TOTAL */
+.card-total {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.card-total h2 {
+  font-size: 32px;
+}
+
+.tag-total {
+  display: inline-block;
+  background: #fff3cd;
+  color: #a67c00;
+  padding: 5px 10px;
+  border-radius: 8px;
+  margin-top: 5px;
+}
+
+.card,
+.card-total,
+.tabela {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* FILTROS */
+.filtros {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.input-busca {
+  display: flex;
+  align-items: center;
+  background: #fff;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  flex: 1;
+  gap: 8px;
+}
+
+.icone-lupa {
+  margin-bottom: 5px;
+  font-size: 16px;
+  opacity: 0.6;
+}
+
+.input-busca input {
+  border: none;
+  outline: none;
+  width: 100%;
+  font-size: 14px;
+  background: transparent;
+}
+
+.filtro:hover {
+  border-color: #2e7d32;
+  color: #2e7d32;
+}
+
+.filtro {
+  background: #fff;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.filtro:hover {
+  border-color: #2e7d32;
+  color: #2e7d32;
+}
+
+.filtro {
+  position: relative;
+  padding-right: 25px;
+}
+
+.filtro::after {
+  content: "▾";
+  position: absolute;
+  right: 10px;
+  transition: 0.3s;
+}
+
+.filtro.ativo::after {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 10px;
+  min-width: 180px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.dropdown label {
+  display: block;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.dropdown input[type="checkbox"] {
+  display: none;
+}
+
+.dropdown label:hover {
+  background: #f5f5f5;
+}
+
+.dropdown input:checked + span {
+  background: #e8f5e9;
+  color: #2e7d32;
+  font-weight: 500;
+}
+
+.dropdown label:hover span {
+  background: #f5f5f5;
+}
+
+
+.item-tipo {
+  padding: 8px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-size: 13px;
+}
+
+.item-filtro {
+  padding: 10px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+
+.item-filtro:hover {
+  background: #6be475;
+}
+
+.item-filtro.ativo {
+  background: #e8f5e9;
+  color: #a9e4ac;
+  font-weight: 500;
+}
+
+/* CORES */
+.tipo-fixa {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.tipo-fixa:hover {
+  background: #99c6de;
+}
+
+.tipo-variavel {
+  background: #fff3e0;
+  color: #ef6c00;
+}
+
+.tipo-variavel:hover{
+  background: #f1cb8e;
+}
+
+.tipo-sazonal {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+
+.tipo-sazonal:hover{
+  background: #db7bea;
+}
+
+.tipo-fixa.ativo {
+  background: rgba(21, 101, 192, 0.1);
+}
+
+.tipo-variavel.ativo {
+  background: rgba(239, 108, 0, 0.1);
+}
+
+.tipo-sazonal.ativo {
+  background: rgba(123, 31, 162, 0.1);
+}
+
+/* HOVER */
+.item-tipo:hover {
+  opacity: 0.8;
+}
+
+/* ATIVO */
+.item-tipo.ativo {
+  outline: 2px solid #2e7d32;
+}
+
+/* VALORES */
+.valor {
+  font-weight: bold;
+}
+
+.valor.negativo {
+  color: #c62828;
+}
+
+/* foco input */
+.input-busca:focus-within {
+  border: 1px solid #2e7d32;
+  box-shadow: 0 0 0 2px rgba(46,125,50,0.2);
+}
+
+/* foco filtro */
+.filtro:focus,
+.filtro:focus-within {
+  border: 1px solid #2e7d32;
+  box-shadow: 0 0 0 2px rgba(46,125,50,0.2);
+}
+
+/* ================= CONTROLE DO MÊS ================= */
+
+.controle-mes {
+  margin: 10px 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 22px;
+}
+
+.controle-mes h2 {
+  font-size: 22px;
+  color: #111827;
+}
+
+.btn-mes {
+  border: none;
+  background: transparent;
+
+  font-size: 34px;
+  line-height: 1;
+
+  color: #333;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.btn-mes:hover {
+  color: #2e7d32;
+  transform: scale(1.08);
+}
+
+/* ================= CARD EXTRATOS ================= */
+
+.extratos-card {
+  padding: 20px;
+}
+
+.topo-extratos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 18px;
+
+  margin-bottom: 20px;
+}
+
+/* ================= ABAS ================= */
+
+.abas {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  width: fit-content;
+
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+
+  padding: 4px;
+  background: #ffffff;
+}
+
+.aba {
+  border: none;
+  background: transparent;
+
+  padding: 10px 16px;
+
+  border-radius: 9px;
+
+  color: #374151;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.aba:hover {
+  background: #f3f4f6;
+}
+
+.aba.ativa {
+  background: #e8f5e9;
+  color: #b92417;
+}
+
+/* ================= RESUMO ENTRADAS / SAÍDAS ================= */
+
+.resumo-valores {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.resumo-valores div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resumo-valores span {
+  color: #777;
+  font-size: 13px;
+}
+
+.resumo-valores strong {
+  font-size: 20px;
+  margin-top: 4px;
+}
+
+.divisor {
+  width: 1px;
+  height: 40px;
+  background: #d1d5db;
+}
+
+/* ================= TABELA ================= */
+
+.tabela-container {
+  width: 100%;
+  overflow-y: auto;
+  overflow-x: auto;
+}
+
+.tabela-extratos {
+  width: 100%;
+  min-width: 100%;
+
+  border-collapse: collapse;
+}
+
+.tabela-extratos th {
+  padding: 12px 20px;
+
+  color: #374151;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  text-align: left;
+
+  border-bottom: 1px solid #d1d5db;
+}
+
+.tabela-extratos td {
+  padding: 12px 20px;
+
+  font-size: 14px;
+  color: #222;
+
+  vertical-align: middle;
+}
+
+.tabela-extratos tr.grupo-final td {
+  border-bottom: 1px solid #e5e7eb;
+  padding-bottom: 18px;
+}
+
+.valor-coluna {
+  text-align: right !important;
+}
+
+/* ================= ALINHAR COLUNA VALOR À ESQUERDA ================= */
+
+.tabela-extratos th.valor-coluna {
+  text-align: left !important;
+  padding-left: 12px !important;
+}
+
+.tabela-extratos td.valor {
+  text-align: left !important;
+  padding-left: 12px !important;
+}
+
+.valor {
+  text-align: right;
+  font-weight: 700;
+}
+
+.negativo {
+  color: #d32f2f !important;
+}
+
+/* ================= CÉLULAS COM ÍCONES ================= */
+
+.descricao-cell,
+.categoria-cell,
+.tipo-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icone-item {
+  width: 28px;
+  height: 28px;
+  min-width: 28px;
+
+  border-radius: 50%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.icone-despesa {
+  background: #ffebee;
+  color: #d32f2f;
+}
+
+.icone-saude {
+  background: #f3e8ff;
+  color: #7b55e3;
+}
+
+.ponto-tipo {
+  width: 8px;
+  height: 8px;
+  min-width: 8px;
+
+  border-radius: 50%;
+}
+
+.ponto-despesa {
+  background: #d32f2f;
+}
+
+/* ================= SEM DADOS ================= */
+
+.sem-dados {
+  display: none;
+
+  text-align: center;
+
+  padding: 35px 20px;
+
+  color: #777;
+  font-size: 15px;
+}
+
+/* ================= PAGINAÇÃO ================= */
+
+.paginacao {
+  margin-top: 26px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pagina-btn,
+.pagina-numero {
+  min-width: 44px;
+  height: 44px;
+
+  border: 1px solid transparent;
+  background: transparent;
+
+  color: #111;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.pagina-btn {
+  border-color: #d1d5db;
+  background: #ffffff;
+
+  font-size: 28px;
+  font-weight: 400;
+}
+
+.pagina-btn:hover,
+.pagina-numero:hover {
+  background: #f3f4f6;
+}
+
+.pagina-numero.ativa {
+  background: #000000;
+  color: #ffffff;
+  border-color: #000000;
+}
+
+.pagina-btn:disabled {
+  color: #b0b0b0;
+  cursor: not-allowed;
+  background: #f9fafb;
+}
+
+.pagina-reticencias {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+
+  padding: 0 6px;
+}
+
+/* ================= DICA ================= */
+
+.dica {
+  margin-top: 18px;
+
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  color: #2563eb;
+
+  border-radius: 12px;
+  padding: 12px 16px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dica span {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+
+  border-radius: 50%;
+  background: #2563eb;
+  color: #ffffff;
+
+  font-weight: 700;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dica p {
+  font-size: 14px;
+}
+
+/* ================= SCROLL DA TABELA ================= */
+
+.tabela-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.tabela-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.tabela-container::-webkit-scrollbar-thumb {
+  background: #c7c7c7;
+  border-radius: 10px;
+}
+
+.tabela-container::-webkit-scrollbar-thumb:hover {
+  background: #999;
+}
+
+/* ================= INPUT DE BUSCA BONITO ================= */
+
+.campo-busca {
+  width: 380px;
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 0 16px;
+
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+
+  transition: 0.2s ease;
+}
+
+.campo-busca:hover {
+  border-color: #9ca3af;
+}
+
+.campo-busca:focus-within {
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.16);
+}
+
+.campo-busca span {
+  color: #6b7280;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.campo-busca input {
+  width: 100%;
+  height: 100%;
+
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+
+  background: transparent !important;
+
+  color: #111827;
+  font-size: 15px;
+}
+
+.campo-busca input::placeholder {
+  color: #9ca3af;
+}
+
+/* MODAL */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.header-modal {
+  text-align: center;
+}
+
+.sub-modal {
+  font-size: 12px;
+  color: #777;
+  margin-top: 5px;
+  opacity: 0.9;
+}
+
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  background: rgba(46, 125, 50, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 10px;
+}
+
+.icon-circle img {
+  width: 28px;
+}
+
+.divider-modal {
+  height: 1px;
+  background: #e0e0e0;
+  margin: 20px -8px; 
+}
+
+/* CAMPOS */
+.modal-field {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.modal-field label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #777;
+  letter-spacing: 0.5px;
+}
+
+.modal-field input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.modal-field input:focus {
+  outline: none;
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 2px rgba(46,125,50,0.15);
+}
+
+.campo-check {
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+/* TIPO DESPESA */
+.tipo-despesa {
+  display: flex;
+  border: 1px solid #2e7d32;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.tipo-despesa {
+  display: flex;
+  margin-top: 10px;
+  border-radius: 10px;
+  overflow: hidden; /* ESSENCIAL */
+  border: 1px solid #ddd;
+}
+
+.tipo-item span {
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+  cursor: pointer;
+  color: #2e7d32;
+}
+
+.tipo-item input:checked + span {
+  background: #2e7d32;
+  color: white;
+}
+
+
+/* botão */
+.tipo-item span {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 12px;
+  cursor: pointer;
+
+  background: #f1f3f5;
+  color: #333;
+
+  border-right: 1px solid #ddd;
+  transition: 0.2s;
+}
+
+.tipo-item {
+  flex: 1;
+}
+
+.tipo-item input {
+  display: none;
+}
+
+.tipo-item input:checked + span {
+  background: #2e7d32;
+  color: white;
+}
+
+.tipo-tag {
+  padding: 5px 10px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  display: inline-block;
+}
+
+.tipo-fixa {
+  background: #e3f2fd;
+  color: #1565c0;
+}
+
+.tipo-variavel {
+  background: #fff3e0;
+  color: #ef6c00;
+}
+
+.tipo-sazonal {
+  background: #f3e5f5;
+  color: #7b1fa2;
+}
+
+/* SWITCH */
+.switch-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: #555;
+  font-size: 13px;
+}
+
+.switch-check input {
+  display: none;
+}
+
+.switch {
+  width: 38px;
+  height: 20px;
+  background: #ccc;
+  border-radius: 20px;
+  position: relative;
+}
+
+.switch::after {
+  content: "";
+  width: 14px;
+  height: 14px;
+  background: white;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.switch-check input:checked + .switch {
+  background: #2e7d32;
+}
+
+.switch-check input:checked + .switch::after {
+  transform: translateX(18px);
+}
+
+/* BOTÕES */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn-outline-modal {
+  background: transparent;
+  border: 1px solid #2e7d32;
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: #2e7d32;
+}
+
+.btn {
+  background: #2e7d32;
+  color: #fff;
+  border: none;
+  padding: 10px 25px;
+  border-radius: 8px;
+}
+
+/* MODAL CATEGORIA */
+
+.cat-orange { color: #FF7700; }
+.cat-blue { color: #00CCFF; }
+.cat-pink { color: #DA4175; }
+.cat-brown { color: #4B2B0A; }
+.cat-green { color: #44B948; }
+.cat-purple { color: #7B55E3; }
+.cat-yellow { color: #E1CC0A; }
+.cat-gray { color: #4F595B; }
+
+.item-categoria {
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.2s;
+}
+
+.item-categoria:hover {
+  background: rgba(0,0,0,0.05);
+}
+
+.select-categoria {
+  position: relative;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #fff;
+  transition: 0.2;
+}
+
+.select-categoria:hover {
+  border-color: #888;
+}
+
+/* efeito ao clicar (foco) */
+.select-categoria:focus-within {
+  border: 1px solid #2e7d32;
+  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+}
+
+/* remove a borda interna */
+.select-categoria label {
+  border: none;
+  outline: none;
+  background: transparent;
+}
+
+#categoriaSelecionada {
+  font-size: 13px;
+  font-weight: 600;
+  color: #777;
+  letter-spacing: 0.5px;
+}
+
+/* DROPDOWN */
+#dropdownCategoriaModal {
+  display: none;
+  position: absolute;
+  top: 45px;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+.item-categoria {
+  padding: 10px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.item-categoria:hover {
+  background: #f5f5f5;
+}
+
+/* cada categoria com sua cor */
+.modal .item-categoria.cat-orange { color: #FF7700; }
+.modal .item-categoria.cat-blue { color: #00CCFF; }
+.modal .item-categoria.cat-pink { color: #DA4175; }
+.modal .item-categoria.cat-brown { color: #4B2B0A; }
+.modal .item-categoria.cat-green { color: #44B948; }
+.modal .item-categoria.cat-purple { color: #7B55E3; }
+.modal .item-categoria.cat-yellow { color: #E1CC0A; }
+.modal .item-categoria.cat-gray { color: #9e9e9e; }
+
+#categoriaSelecionada.cat-orange { color: #FF7700 !important; }
+#categoriaSelecionada.cat-blue { color: #00CCFF !important; }
+#categoriaSelecionada.cat-pink { color: #DA4175 !important; }
+#categoriaSelecionada.cat-brown { color: #4B2B0A !important; }
+#categoriaSelecionada.cat-green { color: #44B948 !important; }
+#categoriaSelecionada.cat-purple { color: #7B55E3 !important; }
+#categoriaSelecionada.cat-yellow { color: #E1CC0A !important; }
+#categoriaSelecionada.cat-gray { color: #4F595B !important; }
+
+@media (max-width: 800px) {
+
+  .sidebar {
+    width: 80px;
+    padding: 20px 10px;
+  }
+
+  .menu li {
+    justify-content: center;
+    font-size: 0;
+    gap: 0;
+  }
+
+  .menu li img {
+    width: 23px;
+    height: 23px;
+  }
+
+  /* 👇 ESSA LINHA RESOLVE O ESPAÇO BRANCO */
+  .content {
+    margin-left: 80px;
+    width: calc(100% - 80px);
+  }
+
+}
+
+/* ================= AJUSTE FINAL SCROLL INTERNO - DESPESAS ================= */
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden !important;
+}
+
+.layout {
+  height: 100vh !important;
+  overflow: hidden !important;
+}
+
+.main-content {
+  position: fixed !important;
+  top: 70px !important;
+  left: 220px !important;
+
+  margin: 0 !important;
+
+  width: calc(100% - 220px) !important;
+  height: calc(100vh - 70px) !important;
+
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  background-color: #f5f6f8;
+}
+
+.main-content .content,
+.main-content .conteudo {
+  margin: 0 !important;
+
+  width: 100% !important;
+  min-height: auto !important;
+
+  padding: 30px !important;
+  padding-bottom: 24px !important;
+
+  background-color: transparent !important;
+}
+
+/* Caso a tela use .content direto */
+body > .content,
+.layout > .content {
+  position: fixed !important;
+  top: 70px !important;
+  left: 220px !important;
+
+  margin: 0 !important;
+
+  width: calc(100% - 220px) !important;
+  height: calc(100vh - 70px) !important;
+
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  padding: 30px !important;
+  padding-bottom: 24px !important;
+
+  background-color: #f5f6f8;
+}
+
+body.tema-escuro,
+body.dark {
+  background-color: #0f0f0f !important;
+}
+
+body.tema-escuro .layout,
+body.dark .layout,
+body.tema-escuro .main-content,
+body.dark .main-content,
+body.tema-escuro .content,
+body.dark .content,
+body.tema-escuro .conteudo,
+body.dark .conteudo {
+  background-color: #0f0f0f !important;
+}
+
+.main-content::-webkit-scrollbar,
+body > .content::-webkit-scrollbar,
+.layout > .content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.main-content::-webkit-scrollbar-track,
+body > .content::-webkit-scrollbar-track,
+.layout > .content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.main-content::-webkit-scrollbar-thumb,
+body > .content::-webkit-scrollbar-thumb,
+.layout > .content::-webkit-scrollbar-thumb {
+  background: #4b5563;
+  border-radius: 10px;
+}
+
+.main-content::-webkit-scrollbar-thumb:hover,
+body > .content::-webkit-scrollbar-thumb:hover,
+.layout > .content::-webkit-scrollbar-thumb:hover {
+  background: #6b7280;
+}
+
+@media (max-width: 800px) {
+  .main-content {
+    left: 80px !important;
+    width: calc(100% - 80px) !important;
+  }
+
+  .main-content .content,
+  .main-content .conteudo {
+    padding: 20px !important;
+    padding-bottom: 24px !important;
+  }
+
+  body > .content,
+  .layout > .content {
+    left: 80px !important;
+    width: calc(100% - 80px) !important;
+    padding: 20px !important;
+    padding-bottom: 24px !important;
+  }
+}
+
+.dados-pagamento-despesa {
+  margin-top: 14px;
+  padding: 14px;
+  border: 1px solid #d1fae5;
+  border-radius: 14px;
+  background: #f0fdf4;
+  display: grid;
+  gap: 12px;
+}
+
+.dados-pagamento-despesa .modal-field {
+  margin: 0;
+}
+
+.dados-pagamento-despesa label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #166534;
+}
+
+.dados-pagamento-despesa input,
+.dados-pagamento-despesa select {
+  width: 100%;
+  height: 42px;
+  padding: 0 12px;
+  border: 1px solid #bbf7d0;
+  border-radius: 10px;
+  background-color: #ffffff;
+  color: #111827;
+  font-size: 14px;
+  outline: none;
+}
+
+.dados-pagamento-despesa input:focus,
+.dados-pagamento-despesa select:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.14);
+}
+
+.dados-pagamento-despesa select {
+  cursor: pointer;
+  appearance: auto;
+}
+
+body.dark .dados-pagamento-despesa,
+body.modo-escuro .dados-pagamento-despesa {
+  background: #102018;
+  border-color: #1f3d2a;
+}
+
+body.dark .dados-pagamento-despesa label,
+body.modo-escuro .dados-pagamento-despesa label {
+  color: #86efac;
+}
+
+body.dark .dados-pagamento-despesa input,
+body.dark .dados-pagamento-despesa select,
+body.modo-escuro .dados-pagamento-despesa input,
+body.modo-escuro .dados-pagamento-despesa select {
+  background: #171717;
+  border-color: #374151;
+  color: #f9fafb;
+}
+
+#lista-extratos {
+  display: table-row-group !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+}
+
+#lista-extratos tr {
+  display: table-row !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  height: auto !important;
+}
+
+#lista-extratos td {
+  display: table-cell !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  padding: 14px 18px !important;
+  color: #111827;
+  vertical-align: middle;
+}
+
+#lista-extratos .valor.negativo {
+  color: #dc2626 !important;
+  font-weight: 700;
+}
+
+#lista-extratos .descricao-cell,
+#lista-extratos .categoria-cell,
+#lista-extratos .tipo-cell {
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+}
+
+#lista-extratos .bolinha-categoria {
+  width: 10px;
+  height: 10px;
+  min-width: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+#lista-extratos .icone-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== PAGAMENTO DA DESPESA - COMPACTO ===== */
+
+.dados-pagamento-despesa {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 12px;
+  border: 1px solid #d8eadb;
+  border-radius: 10px;
+  background: #f7fbf8;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.dados-pagamento-despesa .modal-field {
+  margin: 0;
+}
+
+.dados-pagamento-despesa label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+.dados-pagamento-despesa input,
+.dados-pagamento-despesa select {
+  width: 100%;
+  height: 38px;
+  padding: 0 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: #ffffff;
+  color: #111827;
+  font-size: 13px;
+  outline: none;
+}
+
+.dados-pagamento-despesa input:focus,
+.dados-pagamento-despesa select:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.12);
+}
+
+.dados-pagamento-despesa select {
+  cursor: pointer;
+}
+
+.modal-content.modal-despesa {
+  max-height: none !important;
+  overflow-y: visible !important;
+  overflow-x: visible !important;
+}
+
+/* Responsivo */
+@media (max-width: 600px) {
+  .dados-pagamento-despesa {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Modal de despesas */
+.modal-content.modal-despesa {
+  width: 100%;
+  max-width: 520px;
+  max-height: 85vh;
+  overflow-y: hidden;
+  padding: 28px;
+  border-radius: 18px;
+  box-sizing: border-box;
+}
+
+/* Quando a parte de pagamento estiver ativa */
+.modal-content.modal-despesa.com-pagamento {
+  max-height: none !important;
+  overflow-y: visible !important;
+  overflow-x: visible !important;
+  padding-right: 28px !important;
+}
+
+/* Scroll bonito */
+.modal-content.modal-despesa.com-pagamento::-webkit-scrollbar {
+  width: 8px;
+}
+
+.modal-content.modal-despesa.com-pagamento::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-content.modal-despesa.com-pagamento::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+.modal-content.modal-despesa.com-pagamento::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Responsivo */
+@media (max-height: 800px) {
+  .modal-content.modal-despesa {
+    max-height: 82vh;
+  }
+
+  .modal-content.modal-despesa.com-pagamento {
+    max-height: 82vh;
+  }
+}
+
+@media (max-width: 600px) {
+  .modal-content.modal-despesa {
+    max-width: 100%;
+    max-height: 88vh;
+    padding: 20px;
+  }
+
+  .modal-content.modal-despesa.com-pagamento {
+    max-height: 88vh;
+  }
+}
+
+/* =========================================================
+   CORREÇÃO FINAL - MODAL DESPESAS RESPONSIVO
+   Cole no FINAL do despesas.css
+========================================================= */
+
+.modal {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+
+  display: none;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 16px !important;
+  overflow: hidden !important;
+
+  background: rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+  z-index: 99999 !important;
+}
+
+.modal[style*="flex"],
+.modal[style*="block"] {
+  display: flex !important;
+}
+
+.modal-content.modal-despesa {
+  width: min(420px, calc(100vw - 32px)) !important;
+  max-width: 520px !important;
+
+  max-height: calc(100vh - 32px) !important;
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  padding: 26px 28px !important;
+  margin: 0 auto !important;
+
+  border-radius: 18px !important;
+  background: #ffffff !important;
+  box-sizing: border-box !important;
+}
+
+/* Campos não estourarem */
+.modal-content.modal-despesa input,
+.modal-content.modal-despesa select,
+.modal-content.modal-despesa button {
+  max-width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+/* Pagamento compacto */
+.dados-pagamento-despesa {
+  margin: 10px 0 12px !important;
+  padding: 12px !important;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+
+  border: 1px solid #d8eadb;
+  border-radius: 10px;
+  background: #f7fbf8;
+}
+
+.dados-pagamento-despesa .modal-field {
+  margin: 0 !important;
+}
+
+.dados-pagamento-despesa label {
+  display: block;
+  margin-bottom: 5px;
+
+  font-size: 12px;
+  font-weight: 600;
+  color: #2e7d32;
+}
+
+.dados-pagamento-despesa input,
+.dados-pagamento-despesa select {
+  width: 100% !important;
+  height: 38px !important;
+
+  padding: 0 10px !important;
+
+  border: 1px solid #d1d5db !important;
+  border-radius: 8px !important;
+
+  background: #ffffff !important;
+  color: #111827 !important;
+
+  font-size: 13px !important;
+  outline: none !important;
+}
+
+.dados-pagamento-despesa input:focus,
+.dados-pagamento-despesa select:focus {
+  border-color: #2e7d32 !important;
+  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.12) !important;
+}
+
+/* Botões sempre visíveis e alinhados */
+.modal-actions {
+  position: sticky;
+  bottom: -26px;
+
+  display: flex !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+
+  margin-top: 16px !important;
+  padding-top: 12px !important;
+  padding-bottom: 4px !important;
+
+  background: #ffffff;
+}
+
+/* Telas baixas: deixa mais compacto */
+@media (max-height: 760px) {
+  .modal {
+    align-items: flex-start !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .modal-content.modal-despesa {
+    max-height: calc(100vh - 20px) !important;
+    padding: 18px 24px !important;
+  }
+
+  .header-modal .icon-circle {
+    width: 48px !important;
+    height: 48px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .header-modal h2 {
+    font-size: 22px !important;
+  }
+
+  .sub-modal {
+    margin-top: 2px !important;
+  }
+
+  .divider-modal {
+    margin: 14px -8px !important;
+  }
+
+  .modal-field {
+    margin-bottom: 10px !important;
+  }
+
+  .campo-check {
+    margin-top: 8px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .tipo-despesa {
+    margin-top: 6px !important;
+  }
+
+  .tipo-item span {
+    padding: 10px !important;
+  }
+}
+
+/* Telas pequenas */
+@media (max-width: 600px) {
+  .modal {
+    padding: 10px !important;
+  }
+
+  .modal-content.modal-despesa {
+    width: calc(100vw - 20px) !important;
+    max-width: calc(100vw - 20px) !important;
+    max-height: calc(100vh - 20px) !important;
+
+    padding: 18px !important;
+    border-radius: 16px !important;
+  }
+
+  .dados-pagamento-despesa {
+    grid-template-columns: 1fr !important;
+  }
+
+  .tipo-despesa {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+  }
+
+  .modal-actions {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    bottom: -18px;
+  }
+
+  .modal-actions button {
+    width: 100% !important;
+  }
+}
+
+/* Telas muito pequenas em altura */
+@media (max-height: 620px) {
+  .modal-content.modal-despesa {
+    padding: 14px 20px !important;
+  }
+
+  .header-modal {
+    margin-bottom: 6px !important;
+  }
+
+  .header-modal .icon-circle {
+    display: none !important;
+  }
+
+  .divider-modal {
+    margin: 10px -8px !important;
+  }
+
+  .modal-field label,
+  .dados-pagamento-despesa label {
+    font-size: 11px !important;
+  }
+
+  .modal-field input,
+  .dados-pagamento-despesa input,
+  .dados-pagamento-despesa select {
+    height: 36px !important;
+  }
+}
+
+/* =========================================================
+   CORREÇÃO MODO ESCURO - DESPESAS
+   Cole no FINAL do despesas.css
+========================================================= */
+
+/* MODAL ESCURO */
+body.tema-escuro .modal-content.modal-despesa,
+body.dark .modal-content.modal-despesa,
+body.modo-escuro .modal-content.modal-despesa {
+  background: #181818 !important;
+  color: #f9fafb !important;
+  border: 1px solid #2f2f2f !important;
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.55) !important;
+}
+
+body.tema-escuro .modal-despesa h2,
+body.dark .modal-despesa h2,
+body.modo-escuro .modal-despesa h2,
+body.tema-escuro .modal-despesa label,
+body.dark .modal-despesa label,
+body.modo-escuro .modal-despesa label {
+  color: #f9fafb !important;
+}
+
+body.tema-escuro .modal-despesa .sub-modal,
+body.dark .modal-despesa .sub-modal,
+body.modo-escuro .modal-despesa .sub-modal,
+body.tema-escuro .slider-check,
+body.dark .slider-check,
+body.modo-escuro .slider-check,
+body.tema-escuro #previewParcelasDespesa,
+body.dark #previewParcelasDespesa,
+body.modo-escuro #previewParcelasDespesa {
+  color: #d1d5db !important;
+}
+
+body.tema-escuro .divider-modal,
+body.dark .divider-modal,
+body.modo-escuro .divider-modal {
+  background: #2f2f2f !important;
+}
+
+/* CAMPOS DO MODAL */
+body.tema-escuro .modal-despesa input,
+body.dark .modal-despesa input,
+body.modo-escuro .modal-despesa input,
+body.tema-escuro .modal-despesa select,
+body.dark .modal-despesa select,
+body.modo-escuro .modal-despesa select,
+body.tema-escuro .select-categoria,
+body.dark .select-categoria,
+body.modo-escuro .select-categoria {
+  background: #111111 !important;
+  color: #f9fafb !important;
+  border-color: #3f3f46 !important;
+}
+
+body.tema-escuro .modal-despesa input::placeholder,
+body.dark .modal-despesa input::placeholder,
+body.modo-escuro .modal-despesa input::placeholder {
+  color: #9ca3af !important;
+}
+
+body.tema-escuro #categoriaSelecionada,
+body.dark #categoriaSelecionada,
+body.modo-escuro #categoriaSelecionada {
+  color: #d1d5db !important;
+}
+
+/* DROPDOWN CATEGORIA NO MODAL */
+body.tema-escuro #dropdownCategoriaModal,
+body.dark #dropdownCategoriaModal,
+body.modo-escuro #dropdownCategoriaModal {
+  background: #111111 !important;
+  border-color: #3f3f46 !important;
+}
+
+body.tema-escuro .item-categoria,
+body.dark .item-categoria,
+body.modo-escuro .item-categoria {
+  background: transparent !important;
+  color: #f9fafb !important;
+}
+
+body.tema-escuro .item-categoria:hover,
+body.dark .item-categoria:hover,
+body.modo-escuro .item-categoria:hover {
+  background: #27272a !important;
+}
+
+/* BOTÕES FIXA / VARIÁVEL / SAZONAL */
+body.tema-escuro .tipo-despesa,
+body.dark .tipo-despesa,
+body.modo-escuro .tipo-despesa {
+  background: #111111 !important;
+  border-color: #3f3f46 !important;
+}
+
+body.tema-escuro .tipo-item span,
+body.dark .tipo-item span,
+body.modo-escuro .tipo-item span {
+  background: #222222 !important;
+  color: #f9fafb !important;
+}
+
+body.tema-escuro .tipo-item input:checked + span,
+body.dark .tipo-item input:checked + span,
+body.modo-escuro .tipo-item input:checked + span {
+  background: #2e7d32 !important;
+  color: #ffffff !important;
+}
+
+/* BOTÃO CANCELAR */
+body.tema-escuro .btn-outline-modal,
+body.dark .btn-outline-modal,
+body.modo-escuro .btn-outline-modal {
+  background: transparent !important;
+  color: #4ade80 !important;
+  border-color: #4ade80 !important;
+}
+
+/* TABELA - LETRAS BRANCAS NO MODO ESCURO */
+body.tema-escuro .tabela-extratos th,
+body.dark .tabela-extratos th,
+body.modo-escuro .tabela-extratos th,
+body.tema-escuro .tabela-extratos td,
+body.dark .tabela-extratos td,
+body.modo-escuro .tabela-extratos td {
+  color: #f9fafb !important;
+}
+
+/* Usuário estava ficando preto */
+body.tema-escuro .usuario-despesa,
+body.dark .usuario-despesa,
+body.modo-escuro .usuario-despesa {
+  color: #f9fafb !important;
+}
+
+/* Status e textos dentro das células */
+body.tema-escuro .descricao-cell,
+body.dark .descricao-cell,
+body.modo-escuro .descricao-cell,
+body.tema-escuro .categoria-cell,
+body.dark .categoria-cell,
+body.modo-escuro .categoria-cell,
+body.tema-escuro .tipo-cell,
+body.dark .tipo-cell,
+body.modo-escuro .tipo-cell {
+  color: #f9fafb !important;
+}
+
+/* Mantém valores negativos vermelhos */
+body.tema-escuro .valor.negativo,
+body.dark .valor.negativo,
+body.modo-escuro .valor.negativo,
+body.tema-escuro .negativo,
+body.dark .negativo,
+body.modo-escuro .negativo {
+  color: #ff4d4d !important;
+}
+
+/* Linha alternada da tabela */
+body.tema-escuro .tabela-extratos tbody tr,
+body.dark .tabela-extratos tbody tr,
+body.modo-escuro .tabela-extratos tbody tr {
+  background: transparent !important;
+}
+
+body.tema-escuro .tabela-extratos tbody tr:nth-child(even),
+body.dark .tabela-extratos tbody tr:nth-child(even),
+body.modo-escuro .tabela-extratos tbody tr:nth-child(even) {
+  background: #202020 !important;
+}
+
+/* =========================================================
+   CORREÇÃO FINAL - MODAL DESPESAS MODO ESCURO + CENTRALIZADO
+   Cole no FINAL do despesas.css
+========================================================= */
+
+/* Centraliza o modal sempre */
+#modalNovaDespesa.modal {
+  position: fixed !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+
+  display: none;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 20px !important;
+  overflow: hidden !important;
+  z-index: 99999 !important;
+}
+
+#modalNovaDespesa.modal[style*="flex"],
+#modalNovaDespesa.modal[style*="block"] {
+  display: flex !important;
+}
+
+/* Tamanho igual e centralizado com ou sem "Despesa paga" */
+#modalNovaDespesa .modal-content.modal-despesa {
+  width: min(430px, calc(100vw - 40px)) !important;
+  max-width: 430px !important;
+
+  max-height: none !important;
+  overflow-y: visible !important;
+  overflow-x: visible !important;
+
+  margin: auto !important;
+  padding: 20px 28px !important;
+  border-radius: 18px !important;
+  box-sizing: border-box !important;
+}
+
+/* Remove diferença quando aparece data/forma de pagamento */
+#modalNovaDespesa .modal-content.modal-despesa.com-pagamento {
+  width: min(430px, calc(100vw - 40px)) !important;
+  max-width: 430px !important;
+
+  max-height: none !important;
+  overflow-y: visible !important;
+  overflow-x: visible !important;
+
+  margin: auto !important;
+  padding: 20px 28px !important;
+}
+
+/* Área dos botões */
+#modalNovaDespesa .modal-actions {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  gap: 16px !important;
+
+  width: 100% !important;
+  margin-top: 18px !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+  border: none !important;
+}
+
+/* Botões com o mesmo tamanho */
+#modalNovaDespesa .modal-actions button {
+  height: 44px !important;
+  min-width: 104px !important;
+  border-radius: 8px !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+}
+
+/* Corrige qualquer faixa branca embaixo no modo escuro */
+body.tema-escuro #modalNovaDespesa .modal-content.modal-despesa,
+body.dark #modalNovaDespesa .modal-content.modal-despesa,
+body.modo-escuro #modalNovaDespesa .modal-content.modal-despesa {
+  background: #181818 !important;
+  color: #f9fafb !important;
+  border: 1px solid #2f2f2f !important;
+}
+
+/* Fundo da área dos botões no modo escuro */
+body.tema-escuro #modalNovaDespesa .modal-actions,
+body.dark #modalNovaDespesa .modal-actions,
+body.modo-escuro #modalNovaDespesa .modal-actions {
+  background: #181818 !important;
+  border: none !important;
+}
+
+/* Botão Cancelar no modo escuro */
+body.tema-escuro #cancelarDespesa,
+body.dark #cancelarDespesa,
+body.modo-escuro #cancelarDespesa {
+  background: transparent !important;
+  color: #4ade80 !important;
+  border: 1px solid #4ade80 !important;
+}
+
+/* Botão Cancelar hover */
+body.tema-escuro #cancelarDespesa:hover,
+body.dark #cancelarDespesa:hover,
+body.modo-escuro #cancelarDespesa:hover {
+  background: rgba(74, 222, 128, 0.12) !important;
+  color: #86efac !important;
+}
+
+/* Botão Salvar no modo escuro */
+body.tema-escuro #salvarDespesa,
+body.dark #salvarDespesa,
+body.modo-escuro #salvarDespesa {
+  background: #2e7d32 !important;
+  color: #ffffff !important;
+  border: 1px solid #2e7d32 !important;
+}
+
+/* Botão Salvar hover */
+body.tema-escuro #salvarDespesa:hover,
+body.dark #salvarDespesa:hover,
+body.modo-escuro #salvarDespesa:hover {
+  background: #256b29 !important;
+  border-color: #256b29 !important;
+}
+
+/* Parte de data/forma de pagamento no modo escuro */
+body.tema-escuro #dadosPagamentoDespesa,
+body.dark #dadosPagamentoDespesa,
+body.modo-escuro #dadosPagamentoDespesa {
+  background: #102018 !important;
+  border-color: #1f3d2a !important;
+}
+
+/* Inputs dentro do pagamento no modo escuro */
+body.tema-escuro #dadosPagamentoDespesa input,
+body.tema-escuro #dadosPagamentoDespesa select,
+body.dark #dadosPagamentoDespesa input,
+body.dark #dadosPagamentoDespesa select,
+body.modo-escuro #dadosPagamentoDespesa input,
+body.modo-escuro #dadosPagamentoDespesa select {
+  background: #111111 !important;
+  color: #f9fafb !important;
+  border-color: #374151 !important;
+}
+
+/* Labels do pagamento */
+body.tema-escuro #dadosPagamentoDespesa label,
+body.dark #dadosPagamentoDespesa label,
+body.modo-escuro #dadosPagamentoDespesa label {
+  color: #bbf7d0 !important;
+}

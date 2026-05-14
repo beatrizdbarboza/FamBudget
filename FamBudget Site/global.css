@@ -1,0 +1,1547 @@
+/* ================= DARK MODE GLOBAL ================= */
+
+body {
+  --bg: #f5f6f8;
+  --card: #ffffff;
+  --text: #111827;
+  --subtext: #6b7280;
+  --border: #e5e7eb;
+  --input: #ffffff;
+}
+
+body.dark {
+  --bg: #121212;
+  --card: #1e1e1e;
+  --text: #e5e7eb;
+  --subtext: #9ca3af;
+  --border: #333;
+  --input: #2a2a2a;
+}
+
+/* BASE */
+body {
+  background: var(--bg);
+  color: var(--text);
+  transition: 0.3s;
+}
+
+/* TOPO */
+.topo {
+  background: var(--card);
+  border-bottom: 1px solid var(--border);
+}
+
+/* SIDEBAR */
+.sidebar {
+  background: var(--card);
+  border-right: 1px solid var(--border);
+}
+
+.menu li {
+  color: var(--subtext);
+}
+
+.menu li:hover,
+.menu .ativo {
+  background: rgba(46,125,50,0.15);
+  color: #2e7d32;
+}
+
+/* CARDS */
+.card,
+.card-total,
+.extratos-card,
+.modal-content {
+  background: var(--card);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+/* INPUTS */
+.input-busca,
+.filtro,
+.campo-busca,
+.select-categoria {
+  background: var(--input);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+
+input {
+  color: var(--text);
+}
+
+input::placeholder {
+  color: var(--subtext);
+}
+
+/* TABELA */
+.tabela-extratos th {
+  background: var(--card);
+  color: var(--subtext);
+  border-bottom: 1px solid var(--border);
+}
+
+.tabela-extratos td {
+  color: var(--text);
+}
+
+.tabela-extratos tr:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+/* DROPDOWN */
+.dropdown {
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+.item-filtro:hover,
+.item-categoria:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+/* MODAL */
+.modal {
+  background: rgba(0,0,0,0.6);
+}
+
+.modal-field input {
+  background: var(--input);
+  border: 1px solid var(--border);
+}
+
+/* PAGINAÇÃO */
+.pagina-btn,
+.pagina-numero {
+  color: var(--text);
+}
+
+.pagina-btn {
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+.pagina-numero.ativa {
+  background: #2e7d32;
+  color: #fff;
+}
+
+/* SCROLL */
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #555;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #777;
+}
+
+/* =========================
+  HOME
+========================= */
+/* ================= DARK MODE ================= */
+
+body.dark {
+  background-color: #121212;
+  color: #e5e5e5;
+}
+
+/* TOPO */
+body.dark .topo {
+  background: #1e1e1e;
+  border-bottom: 1px solid #2a2a2a;
+  box-shadow: none;
+}
+
+/* SIDEBAR */
+body.dark .sidebar {
+  background: #1a1a1a;
+  border-right: 1px solid #2a2a2a;
+}
+
+body.dark .menu li {
+  color: #ccc;
+}
+
+body.dark .menu li:hover {
+  background: #2e7d32;
+  color: #fff;
+}
+
+/* CARDS */
+body.dark .card,
+body.dark .familia-card,
+body.dark .convite-item,
+body.dark .membro {
+  background: #1e1e1e;
+  border: 1px solid #1e1e1e;
+  box-shadow: none;
+}
+
+/* SUBTEXTOS */
+body.dark .dados span,
+body.dark .dados small,
+body.dark .membro-dados small {
+  color: #aaa;
+}
+
+/* BOTÕES */
+body.dark .btn {
+  background: #2e7d32;
+}
+
+body.dark .btn:hover {
+  background: #1b5e20;
+}
+
+/* INPUTS */
+body.dark input {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  color: #fff;
+}
+
+body.dark input::placeholder {
+  color: #777;
+}
+
+body.dark input:focus {
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 2px rgba(46,125,50,0.3);
+}
+
+/* MODAL */
+body.dark .modal-content {
+  background: #1e1e1e;
+  border: 1px solid #333;
+}
+
+/* BARRAS */
+body.dark .meta-bar {
+  background: #333;
+}
+
+/* PROGRESS */
+body.dark #orcamento::-webkit-progress-bar {
+  background-color: #333;
+}
+
+/* POPUP */
+body.dark .popup-confirmacao-box {
+  background: #1e1e1e;
+}
+
+/* DIVIDER */
+body.dark .divider {
+  background: #2a2a2a;
+}
+
+/* NOTIFICAÇÃO */
+body.dark .badge {
+  background: #22c55e;
+}
+
+/* HOVER CARDS */
+body.dark .membro:hover,
+body.dark .convite-item:hover {
+  background: #2a2a2a;
+}
+
+/* REMOVER CONTORNO CLARO (SEU PROBLEMA 👇) */
+body.dark button,
+body.dark img,
+body.dark .notificacao,
+body.dark .icone-sino {
+  outline: none;
+  box-shadow: none;
+}
+/* ================= CARDS DARK ================= */
+
+body.dark .card-resumo-despesas {
+  background: linear-gradient(135deg, #e6a262, #c45721);
+  color: #fff;
+}
+
+body.dark .card-resumo-despesas .icon-box {
+  background: #c16c27;
+}
+
+body.dark .card-resumo-receitas {
+  background: linear-gradient(135deg, #319a85, #23497f);
+  color: #fff;
+}
+
+body.dark .card-resumo-receitas .icon-box {
+  background: #1a697f;
+}
+
+/* deixa os textos brancos dentro dos cards */
+body.dark .resumo span,
+body.dark .resumo h2 {
+  color: #ffffff;
+}
+
+/* ================= CORES VALORES DARK ================= */
+
+body.dark .positivo {
+  color: #22c55e !important; /* verde mais vivo */
+}
+
+body.dark .negativo {
+  color: #ef4444 !important; /* vermelho mais vivo */
+}
+
+/* caso use as setas */
+body.dark .seta-positiva {
+  color: #22c55e !important;
+}
+
+body.dark .seta-negativa {
+  color: #ef4444 !important;
+}
+
+/* =========================
+   Transaçoes
+========================= */
+/* ================= DARK MODE ================= */
+
+body.dark {
+  background-color: #121212;
+  color: #e5e7eb;
+}
+
+/* TOPO */
+body.dark .topo {
+  background: #1e1e1e;
+  border-bottom: 1px solid #2a2a2a;
+  box-shadow: none;
+}
+
+/* SIDEBAR */
+body.dark .sidebar {
+  background: #1e1e1e;
+  border-right: 1px solid #2a2a2a;
+}
+
+body.dark .menu li {
+  color: #cfcfcf;
+}
+
+body.dark .menu li:hover {
+  background: #2a2a2a;
+  color: #4ade80;
+}
+
+/* MAIN */
+body.dark .main-content {
+  background: #121212;
+}
+
+/* CARDS */
+body.dark .card {
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  box-shadow: none;
+}
+
+/* TEXTOS */
+body.dark .cabecalho-pagina h1 {
+  color: #ffffff;
+}
+
+body.dark .cabecalho-pagina p,
+body.dark .resumo-valores span,
+body.dark .sem-dados {
+  color: #9ca3af;
+}
+
+/* INPUT */
+body.dark .campo-busca {
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+}
+
+body.dark .campo-busca input {
+  color: #e5e7eb;
+}
+
+body.dark .campo-busca span {
+  color: #9ca3af;
+}
+
+/* BOTÕES */
+body.dark .btn-filtro {
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  color: #cfcfcf;
+}
+
+body.dark .btn-filtro:hover {
+  background: #2a2a2a;
+  color: #4ade80;
+  border-color: #4ade80;
+}
+
+/* ABAS */
+body.dark .abas {
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+}
+
+body.dark .aba {
+  color: #cfcfcf;
+}
+
+body.dark .aba:hover {
+  background: #2a2a2a;
+}
+
+body.dark .aba.ativa {
+  background: rgba(74, 222, 128, 0.15);
+  color: #4ade80;
+}
+
+/* TABELA */
+body.dark .tabela-extratos th {
+  color: #9ca3af;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+body.dark .tabela-extratos td {
+  color: #e5e7eb;
+}
+
+body.dark .tabela-extratos tr.grupo-final td {
+  border-bottom: 1px solid #2a2a2a;
+}
+
+/* PAGINAÇÃO */
+body.dark .pagina-btn {
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  color: #cfcfcf;
+}
+
+body.dark .pagina-btn:hover,
+body.dark .pagina-numero:hover {
+  background: #2a2a2a;
+}
+
+body.dark .pagina-numero.ativa {
+  background: #4ade80;
+  color: #121212;
+}
+
+/* DICA */
+body.dark .dica {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #93c5fd;
+}
+
+body.dark .dica span {
+  background: #2563eb;
+}
+
+/* SCROLL */
+body.dark .tabela-container::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+body.dark .tabela-container::-webkit-scrollbar-thumb {
+  background: #444;
+}
+
+body.dark .tabela-container::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+/* Mês  */
+body.dark .controle-mes h2 {
+  color: #f9fafb; /* branco suave */
+}
+
+/* =========================
+   Despesas
+========================= */
+/* ================= DARK MODE ================= */
+
+body.dark {
+  background-color: #121212;
+  color: #e5e7eb;
+}
+
+/* TOPO */
+body.dark .topo {
+  background: #1e1e1e;
+  border-bottom: 1px solid #2a2a2a;
+  box-shadow: none;
+}
+
+/* SIDEBAR */
+body.dark .sidebar {
+  background: #1e1e1e;
+  border-right: 1px solid #2a2a2a;
+}
+
+body.dark .menu li {
+  color: #cfcfcf;
+}
+
+body.dark .menu li:hover {
+  background: #2a2a2a;
+  color: #4ade80;
+}
+
+body.dark .menu .ativo {
+  background: rgba(74, 222, 128, 0.15);
+  color: #4ade80;
+}
+
+/* CONTEÚDO */
+body.dark .content {
+  background: #121212;
+}
+
+/* CARDS */
+body.dark .card,
+body.dark .card-total,
+body.dark .tabela,
+body.dark .extratos-card {
+  background: #1e1e1e;
+  box-shadow: none;
+}
+
+/* TEXTOS */
+body.dark .titulo-box p,
+body.dark .resumo-valores span,
+body.dark .sem-dados,
+body.dark .sub-modal {
+  color: #9ca3af;
+}
+
+/* INPUT BUSCA */
+body.dark .input-busca {
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+}
+
+body.dark .input-busca input {
+  color: #e5e7eb;
+}
+
+/* FILTROS */
+body.dark .filtro {
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  color: #cfcfcf;
+}
+
+body.dark .filtro:hover {
+  border-color: #4ade80;
+  color: #4ade80;
+}
+
+/* DROPDOWN */
+body.dark .dropdown {
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+}
+
+body.dark .tipo-fixa {
+  background: #3692d3;
+  color: #ffffff;
+}
+
+body.dark .tipo-fixa:hover {
+  background: #115d85;
+}
+
+body.dark .tipo-variavel {
+  background: #dc9728;
+  color: #ffffff;
+}
+
+body.dark .tipo-variavel:hover{
+  background: #815715;
+}
+
+body.dark .tipo-sazonal {
+  background: #c839de;
+  color: #ffffff;
+}
+
+body.dark .tipo-sazonal:hover{
+  background: #70157d;
+}
+
+/* MÊS */
+body.dark .controle-mes h2 {
+  color: #f9fafb;
+}
+
+body.dark .btn-mes {
+  color: #e5e7eb;
+}
+
+body.dark .btn-mes:hover {
+  color: #4ade80;
+}
+
+/* TABELA */
+body.dark .tabela-extratos th {
+  color: #9ca3af;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+body.dark .tabela-extratos td {
+  color: #e5e7eb;
+}
+
+body.dark .tabela-extratos tr.grupo-final td {
+  border-bottom: 1px solid #2a2a2a;
+}
+
+/* PAGINAÇÃO */
+body.dark .pagina-btn {
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  color: #cfcfcf;
+}
+
+body.dark .pagina-btn:hover,
+body.dark .pagina-numero:hover {
+  background: #2a2a2a;
+}
+
+body.dark .pagina-numero.ativa {
+  background: #4ade80;
+  color: #121212;
+}
+
+/* DICA */
+body.dark .dica {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #93c5fd;
+}
+
+body.dark .dica span {
+  background: #2563eb;
+}
+
+/* MODAL */
+body.dark .modal-content {
+  background: #1e1e1e;
+}
+
+body.dark .modal-field label {
+  color: #9ca3af;
+}
+
+body.dark .modal-field input {
+  background: #121212;
+  border: 1px solid #2a2a2a;
+  color: #e5e7eb;
+}
+
+/* SELECT CATEGORIA */
+body.dark .select-categoria {
+  background: #121212;
+  border: 1px solid #2a2a2a;
+}
+
+body.dark #dropdownCategoriaModal {
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+}
+
+body.dark .item-categoria:hover {
+  background: #2a2a2a; /* fundo escuro */
+}
+
+/* dropdown da categoria */
+body.dark #dropdownCategoriaModal {
+  background: #1f1f1f;
+  border: 1px solid #333;
+}
+
+/* itens dentro do dropdown */
+body.dark .modal .item-categoria:hover {
+  background: #333; /* um pouco mais forte ao passar o mouse */
+}
+
+/* SWITCH */
+body.dark .switch {
+  background: #444;
+}
+
+/* SCROLL */
+body.dark .tabela-container::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+body.dark .tabela-container::-webkit-scrollbar-thumb {
+  background: #444;
+}
+
+body.dark .tabela-container::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+/* TIPO DESPESA (FIXA / VARIÁVEL / SAZONAL)*/
+
+body.dark .tipo-despesa {
+  border: 1px solid #333;
+  background: #1f1f1f;
+}
+
+body.dark .tipo-item span {
+  background: #2a2a2a;
+  color: #ccc;
+  border-right: 1px solid #333;
+}
+
+/* HOVER */
+body.dark .tipo-item span:hover {
+  background: #333;
+  color: #fff;
+}
+
+/* ATIVO (selecionado) */
+body.dark .tipo-item input:checked + span {
+  background: #22c55e;
+  color: #0b1f12;
+  font-weight: 600;
+}
+
+
+/* =========================
+   Receita
+========================= */
+/* ================= DARK MODE ================= */
+
+body.dark {
+  background: #121212;
+  color: #e5e7eb;
+}
+
+/* SIDEBAR */
+body.dark .sidebar {
+  background: #1e1e1e;
+  border-right: 1px solid #2c2c2c;
+}
+
+/* TOPO */
+body.dark .topo {
+  background: #1e1e1e;
+  border-bottom: 1px solid #2c2c2c;
+}
+
+/* CONTEÚDO */
+body.dark .content {
+  background: #121212;
+}
+
+/* TEXTOS */
+body.dark .titulo-box p,
+body.dark .resumo-valores span,
+body.dark .sub-modal {
+  color: #9ca3af;
+}
+
+/* CARDS */
+body.dark .card,
+body.dark .card-total,
+body.dark .tabela,
+body.dark .extratos-card {
+  background: #1e1e1e;
+  box-shadow: none;
+}
+
+/* TABELA */
+body.dark .tabela-extratos th {
+  color: #9ca3af;
+  border-bottom: 1px solid #2c2c2c;
+}
+
+body.dark .tabela-extratos td {
+  color: #e5e7eb;
+}
+
+body.dark .tabela-extratos thead th {
+  background: #1e1e1e;
+}
+
+/* INPUT BUSCA */
+body.dark .input-busca,
+body.dark .campo-busca {
+  background: #1e1e1e;
+  border: 1px solid #2c2c2c;
+  color: #fff;
+}
+
+body.dark .input-busca input,
+body.dark .campo-busca input {
+  color: #fff;
+}
+
+body.dark .campo-busca input::placeholder {
+  color: #777;
+}
+
+/* FILTROS */
+body.dark .filtro {
+  background: #1e1e1e;
+  border: 1px solid #2c2c2c;
+  color: #e5e7eb;
+}
+
+body.dark .filtro:hover {
+  border-color: #2e7d32;
+  color: #2e7d32;
+}
+
+/* DROPDOWN */
+body.dark .dropdown {
+  background: #1e1e1e;
+  border: 1px solid #2c2c2c;
+}
+
+/* 🔥 HOVER MAIS ESCURO (corrige seu problema) */
+body.dark .item-categoria:hover,
+body.dark .dropdown label:hover {
+  background: #2a2a2a;
+}
+
+/* CONTROLE DO MÊS (corrige o muito escuro) */
+body.dark .controle-mes h2 {
+  color: #f3f4f6;
+}
+
+body.dark .btn-mes {
+  color: #ccc;
+}
+
+body.dark .btn-mes:hover {
+  color: #4ade80;
+}
+
+/* ABAS */
+body.dark .abas {
+  background: #1e1e1e;
+  border: 1px solid #2c2c2c;
+}
+
+body.dark .aba {
+  color: #9ca3af;
+}
+
+body.dark .aba:hover {
+  background: #2a2a2a;
+}
+
+body.dark .aba.ativa {
+  background: #2e7d32;
+  color: #fff;
+}
+
+/* PAGINAÇÃO */
+body.dark .pagina-btn {
+  background: #1e1e1e;
+  border-color: #2c2c2c;
+  color: #e5e7eb;
+}
+
+body.dark .pagina-btn:hover,
+body.dark .pagina-numero:hover {
+  background: #2a2a2a;
+}
+
+body.dark .pagina-numero.ativa {
+  background: #2e7d32;
+  color: #fff;
+}
+
+/* MODAL */
+body.dark .modal-content {
+  background: #1e1e1e;
+}
+
+body.dark .modal-field label {
+  color: #9ca3af;
+}
+
+body.dark .modal-field input {
+  background: #121212;
+  border: 1px solid #2c2c2c;
+  color: #fff;
+}
+
+/* BOTÕES MODAL */
+body.dark .btn-outline-modal {
+  border: 1px solid #4ade80;
+  color: #4ade80;
+}
+
+body.dark .btn {
+  background: #2e7d32;
+}
+
+/* 🔥 BOTÕES FIXA / VARIÁVEL / SAZONAL */
+body.dark .tipo-item span {
+  background: #2a2a2a;
+  color: #ccc;
+  border-right: 1px solid #333;
+}
+
+body.dark .tipo-item input:checked + span {
+  background: #2e7d32;
+  color: #fff;
+}
+
+/* SCROLL */
+body.dark .tabela-container::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+body.dark .tabela-container::-webkit-scrollbar-thumb {
+  background: #444;
+}
+
+body.dark .tipo-receita,
+body.dark .tipo-despesa {
+  border: 1px solid #333; /* mais escuro */
+}
+
+
+/* =========================
+   CATEGORIA
+========================= */
+/* ================= DARK MODE ================= */
+
+body.dark {
+  background: #121212;
+  color: #e5e7eb;
+}
+
+/* TOPO */
+body.dark .topo {
+  background: #1e1e1e;
+  border-bottom: 1px solid #2c2c2c;
+}
+
+/* SIDEBAR */
+body.dark .sidebar {
+  background: #1e1e1e;
+  border-right: 1px solid #2c2c2c;
+}
+
+/* CONTEÚDO */
+body.dark .main-content {
+  background: #121212;
+}
+
+/* TEXTOS */
+body.dark .cabecalho-pagina h1,
+body.dark .topo-card-categorias h2,
+body.dark .grafico-card h3,
+body.dark .titulo-dados h2 {
+  color: #f3f4f6;
+}
+
+body.dark .cabecalho-pagina p,
+body.dark .topo-card-categorias p,
+body.dark .resumo-categorias span,
+body.dark .donut-centro span,
+body.dark .dados-info p {
+  color: #9ca3af;
+}
+
+/* CARDS */
+body.dark .card {
+  background: #1e1e1e;
+  box-shadow: none;
+}
+
+/* CONTROLE DE MÊS */
+body.dark .controle-mes-card {
+  background: #1a1a1a;
+  border: 1px solid #2c2c2c;
+}
+
+body.dark .controle-mes-card strong {
+  color: #f3f4f6;
+}
+
+body.dark .btn-mes {
+  color: #ccc;
+}
+
+body.dark .btn-mes:hover {
+  color: #4ade80;
+}
+
+/* LISTA CATEGORIAS */
+body.dark .categoria-nome {
+  color: #e5e7eb;
+}
+
+body.dark .categoria-percentual {
+  color: #9ca3af;
+}
+
+body.dark .categoria-valor {
+  color: #f3f4f6;
+}
+
+/* BARRA */
+body.dark .barra-container {
+  background: #2a2a2a;
+}
+
+/* GRÁFICO */
+body.dark .grafico-card {
+  border-left: 1px solid #2c2c2c;
+}
+
+body.dark .donut {
+  background: conic-gradient(#2a2a2a 0deg 360deg);
+}
+
+body.dark .donut::after {
+  background: #1e1e1e;
+}
+
+body.dark .donut-centro strong {
+  color: #f3f4f6;
+}
+
+/* LEGENDA */
+body.dark .legenda-item {
+  color: #e5e7eb;
+}
+
+body.dark .legenda-valor {
+  color: #f3f4f6;
+}
+
+/* BOTÃO ATUALIZAR */
+body.dark .btn-atualizar {
+  background: #2e7d32;
+}
+
+body.dark .btn-atualizar:hover {
+  background: #1b5e20;
+}
+
+/* DICA */
+body.dark .dica {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #93c5fd;
+}
+
+body.dark .dica span {
+  background: #2563eb;
+}
+
+/* DADOS */
+body.dark .dados-exportar {
+  background: #1f3d2b;
+}
+
+body.dark .dados-limpar {
+  background: #3d1f23;
+}
+
+body.dark .dados-info h3 {
+  color: #f3f4f6;
+}
+
+/* BOTÕES DADOS */
+body.dark .btn-exportar-dados {
+  border-color: #4ade80;
+  color: #4ade80;
+}
+
+body.dark .btn-exportar-dados:hover {
+  background: #2e7d32;
+  color: #fff;
+}
+
+body.dark .btn-limpar-dados {
+  border-color: #ef4444;
+  color: #f87171;
+}
+
+body.dark .btn-limpar-dados:hover {
+  background: #ef4444;
+  color: #fff;
+}
+
+/* POPUP */
+body.dark .popup-dados {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+body.dark .popup-dados-card {
+  background: #1e1e1e;
+}
+
+body.dark .popup-dados-card h3 {
+  color: #f3f4f6;
+}
+
+body.dark .popup-dados-card p {
+  color: #9ca3af;
+}
+
+/* BOTÕES POPUP */
+body.dark .btn-cancelar-dados {
+  background: #2a2a2a;
+  color: #e5e7eb;
+}
+
+body.dark .btn-cancelar-dados:hover {
+  background: #333;
+}
+
+/* TOAST */
+body.dark .toast-dados {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+/* SCROLL */
+body.dark ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+body.dark ::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+body.dark ::-webkit-scrollbar-thumb {
+  background: #444;
+  border-radius: 8px;
+}
+
+
+/* =========================
+   Relatórios
+========================= */
+/* ================= DARK MODE ================= */
+
+body.dark {
+  background: #121212;
+  color: #e5e7eb;
+}
+
+/* TOPO */
+body.dark .topo {
+  background: #1e1e1e;
+  border-bottom: 1px solid #2c2c2c;
+}
+
+/* SIDEBAR */
+body.dark .sidebar {
+  background: #1e1e1e;
+  border-right: 1px solid #2c2c2c;
+}
+
+/* MENU */
+body.dark .menu li {
+  color: #bbb;
+}
+
+body.dark .menu li:hover,
+body.dark .menu .ativo {
+  background: rgba(46,125,50,0.15);
+  color: #4ade80;
+}
+
+/* CONTEÚDO */
+body.dark .main-content {
+  background: #121212;
+}
+
+/* TEXTOS */
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark strong {
+  color: #f3f4f6;
+}
+
+body.dark p,
+body.dark span {
+  color: #9ca3af;
+}
+
+/* SELECT */
+body.dark .filtro-mes select {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  color: #e5e7eb;
+}
+
+/* CARDS */
+body.dark .card-topo,
+body.dark .card-grafico,
+body.dark .card-resumo-mes {
+  background: #1e1e1e;
+  border: 1px solid #2c2c2c;
+  box-shadow: none;
+}
+
+/* ÍCONES DOS CARDS */
+body.dark .icone-card.receita {
+  background: rgba(46,125,50,0.15);
+}
+
+body.dark .icone-card.despesa {
+  background: rgba(220,38,38,0.15);
+}
+
+body.dark .icone-card.saldo {
+  background: rgba(21,101,192,0.15);
+}
+
+/* GRÁFICO - FUNDO */
+body.dark .info-grafico {
+  background: #1e1e1e;
+  border: 1px solid #333;
+}
+
+/* EIXO E LINHAS */
+body.dark .eixo-y span {
+  color: #9ca3af;
+}
+
+body.dark .grafico-barras {
+  border-bottom: 1px solid #333;
+}
+
+body.dark .grafico-barras-inner {
+  background-image: linear-gradient(
+    to top,
+    rgba(75, 85, 99, 0.3) 1px,
+    transparent 1px
+  );
+}
+
+/* DONUT / ROSCA */
+body.dark .grafico-rosca::after {
+  background: #1e1e1e;
+}
+
+body.dark .centro-rosca strong {
+  color: #f3f4f6;
+}
+
+/* LISTA CATEGORIAS */
+body.dark .item-categoria {
+  color: #d1d5db;
+}
+
+body.dark .valor-categoria {
+  color: #e5e7eb;
+}
+
+/* RESUMO MÊS */
+body.dark .linha-resumo {
+  border-bottom: 1px solid #2c2c2c;
+}
+
+body.dark .linha-resumo strong {
+  color: #f3f4f6;
+}
+
+/* LADO DIREITO */
+body.dark .resumo-direita {
+  border-left: 1px solid #2c2c2c;
+}
+
+/* PROGRESSO */
+body.dark .progresso-circular::after {
+  background: #1e1e1e;
+}
+
+/* DICA */
+body.dark .dica-card {
+  background: #1e293b;
+  border: 1px solid #334155;
+}
+
+body.dark .dica-card p {
+  color: #cbd5f5;
+}
+
+/* BADGE */
+body.dark .badge {
+  background: #ef4444;
+}
+
+/* SCROLL */
+body.dark ::-webkit-scrollbar-track {
+  background: #1e1e1e;
+}
+
+body.dark ::-webkit-scrollbar-thumb {
+  background: #444;
+}
+
+
+/* =========================
+   CONFIGURAÇÕES
+========================= */
+/* ================= DARK MODE (SEU PADRÃO) ================= */
+
+body.dark {
+  background: #121212;
+  color: #e0e0e0;
+}
+
+/* TOPO */
+body.dark .topo {
+  background: #1e1e1e;
+  border-bottom: 1px solid #2a2a2a;
+}
+
+/* SIDEBAR */
+body.dark .sidebar {
+  background: #1e1e1e;
+  border-right: 1px solid #2a2a2a;
+}
+
+body.dark .menu li {
+  color: #b0b0b0;
+}
+
+body.dark .menu li:hover,
+body.dark .menu .ativo {
+  background: rgba(46, 125, 50, 0.15);
+  color: #4caf50;
+}
+
+/* CARDS */
+body.dark .card,
+body.dark .card-topo,
+body.dark .card-grafico,
+body.dark .card-resumo-mes,
+body.dark .modal-content,
+body.dark .popup-dados-card {
+  background: #1e1e1e;
+  border: 1px solid #2a2a2a;
+  color: #e0e0e0;
+}
+
+/* TEXTOS */
+body.dark p,
+body.dark span,
+body.dark small {
+  color: #b0b0b0;
+}
+
+body.dark h1,
+body.dark h2,
+body.dark h3,
+body.dark strong {
+  color: #ffffff;
+}
+
+/* INPUTS */
+body.dark input,
+body.dark select {
+  background: #121212;
+  border: 1px solid #2a2a2a;
+  color: #e0e0e0;
+}
+
+body.dark input::placeholder {
+  color: #777;
+}
+
+/* INPUT COM ÍCONE */
+body.dark .input-icon {
+  background: #121212;
+  border: 1px solid #2a2a2a;
+}
+
+body.dark .input-icon:focus-within {
+  border-color: #2e7d32;
+  box-shadow: 0 0 0 2px rgba(46, 125, 50, 0.2);
+}
+
+/* BOTÕES */
+body.dark .btn {
+  background: #2e7d32;
+
+}
+
+body.dark .btn:hover {
+  background: #256628;
+}
+
+body.dark .btn-outline {
+  border-color: #2e7d32;
+  color: #4caf50;
+}
+
+body.dark .btn-outline:hover {
+  background: #2e7d32;
+  color: white;
+}
+
+/* DADOS */
+body.dark .dados-item.verde {
+  background: rgba(46, 125, 50, 0.15);
+}
+
+body.dark .dados-item.vermelho {
+  background: rgba(211, 47, 47, 0.15);
+}
+
+/* GRÁFICOS */
+body.dark .grafico-barras {
+  border-bottom: 1px solid #2a2a2a;
+}
+
+body.dark .grafico-barras-inner {
+  background-image: linear-gradient(
+    to top,
+    rgba(80, 80, 80, 0.3) 1px,
+    transparent 1px
+  );
+}
+
+/* INFO GRAFICO */
+body.dark .info-grafico {
+  background: #121212;
+  border: 1px solid #2a2a2a;
+}
+
+/* MODAL FUNDO */
+body.dark .modal {
+  background: rgba(0,0,0,0.7);
+}
+
+/* UPLOAD */
+body.dark .upload-card {
+  background: #121212;
+  border: 1px dashed #2a2a2a;
+}
+
+body.dark .upload-card:hover {
+  background: rgba(46, 125, 50, 0.1);
+  border-color: #2e7d32;
+}
+
+/* TOAST */
+body.dark .toast {
+  background: #2e7d32;
+}
+
+body.dark .toast.erro {
+  background: #d32f2f;
+}
+
+/* DIVISORES */
+body.dark .divider,
+body.dark .linha-verde,
+body.dark .catDivider {
+  background: #2a2a2a;
+}
+
+/* PROGRESSO / ROSCA */
+body.dark .progresso-circular::after,
+body.dark .grafico-rosca::after {
+  background: #1e1e1e;
+}
+
+/* ================= REMOVER CONTORNO NO DARK ================= */
+/* REMOVE FUNDO CINZA DO CONTAINER */
+body.dark .preferencia-item,
+body.dark .config-item,
+body.dark .linha-preferencia,
+body.dark label {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+/* REMOVE CONTORNO INTERNO DO INPUT NO DARK */
+body.dark .input-icon {
+  background: #1e1e1e;
+  border: 1px solid #333;
+  box-shadow: none; /* remove sombra externa */
+}
+
+body.dark .input-icon input {
+  background: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none !important; /* remove sombra interna */
+}
+
+/* ================= 
+    BUSCAS
+================= */
+/* ================= CORREÇÃO FINAL INPUT BUSCA ================= */
+
+/* remove QUALQUER borda interna */
+.input-busca input,
+.campo-busca input,
+.busca input {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: transparent !important;
+}
+
+/* remove estilo nativo do navegador */
+.input-busca input,
+.campo-busca input,
+.busca input {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* garante que só o container tenha borda */
+.input-busca,
+.campo-busca,
+.busca {
+  border: 1px solid var(--border) !important;
+}
+
+/* foco bonito (apenas no container) */
+.input-busca:focus-within,
+.campo-busca:focus-within,
+.busca:focus-within {
+  border-color: #2e7d32 !important;
+  box-shadow: 0 0 0 2px rgba(46,125,50,0.2) !important;
+}
+
+/* TAGS DE DESPESA E RECEITA */
+
+body.dark .tag-total {
+  background: #f4dc90;
+  color: #be5d0e
+}
+
+body.dark .convite-item,
+body.dark .membro {
+  border: 1px solid #2a2a2a;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
